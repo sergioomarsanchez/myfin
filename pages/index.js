@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>The pizza App</title>
+        <title>My Fin app</title>
         <meta name="description" content="Best pizza of Argentina" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

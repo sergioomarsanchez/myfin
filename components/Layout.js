@@ -1,11 +1,15 @@
 import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
-const layout = () => {
+function Layout({children}) {
   return (
-    <div>
-      
-    </div>
+    <>
+        <Navbar/>
+        {children}
+        <Footer/>
+    </>
   )
 }
 
-export default layout
+export default Layout

@@ -1,0 +1,57 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    background-color: #141c24;
+    color: #9603e4 ;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 7px 0 #9603e4;
+    margin-bottom: 2rem;
+}
+
+.logoContainer{
+    display: flex;
+    align-self: flex-start;
+}
+
+.linksContainer{
+    display: flex;
+    align-self: center;
+    font-size: 25px;
+}
+
+.loginContainer{
+    display: flex;
+    align-self: flex-end;
+}
+
+.loginButton{
+    padding: 8px;
+    color: #4ada84c3;
+    border: 1px solid #4ada84c3;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.1s ease;
+    background-color: black;
+}
+
+.loginButton:hover{
+    transform: scale(1.01);
+}
+.loginButton:active{
+    background-color: grey;
+    transform: scale(0.99);
+}
+
+/*
+#4ada84 verdecito
+#463ba3 lila
+ #141c24 Dark
+ #9603e4 
+*/

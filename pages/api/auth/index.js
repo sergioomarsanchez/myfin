@@ -1,5 +1,5 @@
 import dbConnect from '../../../util/mongo'
-import  {User, validate} from '../../../models/User'
+import  {User} from '../../../models/User'
 import Joi from 'joi'
 import bcrypt from 'bcrypt'
 
@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const {method} = req
 
     await dbConnect()
-    if(method==='GET'){
+    if(method==='POST'){
         try {
             const {error} = validate(req.body)
             if (error){
