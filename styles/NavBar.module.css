@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem;
+    padding: 1rem 3rem 1rem  3rem;
     background-color: #141c24;
     color: #9603e4 ;
     text-align: center;
@@ -14,24 +14,38 @@
 
 .logoContainer{
     display: flex;
-    align-self: flex-start;
+    align-self: center;
+    cursor: pointer;
 }
-
+.logo{
+    box-shadow: 0 0 7px 0 #4ada84c3;
+    border-radius: 5px;
+}
 .linksContainer{
     display: flex;
     align-self: center;
     font-size: 25px;
+    justify-content: space-between;
+}
+.link{
+    margin: 0rem 2rem 0rem 2rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.link:hover{
+    text-shadow: 1px 1px 20px  #4ada8490;
 }
 
 .loginContainer{
     display: flex;
-    align-self: flex-end;
+    align-self: center;
+    align-items: center;
 }
 
 .loginButton{
     padding: 8px;
     color: #4ada84c3;
-    border: 1px solid #4ada84c3;
+    border: 1px solid #4ada847f;
     border-radius: 5px;
     font-family: monospace;
     font-weight: 700;
@@ -42,11 +56,14 @@
 }
 
 .loginButton:hover{
+    border: 1px solid #4ada84c3;
     transform: scale(1.01);
+    box-shadow: 0 0 4px 0 #4ada84c3;;
 }
 .loginButton:active{
     background-color: grey;
     transform: scale(0.99);
+
 }
 
 /*
