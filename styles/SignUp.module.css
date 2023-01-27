@@ -62,7 +62,7 @@ margin-bottom: 2rem;
 .buttonContainer{
     margin-top: 2rem;
 }
-.loginButton, .cancelButton{
+.signupButton, .cancelButton{
     padding: 8px;
     color: #4ada84c3;
     border: 1px solid #4ada847f;
@@ -82,12 +82,12 @@ margin-bottom: 2rem;
     border: 1px solid red;
 }
 
-.loginButton:hover{
+.signupButton:hover{
     border: 1px solid #4ada84c3;
     transform: scale(1.01);
     box-shadow: 0 0 4px 0 #4ada84c3;;
 }
-.loginButton:active{
+.signupButton:active{
     background-color: grey;
     transform: scale(0.99);
 }

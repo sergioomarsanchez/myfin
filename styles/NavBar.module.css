@@ -36,13 +36,13 @@
     text-shadow: 1px 1px 20px  #4ada8490;
 }
 
-.loginContainer{
+.signupContainer{
     display: flex;
     align-self: center;
     align-items: center;
 }
 
-.loginButton{
+.signupButton{
     padding: 8px;
     color: #4ada84c3;
     border: 1px solid #4ada847f;
@@ -55,16 +55,40 @@
     background-color: black;
 }
 
-.loginButton:hover{
+.signupButton:hover{
     border: 1px solid #4ada84c3;
     transform: scale(1.01);
     box-shadow: 0 0 4px 0 #4ada84c3;;
 }
+.signupButton:active{
+    background-color: grey;
+    transform: scale(0.99);
+}
+
+.loginButton{
+    padding: 8px;
+    color: #9603e4c3;
+    border: 1px solid #9603e47f;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.1s ease;
+    background-color: black;
+    margin-left: 1rem;
+}
+
+.loginButton:hover{
+    border: 1px solid #9603e4c3;
+    transform: scale(1.01);
+    box-shadow: 0 0 4px 0 #9603e4c3;;
+}
 .loginButton:active{
     background-color: grey;
     transform: scale(0.99);
-
 }
+
 
 /*
 #4ada84 verdecito

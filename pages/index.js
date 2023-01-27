@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>My Fin app</title>
         <meta name="description" content="Best pizza of Argentina" />
-        <link rel="icon" href="/img/LogoDark.png" />
+        <link rel="icon" href="/img/Logotag.png" />
       </Head>
         homepage
     </div>
