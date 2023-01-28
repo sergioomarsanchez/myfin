@@ -59,6 +59,25 @@ margin-bottom: 2rem;
 .input input:focus{
    border-bottom: 1px solid #4ada84;
 }
+
+.title2{
+    margin-bottom: 0.5rem;
+}
+
+.signup{
+    color: rgba(255, 255, 255, 0.797);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    transition: 0.2s ease;
+}
+
+.signup:hover{
+    transform: scale(1.1);
+    text-decoration: underline;
+    color: #463ba3;
+}
+
 .buttonContainer{
     margin-top: 2rem;
 }
@@ -76,11 +95,6 @@ margin-bottom: 2rem;
     margin-right: 2rem;
 }
 
-.cancelButton{
-    margin: 0;
-    color: red;
-    border: 1px solid red;
-}
 
 .loginButton:hover{
     border: 1px solid #4ada84c3;
@@ -95,6 +109,12 @@ margin-bottom: 2rem;
 .error{
     color: red;
     font-size: 12px;
+}
+
+.cancelButton{
+    margin: 0;
+    color: red;
+    border: 1px solid red;
 }
 
 .cancelButton:hover{

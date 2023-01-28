@@ -89,7 +89,28 @@
     transform: scale(0.99);
 }
 
-
+.logoutButton{
+    padding: 8px;
+    color: #9603e4c3;
+    border: 1px solid #9603e47f;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.1s ease;
+    background-color: black;
+    margin-left: 1rem;
+}
+.logoutButton:hover{
+    border: 1px solid #9603e4c3;
+    transform: scale(1.01);
+    box-shadow: 0 0 4px 0 #9603e4c3;;
+}
+.logoutButton:active{
+    background-color: grey;
+    transform: scale(0.99);
+}
 /*
 #4ada84 verdecito
 #463ba3 lila

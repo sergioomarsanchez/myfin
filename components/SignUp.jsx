@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { useEffect } from 'react'
 import style from '../styles/SignUp.module.css'
 import axios from 'axios'
 import { useRouter} from 'next/router'

@@ -9,6 +9,13 @@ function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
   const [isOpenLogin, setIsOpenLogin] = useState(false)
+  const [user, setUser] = useState(false)
+
+
+  function handleClick() {
+    localStorage.removeItem('token')
+    window.location.reload()
+  }
   return (
     <div className={style.container}>
       <div className={style.logoContainer}>
@@ -28,8 +35,10 @@ function Navbar() {
         <div className={style.link}>Career</div>
       </div>
       <div className={style.signupContainer}>
-        {isOpen?<SignUp setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpen(true)} className={style.signupButton}>Sign Up</button>}
-        {isOpenLogin?<Login setIsOpenLogin={setIsOpenLogin}/>:<button onClick={()=>setIsOpenLogin(true)} className={style.loginButton}>Log In</button>}
+        
+        {user?<button onClick={handleClick} className={style.logoutButton}>Log out</button>:null}
+        {!user && (isOpen?<SignUp setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpen(true)} className={style.signupButton}>Sign Up</button>)}
+        {!user && (isOpenLogin?<Login setUser={setUser} setIsOpenLogin={setIsOpenLogin} setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpenLogin(true)} className={style.loginButton}>Log In</button>)}
       </div>
     </div>
   )
