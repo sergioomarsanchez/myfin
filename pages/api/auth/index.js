@@ -28,6 +28,8 @@ export default async function handler(req, res) {
             const token = user.generateAuthToken()
             res.status(200).json({
                 data: token,
+                id:user._id,
+                name: `${user.firstName} ${user.lastName}`,
                 message: 'Logged in successfully'
             })
 

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import style from '../styles/SignUp.module.css'
 import axios from 'axios'
 import { useRouter} from 'next/router'
+import Swal from 'sweetalert2'
 
 function SignUp({setIsOpen}) {
     const router = useRouter()
@@ -28,7 +29,23 @@ function SignUp({setIsOpen}) {
             const url='http://localhost:3000/api/users'
             const { data: res } = await axios.post(url, input)
             router.push('/')
-            alert(res.message)
+            Swal.fire({
+                text:res.message,
+                icon: 'sucess',
+                iconColor: '#497aa6',
+                showCloseButton: true,
+                showDenyButton: false,
+                confirmButtonText: 'Ok',
+                allowEnterKey: false,
+                color:'white',
+                background:'#141c24',
+                customClass: {
+                    popup: 'Alert',
+                    closeButton: 'closeButton',
+                    confirmButton: 'confirmButton',
+                    denyButton: 'denyButton',
+                }
+            })
            setInput({
                 firstName:'',
                 lastName:'',

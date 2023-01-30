@@ -1,20 +1,48 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import style from '../styles/NavBar.module.css'
 import Image from 'next/image'
 import SignUp from './SignUp'
 import Login from './Login'
+import Swal from 'sweetalert2'
 
 function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
+  const [user, setUser]= useState(false)
   const [isOpenLogin, setIsOpenLogin] = useState(false)
-  const [user, setUser] = useState(false)
 
-
+  useEffect(() => {
+    // Perform localStorage action
+   const token =  sessionStorage.getItem('token')
+   const id = sessionStorage.getItem('id')
+   console.log(id)
+   setUser(token)
+  }, [])
   function handleClick() {
-    localStorage.removeItem('token')
-    window.location.reload()
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4adac4',
+      cancelButtonColor: '#9603c4',
+      confirmButtonText: 'Yes, Log out!',
+      color:'white',
+      background:'#141c24',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.clear()
+         window.location.reload()
+        Swal.fire({
+          color:'white',
+          background:'#141c24',
+          title:'Logged Out successfully!',
+          text:'Comeback Soon.',
+          icon:'success'})
+      }
+    })
   }
   return (
     <div className={style.container}>
