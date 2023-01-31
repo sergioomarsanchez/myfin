@@ -1,23 +1,53 @@
 import mongoose from "mongoose";
 
 const TrasactionSchema = new mongoose.Schema({
-    type:{type:String, required:true},
-    userId:{type:String, required:true},
-    image:{type:String, required:true},
-    name:{type:String, required:true},
-    amount:{type:Number, required:true},
-    date:{ type: Date, default: Date.now }
-},
-{ timestamps: true }
-);
+    account: {
+      type: String,
+      ref: "Account",
+      required: true
+    },
+    amount: {
+      type: Number,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true,
+      enum: ["debit", "credit"]
+    },
+    method: {
+      type: String,
+      enum: ['cash', 'debit', 'credit'],
+      default: 'cash',
+      required: true
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    }
+  });
+const Transaction = mongoose.models.Transaction|| mongoose.model('Transaction', TrasactionSchema)
 
-const Transaction = mongoose.models.Transaction|| mongoose.model('Transaction', Transactionchema)
+function validateTransaction(transaction) {
+    const errors = {};
 
- const validate=(data)=>{
-    const error = {}
-    if(!data.type||!userId||!image||!name||!amount){error  = {...error, message:'Missinga some data'}}
-    
-    return error
-}
+  if (!transaction.account) {
+    errors.account = "Account is required.";
+  }
 
-export { Transaction, validate}
+  if (!transaction.amount) {
+    errors.amount = "Amount is required.";
+  } else if (isNaN(transaction.amount)) {
+    errors.amount = "Amount must be a number.";
+  }
+
+  if (!transaction.type) {
+    errors.type = "Transaction type is required.";
+  } else if (!["debit", "credit"].includes(transaction.type)) {
+    errors.type = "Invalid transaction type.";
+  }
+    return errors;
+  }
+
+
+export { Transaction, validateTransaction }
