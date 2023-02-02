@@ -84,7 +84,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser}) {
 
         {error && <div className={style.error}>* {error}</div>}
 
-        <h4 className={style.title2}>New Here?</h4>
+        <h5 className={style.title2}>New Here?</h5>
         <span onClick={handleClick} className={style.signup}>Click here to Sign up</span>
 
         <div className={style.buttonContainer}>

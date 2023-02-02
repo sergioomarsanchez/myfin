@@ -1,0 +1,40 @@
+.container{
+    display:flex;
+    background: linear-gradient(345deg, #4ada847f 10%, #9603e4c3 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
+    height: 7rem;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 7px 0 #fff;
+    align-items: center;
+    gap: 10rem;
+}
+
+.img{
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.footerImg{
+    filter: drop-shadow(0px 0px 20px red);
+}
+.left{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    list-style: none;
+}
+
+.item{
+    cursor: pointer;
+    margin-bottom: 0.3rem;
+}

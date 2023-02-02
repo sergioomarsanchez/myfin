@@ -4,7 +4,7 @@
     align-items: center;
     padding: 1rem 3rem 1rem  3rem;
     background-color: #141c24;
-    color: #9603e4 ;
+    color: white ;
     text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 0 0 10px 10px;
@@ -44,20 +44,20 @@
 
 .signupButton{
     padding: 8px;
-    color: #4ada84c3;
     border: 1px solid #4ada847f;
     border-radius: 5px;
     font-family: monospace;
     font-weight: 700;
     font-size: 15px;
     cursor: pointer;
-    transition: 0.1s ease;
-    background-color: black;
+    background: linear-gradient(345deg, #4ada847f 10%, #9603e4c3 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
+    color: white;
+    transition: 0.2s linear;
+    border:2px solid transparent ;
 }
 
 .signupButton:hover{
-    border: 1px solid #4ada84c3;
-    transform: scale(1.01);
+    border: 2px solid #4ada84c3;
     box-shadow: 0 0 4px 0 #4ada84c3;;
 }
 .signupButton:active{
@@ -67,21 +67,21 @@
 
 .loginButton{
     padding: 8px;
-    color: #9603e4c3;
     border: 1px solid #9603e47f;
     border-radius: 5px;
     font-family: monospace;
     font-weight: 700;
     font-size: 15px;
-    cursor: pointer;
-    transition: 0.1s ease;
-    background-color: black;
+    background: linear-gradient(345deg, #9603e4c3 10%, #4ada847f 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
+    color: white;
+    transition: 0.2s linear;
+    border:2px solid transparent ;
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 .loginButton:hover{
-    border: 1px solid #9603e4c3;
-    transform: scale(1.01);
+    border: 2px solid #9603e4c3;
     box-shadow: 0 0 4px 0 #9603e4c3;;
 }
 .loginButton:active{

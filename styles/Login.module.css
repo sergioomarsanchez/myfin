@@ -69,13 +69,12 @@ margin-bottom: 2rem;
     cursor: pointer;
     font-size: 12px;
     font-weight: 800;
-    transition: 0.2s ease;
+    transition: 0.5s linear;
 }
 
 .signup:hover{
-    transform: scale(1.1);
     text-decoration: underline;
-    color: #463ba3;
+    color: #7365f8;
 }
 
 .buttonContainer{
