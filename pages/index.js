@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import HomePage from '../components/HomePage'
 
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
         <meta name="description" content="Best pizza of Argentina" />
         <link rel="icon" href="/img/Logotag.png" />
       </Head>
-
+    <HomePage/>
     </div>
   )
 }

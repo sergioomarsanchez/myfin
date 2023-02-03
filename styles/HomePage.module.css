@@ -1,0 +1,63 @@
+.container{
+    display:flex;
+    background: linear-gradient(345deg, #4ada847f 10%, #9503e472 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%);
+    height: calc( 100vh - 2rem);
+    width: 100vw;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.left{
+    position: fixed;
+    top: 12rem;
+    left: 1.2rem;
+    display: flex;
+    font-size: 200px;
+    font-weight: 700;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lineContainer{
+    height: 250px;
+    width: 35px;
+    background-color: white;
+    margin: 0 50px 0 50px ;
+}
+
+.mContainer{
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.451));
+    transition: 3s ease;
+    animation: floatingM 5s infinite linear ;
+}
+.fContainer{
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.451));
+    transition: 3s ease;
+    animation: floatingF 5s infinite linear ;
+}
+
+@keyframes floatingF {
+    0% {transform: translateY(0%)}
+    25% {transform: translateY(15%)}
+    50% {transform: translateY(0%)}
+    75% {transform: translateY(-15%)}
+    100% {transform: translateY(0)}
+}
+@keyframes floatingM {
+    0% {transform: translateY(0%)}
+    25% {transform: translateY(-15%)}
+    50% {transform: translateY(0%)}
+    75% {transform: translateY(15%)}
+    100% {transform: translateY(0)}
+}
+.center{
+    align-self: flex-end;
+    padding-bottom: 4rem;
+}
+
+.right{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    align-items: center;
+}

@@ -1,15 +1,19 @@
 .container{
     display: flex;
     justify-content: space-between;
+    background: linear-gradient(345deg, #4ada842c 10%, #9503e49f 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
     align-items: center;
     padding: 1rem 3rem 1rem  3rem;
-    background-color: #141c24;
+  
     color: white ;
     text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 7px 0 #9603e4;
     margin-bottom: 2rem;
+    position: fixed;
+    top:0;
+    width: 100vw;
 }
 
 .logoContainer{
