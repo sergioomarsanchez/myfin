@@ -3,13 +3,13 @@ import { Transaction, validateTransaction } from '../../../models/Transactions'
 
 
 export default async function handler(req, res) {
-    const {method} = req
+    const {method, query : {accountId}} = req
 
     await dbConnect()
-    if(method==='GET'){
+    if(method==='GET'&& accountId){
       try {
-        const transaction = await Transaction.find()
-         res.status(201).json(transaction)
+        const transactions = await Transaction.find({ account : accountId })
+         res.status(201).json(transactions)
       } catch (error) {
         res.status(500).json(error.response.data)
       }

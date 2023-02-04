@@ -3,13 +3,13 @@ import { Account, validateAccount } from '../../../models/Account'
 
 
 export default async function handler(req, res) {
-    const {method} = req
+    const {method, query : {userId}} = req
 
     await dbConnect()
-    if(method==='GET'){
+    if(method==='GET' && userId){
       try {
-        const users = await Account.find()
-         res.status(201).json(users)
+        const accounts = await Account.find({userId: userId})
+         res.status(201).json(accounts)
       } catch (error) {
         res.status(500).json(error.response.data)
       }

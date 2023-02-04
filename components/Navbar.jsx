@@ -5,6 +5,7 @@ import Image from 'next/image'
 import SignUp from './SignUp'
 import Login from './Login'
 import Swal from 'sweetalert2'
+import { useRouter } from 'next/router'
 
 function Navbar() {
 
@@ -12,11 +13,14 @@ function Navbar() {
   const [user, setUser]= useState(false)
   const [isOpenLogin, setIsOpenLogin] = useState(false)
 
+  const router = useRouter()
+
+  console.log(router.pathname==="/profile/[id]" )
+
   useEffect(() => {
     // Perform localStorage action
    const token =  sessionStorage.getItem('token')
    const id = sessionStorage.getItem('id')
-   console.log(id)
    setUser(token)
   }, [])
   function handleClick() {
@@ -34,7 +38,8 @@ function Navbar() {
     }).then((result) => {
       if (result.isConfirmed) {
         sessionStorage.clear()
-         window.location.reload()
+        window.location.reload()
+        router.push('/')
         Swal.fire({
           color:'white',
           background:'#141c24',

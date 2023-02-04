@@ -30,7 +30,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser}) {
             sessionStorage.setItem('id', res.id)
             sessionStorage.setItem('name', res.name)
             setUser(res.data)
-            router.push('/')
+            router.push(`/profile/${res.id}`)
             Swal.fire({
                 text:`Welcome back ${res.name}, ` + res.message,
                 icon: 'success',

@@ -1,0 +1,44 @@
+import dbConnect from '../../../util/mongo'
+import {Account} from '../../../models/Account'
+
+export default async function handler(req, res){
+    const { method, query:{id}} = req
+
+
+   await dbConnect()
+
+    if(method==='GET'){
+        try {
+            const accounts = await Account.find()
+            
+            res.status(200).json(accounts)
+        }
+        catch (error) {
+            res.status(500).json(error) 
+        }
+     }
+    if (method==='PUT') {
+        if(!token || token !== process.env.TOKEN){
+            return res.status(401).json('Not authenticated')
+        }
+
+        try {
+            const product = await Product.create(req.body)
+            res.status(201).json(product)
+        } catch (error) {
+            res.status(500).json(error.response.data)
+        }
+    }
+    if (method==='DELETE') {
+        if(!token || token !== process.env.TOKEN){
+            return res.status(401).json('Not authenticated')
+        }
+
+        try {
+            await Product.findByIdAndDelete(id)
+            res.status(200).json('The product has been deleted')
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    }
+  }

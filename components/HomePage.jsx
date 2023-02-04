@@ -35,7 +35,7 @@ function HomePage() {
         <div className={style.fContainer}>F</div>
         </div>
         <div className={style.center}>
-            <Image src='/img/HomeImg.png' alt='' width={800} height={400}/>
+            <Image src='/img/HomeImg.png' alt='' width={700} height={350}/>
         </div>
         <div className={style.right}>
             <h1>Take control of your finances, take control of your future</h1>
