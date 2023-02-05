@@ -1,5 +1,6 @@
 import axios from 'axios';
 export const FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS';
+export const CLEAR_TRANSACTIONS = 'CLEAR_TRANSACTIONS';
 
 export function fetchTransactions(accountId){
     return async (dispatch)=>{
@@ -16,4 +17,10 @@ export function fetchTransactions(accountId){
         }
     
 }
+} 
+
+export function clearTransactions(){
+
+        return { type: CLEAR_TRANSACTIONS }
+
 } 

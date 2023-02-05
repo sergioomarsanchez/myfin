@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_TRANSACTIONS } from "../actions";
 
 const initialState = {
     transactions : {},
@@ -17,6 +17,12 @@ export default function reducer(state = initialState, action){
                 ...state,
                 transactions: {...state.transactions, [action.id]: action.payload},
              }}
+        case CLEAR_TRANSACTIONS:
+
+            return {
+                ...state,
+                transactions: {},
+             }
              default:
                 return state
            }

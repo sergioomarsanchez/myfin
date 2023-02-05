@@ -5,6 +5,8 @@ import Image from 'next/image'
 import SignUp from './SignUp'
 import Login from './Login'
 import Swal from 'sweetalert2'
+import { clearTransactions } from '../store/actions'
+import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 
 function Navbar() {
@@ -13,7 +15,7 @@ function Navbar() {
   const [user, setUser]= useState(false)
   const [id, setId]= useState(false)
   const [isOpenLogin, setIsOpenLogin] = useState(false)
-
+  const dispatch = useDispatch()
   const router = useRouter()
 
   console.log(router.pathname==="/profile/[id]" )
@@ -42,6 +44,7 @@ function Navbar() {
         sessionStorage.clear()
         setUser(false)
         setId(false)
+        dispatch(clearTransactions())
         router.push('/')
         Swal.fire({
           color:'white',
