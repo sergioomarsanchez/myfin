@@ -20,7 +20,6 @@ function HomePage() {
  useEffect(() => {
     const interval = setInterval(function test() {
         handleArrow('r')
-        console.log(index)
       return test;
     }, 5000);
     return () => clearInterval(interval);
@@ -40,7 +39,7 @@ function HomePage() {
         <div className={style.right}>
             <h1>Take control of your finances, take control of your future</h1>
             <h3>Like they did:</h3>
-            <div className={style.statements} style={{transform: `translateY(${-1.1*index}VH)`}}>
+            <div className={style.statements} style={{transform: `translateY(${-1*index}VH)`}}>
                     {
                         statements?.map((e, i)=>(
                                 <CustomersCards key={i} i={i} index={index}  statement={e}/>

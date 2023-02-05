@@ -18,7 +18,6 @@ function AccountCard({acc}) {
 
     let accTransactions = transactions[acc._id]
 
-    console.log('soy transactions[id] en account',transactions[acc._id])
   return (
     <div className={style.container}>
         <h2>Account: {acc.accountType}</h2>
