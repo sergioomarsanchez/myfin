@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    border: 0.5px solid rgb(182, 182, 182);
+    border-radius: 5px;
+}
+.table{
+    width: 100%;
+    text-align: left;
+}
+
+.trTitle th:first-child{
+    padding-left: 1rem;
+    width: 8rem;
+}
+.trTitle th:nth-child(3), .trTitle th:nth-child(2){
+    padding-left: 1.5rem;
+    width: 10rem;
+    text-transform: capitalize;
+}
+.trTitle th:nth-child(4){
+    padding-left: 3.8rem;
+    width: 10rem;
+}

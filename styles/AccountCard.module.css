@@ -1,17 +1,42 @@
 .container{
-    width: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
     height: 20rem;
-    background: linear-gradient(5deg, #9503e4d7 10%, #4ada8490 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 200% 100%;
+    /* background: linear-gradient(5deg, #9503e4d7 10%, #4ada8490 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 200% 100%; */
+    background-color: rgb(23, 23, 23);
     color: white;
     border: 1px solid grey;
     border-radius: 15px;
     padding: 1rem;
-    box-shadow: 0 0 10px 0 white;
+
+    margin: 1rem;
+    display: f;
+}
+
+.container h3{
     margin: 1rem;
 }
 
 .type{
     text-transform:capitalize;
+    margin: 0 0.3rem 0 0.3rem;
+}
+
+.wrapper{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.movements{
+    margin-left: 1rem;
+}
+
+.table{
+    background-color: rgb(67, 67, 67);
+    width: 100%;
+    border-radius: 10px;
+
 }
 
 .transactionsContainer{
@@ -20,6 +45,6 @@
     overflow: scroll;
     border-radius: 10px;
     padding: 1rem;
-    display: flex;
     color: black;
+    flex-direction: column;
 }

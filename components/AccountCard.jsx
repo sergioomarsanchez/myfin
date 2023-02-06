@@ -21,10 +21,20 @@ function AccountCard({acc}) {
 
   return (
     <div className={style.container}>
-        <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span> account</h3>
+        <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
         <h3>Balance: ${acc.balance}</h3>
-        <h5>Last movements:</h5>
-
+        <div className={style.wrapper}>
+        <h5 className={style.movements}>Last movements:</h5>
+        <table className={style.table}>
+                <tbody>
+                <tr className={style.trTitle}>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Method</th>
+                    <th>Amount</th>
+                </tr>
+                </tbody>
+        </table>
         <div className={style.transactionsContainer}>
     {
         accTransactions?.map(t=>{
@@ -33,6 +43,7 @@ function AccountCard({acc}) {
                 )
             })
         }
+        </div>
         </div>
     </div>
   )
