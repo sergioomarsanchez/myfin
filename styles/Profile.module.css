@@ -1,0 +1,45 @@
+.container{
+    display:flex;
+    background-color: black;
+    height: calc( 100vh - 2rem);
+    width: 100vw;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title{
+    display: flex;
+    position: absolute;
+    top: 8rem;
+    left: 2rem;
+    font-weight: 300;
+    padding: 1rem 4rem 1.5rem 0rem;
+}
+
+.titleName{
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.division{
+    display: flex;
+    position: absolute;
+    left: 4rem;
+    align-items: center;
+    justify-content: space-around;
+    top: 12rem;
+}
+.line{
+    width: 50vw;
+    border-bottom: 1px solid grey;
+    margin-left: 1rem;
+}
+
+.warning{
+    font-size: 30px;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+    color: red;
+    font-weight: 500;
+}

@@ -18,7 +18,6 @@ function Navbar() {
   const dispatch = useDispatch()
   const router = useRouter()
 
-  console.log(router.pathname==="/profile/[id]" )
 
   useEffect(() => {
    const token =  sessionStorage.getItem('token')

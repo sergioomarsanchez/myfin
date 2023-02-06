@@ -18,8 +18,10 @@ console.log('token', token)
   return (
     <div className={style.container}>
         { id && token?<did className={style.wrapper}>
-        <h2>User: {user.firstName + ' ' + user.lastName}</h2>
-        <h2>Email: {user.email}</h2>
+        <h2 className={style.title}>Welcome back <span className={style.titleName}>{user.firstName + ' ' + user.lastName}</span>, nice to see you again</h2>
+        <div className={style.division}>
+        <h3>Your accounts</h3><div className={style.line}/>
+        </div>
 
         {
             acc?.map(a=>{
@@ -28,7 +30,7 @@ console.log('token', token)
                 )
             })
         }
-        </did> :<div>Not permission to be here, Log in again</div>}
+        </did> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
     </div>
   )
 }
