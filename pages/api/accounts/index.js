@@ -19,13 +19,15 @@ export default async function handler(req, res) {
         if (Object.keys(errors).length > 0) {
           return res.status(400).json(errors);
         }
-      
+        
+
         const account = new Account({
           accountType: req.body.accountType,
           balance: req.body.balance,
-          userId: req.body.userId
+          userId: req.body.userId,
+          entityName : req.body.entityName
         });
-      
+
         try {
           await account.save();
           res.status(201).json(account);

@@ -15,20 +15,25 @@ function AccountCard({acc}) {
            dispatch(fetchTransactions(acc._id))
         }
     }, [])
+    console.log(acc)
 
     let accTransactions = transactions[acc._id]
 
   return (
     <div className={style.container}>
-        <h2>Account: {acc.accountType}</h2>
-        <h2>Balance: ${acc.balance}</h2>
+        <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span> account</h3>
+        <h3>Balance: ${acc.balance}</h3>
+        <h5>Last movements:</h5>
+
+        <div className={style.transactionsContainer}>
     {
         accTransactions?.map(t=>{
             return(
                 <TransactionCard key={t._id} transaction={t}/>
-            )
-        })
-    }
+                )
+            })
+        }
+        </div>
     </div>
   )
 }

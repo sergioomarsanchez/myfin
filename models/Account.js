@@ -7,7 +7,8 @@ const AccountSchema = new mongoose.Schema({
       required: true
     },
     balance: { type: Number, default: 0 },
-    userId: { type: String, ref: "User" }
+    userId: { type: String, ref: "User",  required: true},
+    entityName: { type: String, ref: "Bank or company",  required: true}
   });
 
   const Account = mongoose.models.Account|| mongoose.model('Account', AccountSchema)
@@ -27,6 +28,12 @@ const AccountSchema = new mongoose.Schema({
     } else if (isNaN(account.balance)) {
       errors.balance = "Balance must be a number.";
     }
+    if (!account.userId) {
+      errors.userId = "User ID is required.";
+    } 
+    if (!account.entityName) {
+      errors.entityName = "Entity name is required.";
+    } 
   
     return errors;
   }

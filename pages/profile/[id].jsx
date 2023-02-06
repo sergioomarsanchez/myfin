@@ -22,14 +22,15 @@ console.log('token', token)
         <div className={style.division}>
         <h3>Your accounts</h3><div className={style.line}/>
         </div>
-
+        <div className={style.accountsContainer}>
         {
             acc?.map(a=>{
                 return(
                     <AccountCard key={a._id} acc={a}/>
-                )
-            })
-        }
+                    )
+                })
+            }
+            </div>
         </did> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
     </div>
   )

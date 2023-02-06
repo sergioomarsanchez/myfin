@@ -43,3 +43,7 @@
     color: red;
     font-weight: 500;
 }
+.accountsContainer{
+    display: flex;
+    
+}
