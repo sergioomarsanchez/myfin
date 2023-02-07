@@ -35,6 +35,12 @@
     margin-left: 1rem;
 }
 
+.addAccount{
+    margin-left: 1rem;
+    color: #4ada84;
+    cursor: pointer;
+}
+
 .warning{
     font-size: 30px;
     position: absolute;

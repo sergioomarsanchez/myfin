@@ -9,9 +9,29 @@
     border: 1px solid grey;
     border-radius: 15px;
     padding: 1rem;
-
+    position: relative;
     margin: 1rem;
     display: f;
+}
+.actions{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: small;
+}
+
+.deleteAcc{
+    color: red;
+    cursor: pointer;
+    margin-bottom: 4rem;
+}
+.addTransaction{
+    color: #4ada84;
+    cursor: pointer;
 }
 
 .container h3{
