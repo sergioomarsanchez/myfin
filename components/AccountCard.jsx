@@ -25,27 +25,40 @@ function AccountCard({acc}) {
 
     function handleDelete() {
 
+        
         Swal.fire({
-          title: `Delete ${acc.entityName} ${acc.accountType} account, Are you sure?`,
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#4adac4',
-          cancelButtonColor: '#9603c4',
-          confirmButtonText: 'Yes, Delete it!',
+            title: `Delete ${acc.entityName} ${acc.accountType} account, Are you sure?`,
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#4adac4',
+            cancelButtonColor: '#9603c4',
+            confirmButtonText: 'Yes, Delete it!',
           color:'white',
           background:'#141c24',
-        }).then((result) => {
-          if (result.isConfirmed) {
-
-            Swal.fire({
-              color:'white',
-              background:'#141c24',
-              title:'Deleted successfully!',
-              text:'Comeback Soon.',
-              icon:'success'})
-            }
-        })
+        }).then(async(result) => {
+            if (result.isConfirmed) {
+                try {
+                    const { data: res } = await axios.delete(`http://localhost:3000/api/transactions/?accountId=${acc._id}`)
+                    const { data: deleted } = await axios.delete(`http://localhost:3000/api/accounts/${acc._id}`)
+                Swal.fire({
+                  color:'white',
+                  background:'#141c24',
+                  title:'Deleted successfully!',
+                  text:'Done.',
+                  icon:'success'})
+                  window.location.reload()
+                } catch (error) {
+                    if(error.response && error.response.status >=400 && error.response.status <= 500){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                            footer: error.response.data.message
+                          })
+                }
+                }
+            }})
       }
 
 
@@ -56,7 +69,7 @@ function AccountCard({acc}) {
         <div className={style.actions}>
         <span onClick={handleDelete} className={style.deleteAcc}>- Delete Account</span>
         <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span>
-        {isOpen? <AddTransactionForm setIsOpen={setIsOpen}/> : null }
+        {isOpen? <AddTransactionForm currentBalance={acc.balance} account={acc._id} setIsOpen={setIsOpen}/> : null }
         </div>
         <div className={style.wrapper}>
         <h5 className={style.movements}>Last movements:</h5>

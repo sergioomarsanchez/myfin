@@ -35,4 +35,14 @@ export default async function handler(req, res) {
           res.status(500).json(error.message);
         }
     }
+
+    if (method==='DELETE'&& accountId) {
+
+      try {
+          await Transaction.deleteMany({account:accountId})
+          res.status(200).json('The product has been deleted')
+      } catch (error) {
+          res.status(500).json(error)
+      }
+  }
 }

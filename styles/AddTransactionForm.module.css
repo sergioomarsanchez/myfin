@@ -59,7 +59,18 @@
     .input input:focus{
        border-bottom: 1px solid #4ada84;
     }
-    
+    .select{
+        background-color: black;
+        border: 1px solid transparent;
+        padding: 5px;
+        border-radius: 5px;
+        width: 250px;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        outline: none;
+        text-align: center;
+        text-transform: capitalize;
+    }
     .buttonContainer{
         margin-top: 2rem;
     }

@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import style from '../styles/AddAccountForm.module.css'
 
 function AddAccountForm({ userId, setIsOpen}) {
@@ -8,11 +8,14 @@ function AddAccountForm({ userId, setIsOpen}) {
     const [input, setInput] = useState({
         accountType:"checking",
         balance:'',
-        entityName:''
+        entityName:'',
+        currency:'ARS'
+
     })
     const [error, setError] = useState('')
     const accountTypes = ["checking", "savings", "credit card"]
-
+    const currency = ["USD", "ARS"]
+    
     function  handleInput(e){
         setInput({
             ...input,
@@ -20,9 +23,6 @@ function AddAccountForm({ userId, setIsOpen}) {
         })
        
     }
-    useEffect(() => {
-        console.log(input)
-    }, [input])
     
     
     function handleCancel(e){
@@ -50,6 +50,8 @@ function AddAccountForm({ userId, setIsOpen}) {
         e.preventDefault()
 
         try {
+
+            input.entityName = `${input.entityName} ${input.currency}`
             const url='http://localhost:3000/api/accounts'
             const { data: res } = await axios.post(url, {...input, userId:userId})
             
@@ -76,6 +78,12 @@ function AddAccountForm({ userId, setIsOpen}) {
         }, 1300);
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: error.response.data.message
+                  })
                 setError(error.response.data.message)
             }
         }
@@ -85,14 +93,22 @@ function AddAccountForm({ userId, setIsOpen}) {
   <form className={style.wrapper} onSubmit={handleSubmit}>
         <div className={style.close} name='X' onClick={(e)=>handleCancel(e)}>X</div>
         <h2 className={style.title}>Add new Accoung</h2>
-        <div className={style.input}>Entity and currency: <br/><input value={input.entityName} name='entityName' type="text" placeholder='e.g Brubank USD' onChange={(e)=>handleInput(e)}/></div>
+        <div className={style.input}>Entity: <br/><input value={input.entityName} name='entityName' type="text" placeholder='e.g Brubank' onChange={(e)=>handleInput(e)}/></div>
         <label htmlFor="accountType">Select Account type:</label>
         <select value={input.accountType} name='accountType' className={style.select} onChange={(e)=>handleInput(e)}>
-        {accountTypes.map(element=>{
-            return(
-                <option className={style.optionSelect}key={element} value={element} required >{element}</option>
-            )
-        })}
+                {accountTypes.map(element=>{
+                    return(
+                        <option className={style.optionSelect}key={element} value={element} required >{element}</option>
+                    )
+                })}
+        </select>
+        <label htmlFor="currency">Select Currency type:</label>
+        <select value={input.currency} name='currency' className={style.select} onChange={(e)=>handleInput(e)}>
+                {currency.map(element=>{
+                    return(
+                        <option className={style.optionSelect}key={element} value={element} required >{element}</option>
+                    )
+                })}
         </select>
         <div className={style.input}>Balance: <br/><input value={input.balance} name='balance' type="number" placeholder='e.g 1000' onChange={(e)=>handleInput(e)}/></div>
 

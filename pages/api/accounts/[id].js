@@ -18,24 +18,19 @@ export default async function handler(req, res){
         }
      }
     if (method==='PUT') {
-        if(!token || token !== process.env.TOKEN){
-            return res.status(401).json('Not authenticated')
-        }
-
         try {
-            const product = await Product.create(req.body)
-            res.status(201).json(product)
-        } catch (error) {
-            res.status(500).json(error.response.data)
-        }
+            const account = await Account.findByIdAndUpdate(id, req.body, {
+              new: true,
+              })
+            res.status(200).json(account)
+          } catch (error) {
+             res.status(500).json(error.response.data)
+          }
     }
     if (method==='DELETE') {
-        if(!token || token !== process.env.TOKEN){
-            return res.status(401).json('Not authenticated')
-        }
 
         try {
-            await Product.findByIdAndDelete(id)
+            await Account.findByIdAndDelete(id)
             res.status(200).json('The product has been deleted')
         } catch (error) {
             res.status(500).json(error)
