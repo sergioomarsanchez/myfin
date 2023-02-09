@@ -1,15 +1,19 @@
 .container{
     display:flex;
     background-color: black;
-    height: calc( 100vh - 2rem);
-    width: 100vw;
-    align-items: center;
-    justify-content: space-evenly;
+    padding-top: 8rem;
+    padding-left: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    min-height: 81vh ;
 }
-
+.wrapper{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
 .title{
     display: flex;
-    position: absolute;
     top: 8rem;
     left: 2rem;
     font-weight: 300;
@@ -23,15 +27,15 @@
 
 .division{
     display: flex;
-    position: absolute;
-    left: 4rem;
     align-items: center;
-    justify-content: space-around;
+    margin-left: 4rem;
+    justify-content: left;
     top: 12rem;
 }
 .line{
     width: 50vw;
-    border-bottom: 1px solid grey;
+    height: 3px;
+    background: radial-gradient(circle, rgba(56,56,56,1) 57%, rgba(252,70,107,0) 100%);
     margin-left: 1rem;
 }
 
@@ -39,11 +43,14 @@
     margin-left: 1rem;
     color: #4ada84;
     cursor: pointer;
+    transition: 0.2s ease;
+}
+.addAccount:hover{
+    text-shadow: 1px 1px 10px  rgb(137, 137, 137);
 }
 
 .warning{
     font-size: 30px;
-    position: absolute;
     justify-self: center;
     align-self: center;
     color: red;
@@ -51,6 +58,6 @@
 }
 .accountsContainer{
     display: flex;
-    width: 90%;
-    margin-left: 6rem;
+    flex-wrap: wrap;
+    padding-left: 15rem;
 }

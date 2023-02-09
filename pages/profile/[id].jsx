@@ -19,7 +19,7 @@ function Profile({user, acc}) {
     <div className={style.container}>
         { id && token?<did className={style.wrapper}>
         <h2 className={style.title}>Welcome back <span className={style.titleName}>{user.firstName + ' ' + user.lastName}</span>, nice to see you again</h2>
-        {isOpen? <AddAccountForm setIsOpen={setIsOpen}/> : null}
+        {isOpen? <AddAccountForm userId={id} setIsOpen={setIsOpen}/> : null}
         <div className={style.division}>
         <h3>Your accounts</h3><div className={style.line}/> <div className={style.addAccount} onClick={()=>setIsOpen(true)}>+ Add New Account</div>
         </div>

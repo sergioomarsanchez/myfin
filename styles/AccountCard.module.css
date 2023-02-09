@@ -1,7 +1,7 @@
 .container{
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    min-width: 40%;
     height: 20rem;
     /* background: linear-gradient(5deg, #9503e4d7 10%, #4ada8490 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 200% 100%; */
     background-color: rgb(23, 23, 23);
@@ -11,7 +11,7 @@
     padding: 1rem;
     position: relative;
     margin: 1rem;
-    display: f;
+    flex-direction: column;
 }
 .actions{
     position: absolute;
@@ -37,6 +37,9 @@
 .container h3{
     margin: 1rem;
 }
+.container h3:nth-child(2){
+    margin: 0 0 0 1rem;
+}
 
 .type{
     text-transform:capitalize;
@@ -44,12 +47,17 @@
 }
 
 .wrapper{
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: 2rem;
 }
 .movements{
-    margin-left: 1rem;
+    margin: 0 0 0.5rem 0rem;
 }
 
 .table{
@@ -67,4 +75,12 @@
     padding: 1rem;
     color: black;
     flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.deleteAcc, .addTransaction{
+    transition: 0.2s ease;
+}
+.deleteAcc:hover, .addTransaction:hover{
+    text-shadow: 1px 1px 10px  rgb(137, 137, 137);
 }

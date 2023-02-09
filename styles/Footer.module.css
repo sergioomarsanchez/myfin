@@ -1,19 +1,14 @@
 .container{
-    display:flex;
-    background-color: #141c24;
-    height: 7rem;
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 0 7px 0 #fff;
-    align-items: center;
-    gap: 10rem;
+    height: calc(23vh - 100px);
+    background-color: #222;
+    display: flex;
 }
+
 
 .img{
     margin-top: 10px;
     align-self: flex-start;
+    flex: content;
 }
 
 .footerImg{
@@ -21,6 +16,7 @@
 }
 .left{
     display: flex;
+    flex: content;
     text-align: center;
     align-items: center;
 }
@@ -28,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: content;
 }
 
 .list{
