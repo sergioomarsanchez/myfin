@@ -2,6 +2,7 @@
     width: 100%;
     border: 0.5px solid rgb(182, 182, 182);
     border-radius: 5px;
+    position: relative;
 }
 .table{
     width: 100%;
@@ -20,4 +21,15 @@
 .trTitle th:nth-child(4){
     padding-left: 3.8rem;
     width: 10rem;
+}
+
+.delete{
+    position:absolute;
+    top: 3px;
+    right: -14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.delete:hover{
+text-shadow: 1px 1px 10px black;
 }
