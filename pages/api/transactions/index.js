@@ -4,7 +4,6 @@ import { Transaction, validateTransaction } from '../../../models/Transactions'
 
 export default async function handler(req, res) {
     const {method, query : {accountId}} = req
-
     await dbConnect()
     if(method==='GET'&& accountId){
       try {

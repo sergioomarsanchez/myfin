@@ -87,7 +87,7 @@ function AccountCard({acc}) {
     {
         accTransactions?.map(t=>{
             return(
-                <TransactionCard key={t._id} transaction={t}/>
+                <TransactionCard currentBalance={acc.balance} key={t._id} transaction={t}/>
                 )
             })
         }
