@@ -3,6 +3,7 @@ import style from '../styles/AccountCard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTransactions } from '../store/actions'
 import TransactionCard from './TransactionCard'
+import Image from 'next/image'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import AddTransactionForm from './AddTransactionForm'
@@ -64,6 +65,7 @@ function AccountCard({acc}) {
 
   return (
     <div className={style.container}>
+        <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
         <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
         <h3>Balance: ${acc.balance}</h3>
         <div className={style.actions}>

@@ -38,87 +38,134 @@
 
 .title{
     margin-bottom: 2rem;
-    }
-    
-    .input{
-        margin-bottom: 1.5rem;
-        margin-top: 1rem;
-    }
-    
-    .input input{
-        background-color: black;
-        border: 1px solid transparent;
-        padding: 5px;
-        border-radius: 5px;
-        width: 250px;
-        margin-top: 2px;
-        outline: none;
-        text-align: center;
-    }
-    
-    .input input:focus{
-       border-bottom: 1px solid #4ada84;
-    }
+}
+.selectedContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 15rem;
+    margin-bottom: 1rem;
+}
+.selectedEntityLogo{
+    border-radius: 50%;
+    box-shadow: 0 0 4px 0 wheat;
+    margin-bottom: 0.5rem;
+}
 
-    .select{
-        background-color: black;
-        border: 1px solid transparent;
-        padding: 5px;
-        border-radius: 5px;
-        width: 250px;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-        outline: none;
-        text-align: center;
-        text-transform: capitalize;
-    }
-    
-    .buttonContainer{
-        margin-top: 2rem;
-    }
-    .createButton, .cancelButton{
-        padding: 8px;
-        color: #4ada84c3;
-        border: 1px solid #4ada847f;
-        border-radius: 5px;
-        font-family: monospace;
-        font-weight: 700;
-        font-size: 15px;
-        cursor: pointer;
-        transition: 0.1s ease;
-        background-color: black;
-        margin-right: 2rem;
-    }
-    
-    
-    .createButton:hover{
-        border: 1px solid #4ada84c3;
-        transform: scale(1.01);
-        box-shadow: 0 0 4px 0 #4ada84c3;;
-    }
-    .createButton:active{
-        background-color: grey;
-        transform: scale(0.99);
-    }
-    
-    .error{
-        color: red;
-        font-size: 12px;
-    }
-    
-    .cancelButton{
-        margin: 0;
-        color: red;
-        border: 1px solid red;
-    }
-    
-    .cancelButton:hover{
-        border: 1px solid rgba(255, 0, 0, 0.619);
-        transform: scale(1.01);
-        box-shadow: 0 0 4px 0 rgba(255, 0, 0, 0.619);
-    }
-    .cancelButton:active{
-        background-color: grey;
-        transform: scale(0.99);
-    
-    }
+.unselect{
+    font-size: 10px;
+    margin-left: 0.5rem;
+    color: red;
+}
+
+.input{
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+.input input{
+    background-color: black;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    width: 250px;
+    margin-top: 2px;
+    outline: none;
+    text-align: center;
+}
+
+.input input:focus{
+    border-bottom: 1px solid #4ada84;
+}
+.entityInputContainer{
+    position: relative;
+}
+.suggestionsContainer{
+    background-color: rgb(66, 66, 66);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    width: 250px;
+    justify-content: center;
+    position: absolute;
+    top: 49px;
+}
+.suggestions{
+    background-color: black;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    width: 240px;
+    outline: none;
+    margin-bottom: 0.05rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.suggestions:hover{
+    background-color: rgb(39, 48, 44);
+    transform: scale(1.05);
+    box-shadow: 0 0 7px 0 #463ba3;
+}
+.select{
+    background-color: black;
+    border: 1px solid transparent;
+    padding: 5px;
+    border-radius: 5px;
+    width: 250px;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    outline: none;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.buttonContainer{
+    margin-top: 2rem;
+}
+.createButton, .cancelButton{
+    padding: 8px;
+    color: #4ada84c3;
+    border: 1px solid #4ada847f;
+    border-radius: 5px;
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.1s ease;
+    background-color: black;
+    margin-right: 2rem;
+}
+
+
+.createButton:hover{
+    border: 1px solid #4ada84c3;
+    transform: scale(1.01);
+    box-shadow: 0 0 4px 0 #4ada84c3;;
+}
+.createButton:active{
+    background-color: grey;
+    transform: scale(0.99);
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+.cancelButton{
+    margin: 0;
+    color: red;
+    border: 1px solid red;
+}
+
+.cancelButton:hover{
+    border: 1px solid rgba(255, 0, 0, 0.619);
+    transform: scale(1.01);
+    box-shadow: 0 0 4px 0 rgba(255, 0, 0, 0.619);
+}
+.cancelButton:active{
+    background-color: grey;
+    transform: scale(0.99);
+
+}

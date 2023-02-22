@@ -1,6 +1,8 @@
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import React, { useState } from 'react'
+import Image from 'next/image'
+import Select from 'react-select'
 import style from '../styles/AddAccountForm.module.css'
 
 function AddAccountForm({ userId, setIsOpen}) {
@@ -9,21 +11,43 @@ function AddAccountForm({ userId, setIsOpen}) {
         accountType:"checking",
         balance:'',
         entityName:'',
-        currency:'ARS'
+        currency:'ARS',
+        logo:''
 
     })
     const [error, setError] = useState('')
+    const [entities, setEntities] = useState([])
+    const [selected, setSelected] = useState({state:false})
     const accountTypes = ["checking", "savings", "credit card"]
     const currency = ["USD", "ARS"]
     
-    function  handleInput(e){
+    async function  handleInput(e){
         setInput({
             ...input,
             [e.target.name]: e.target.value
         })
+        if(e.target.name === 'entityName'&& e.target.value!==''){
+            let {data} = await axios.get(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${e.target.value}`)
+            console.log(data)
+            data?setEntities([...data]):null
+        }
        
     }
-    
+    function handleOnClick(e,logo, name){
+        setInput({
+            ...input,
+            ['entityName']: name,
+            ['logo']: logo
+        })
+        setSelected({
+            state:true,
+            name:name,
+            logo:logo
+        })
+        console.log(selected)
+        console.log(input)
+        setEntities([])
+    }
     
     function handleCancel(e){
         Swal.fire({
@@ -93,7 +117,37 @@ function AddAccountForm({ userId, setIsOpen}) {
   <form className={style.wrapper} onSubmit={handleSubmit}>
         <div className={style.close} name='X' onClick={(e)=>handleCancel(e)}>X</div>
         <h2 className={style.title}>Add new Accoung</h2>
-        <div className={style.input}>Entity: <br/><input value={input.entityName} name='entityName' type="text" placeholder='e.g Brubank' onChange={(e)=>handleInput(e)}/></div>
+        <div className={style.entityInputContainer}>
+
+        {
+            selected.state?
+            <div className={style.selectedContainer}>
+                <Image className={style.selectedEntityLogo} src={selected.logo} alt={selected.name} width={30} height={30}/>
+                <span className={style.selectedEntity} value={selected.name} name='entityName'>{selected.name}</span>
+                <span className={style.unselect} onClick={()=>{
+                    setSelected({state:false})
+                    setInput({
+                        ...input,
+                        ['entityName']: '',
+                        ['logo']: ''
+                    })
+                }}>Unselect</span>
+            </div>:
+            <div className={style.input}>Entity: <br/><input value={input.entityName} name='entityName' defaultValue={input.entityName} placeholder='e.g Brubank' onChange={(e)=>handleInput(e)}/></div>
+        }
+        {
+            selected.state || !entities.length?null:
+        <div className={style.suggestionsContainer}>
+        {entities?.map(element=>{
+            return(<div className={style.suggestions} key={element.name} onClick={(e)=>handleOnClick(e,element.logo, element.name)}>
+                <Image className={style.entityLogo} src={element.logo} alt={element.name} width={10} height={10}/>
+                <span className={style.entityName} value={element.name} name='entityName' >{element.name}</span>
+            </div>
+                    )
+                })}
+        </div>
+        }
+        </div>
         <label htmlFor="accountType">Select Account type:</label>
         <select value={input.accountType} name='accountType' className={style.select} onChange={(e)=>handleInput(e)}>
                 {accountTypes.map(element=>{

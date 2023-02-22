@@ -3,7 +3,6 @@ import axios from 'axios'
 import style from '../../styles/Profile.module.css'
 import AccountCard from '../../components/AccountCard'
 import AddAccountForm from '../../components/AddAccountForm'
-import { set } from 'mongoose'
 
 function Profile({user, acc}) {
     const [token, setToken]= useState(false)
@@ -17,9 +16,7 @@ function Profile({user, acc}) {
       acc.forEach(element => {
         if(element.entityName.toLowerCase().includes(' ars')){
           ars+= element.balance
-          console.log(element)
         } else {
-          console.log(element)
           usd+= element.balance
         }
         setTotalARS(ars)
@@ -36,7 +33,7 @@ function Profile({user, acc}) {
        }, [])
   return (
     <div className={style.container}>
-        { id && token?<did className={style.wrapper}>
+        { id && token?<div className={style.wrapper}>
         <h2 className={style.title}>Welcome back <span className={style.titleName}>{user.firstName + ' ' + user.lastName}</span>, nice to see you again</h2>
         <h4 className={style.totals}>Your total USD Balance is: <span style={{color: totalUSD>0?'#4ada84':'white'}} className={style.totalammount}>${totalUSD}</span></h4>
         <h4 className={style.totals}>Your total ARS Balance is: <span style={{color: totalARS>0?'#4ada84':'white'}} className={style.totalammount}>${totalARS}</span></h4>
@@ -53,7 +50,7 @@ function Profile({user, acc}) {
                 })
             }
             </div>
-        </did> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
+        </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
     </div>
   )
 }

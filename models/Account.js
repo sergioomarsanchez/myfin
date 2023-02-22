@@ -8,7 +8,8 @@ const AccountSchema = new mongoose.Schema({
     },
     balance: { type: Number, default: 0 },
     userId: { type: String, ref: "User",  required: true},
-    entityName: { type: String, ref: "Bank or company",  required: true}
+    entityName: { type: String, ref: "Bank or company",  required: true},
+    logo: { type: String, ref: "Logo"}
   });
 
   const Account = mongoose.models.Account|| mongoose.model('Account', AccountSchema)

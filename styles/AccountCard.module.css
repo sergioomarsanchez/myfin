@@ -13,6 +13,12 @@
     margin: 1rem;
     flex-direction: column;
 }
+
+.entityLogo{
+   border-radius: 50%;
+   box-shadow: 0 0 4px 0 wheat;
+   margin-bottom: 0.5rem;
+}
 .actions{
     position: absolute;
     top: 1rem;

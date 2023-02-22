@@ -25,7 +25,8 @@ export default async function handler(req, res) {
           accountType: req.body.accountType,
           balance: req.body.balance,
           userId: req.body.userId,
-          entityName : req.body.entityName
+          entityName : req.body.entityName,
+          logo: req.body.logo
         });
 
         try {
