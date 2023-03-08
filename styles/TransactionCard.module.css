@@ -26,10 +26,12 @@
 .delete{
     position:absolute;
     top: 3px;
-    right: -14px;
+    right: -12px;
     cursor: pointer;
     transition: 0.2s ease;
+    font-size: 12px;
 }
 .delete:hover{
-text-shadow: 1px 1px 10px black;
+    color: red ;
+    text-shadow: 1px 1px 10px rgb(227, 0, 0);
 }

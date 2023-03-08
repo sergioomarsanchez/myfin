@@ -12,14 +12,14 @@
     top: 12rem;
     left: 1.2rem;
     display: flex;
-    font-size: 200px;
+    font-size: 100px;
     font-weight: 700;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .lineContainer{
-    height: 250px;
-    width: 35px;
+    height: 125px;
+    width: 20px;
     background-color: white;
     margin: 0 50px 0 50px ;
 }

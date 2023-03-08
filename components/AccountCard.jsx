@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 import style from '../styles/AccountCard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTransactions } from '../store/actions'
@@ -94,6 +95,9 @@ function AccountCard({acc}) {
             })
         }
         </div>
+        <Link href={`/accountDetail/${acc._id}`}>
+        <button className={style.detailButton}>Details</button>
+        </Link>
         </div>
     </div>
   )

@@ -9,7 +9,7 @@ export default async function handler(req, res){
 
     if(method==='GET'){
         try {
-            const accounts = await Account.find()
+            const accounts = await Account.findById(id)
             
             res.status(200).json(accounts)
         }
