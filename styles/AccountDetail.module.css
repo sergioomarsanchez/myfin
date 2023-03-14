@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    margin-top: 9rem;
+    height: calc(100vh - 16rem);
+    padding: 2rem 5rem 2rem 5rem;
+    align-items: center;
+    flex-flow: column;
+}
+
+.wrapper{
+    width: 90%;
+}
+
+.graphic{
+    width: 40%;
+}
