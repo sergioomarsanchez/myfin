@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchTransactions } from '../../store/actions'
 import axios from 'axios'
 import style from '../../styles/Profile.module.css'
 import Image from 'next/image'
@@ -7,15 +9,22 @@ function Profile({acc}) {
     const [token, setToken]= useState(false)
     const [id, setId]= useState(false)
     const [account, setAccount]= useState({})
-
+    const transactions = useSelector(state=>state.transactions)
+    const dispatch = useDispatch()
     useEffect(() => {
       const token =  sessionStorage.getItem('token')
       const id = sessionStorage.getItem('id')
       setToken(token)
       setId(id)
       setAccount(acc)
-      console.log(account)
+      if(!Object.keys(transactions).length) {
+
+        dispatch(fetchTransactions(acc._id))
+     }
        }, [])
+
+    let accTransactions = transactions[acc._id]
+       console.log(transactions, accTransactions)
   return (
     <div className={style.container}>
         { id && token?<div className={style.wrapper}>

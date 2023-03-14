@@ -6,7 +6,8 @@
     padding: 1rem 3rem 1rem  3rem;
     color: white ;
     text-align: center;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 7px 0 #9603e4;
     margin-bottom: 2rem;
