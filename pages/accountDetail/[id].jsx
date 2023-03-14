@@ -37,12 +37,12 @@ function AccountDetail({acc}) {
       setToken(token)
       setId(id)
       setAccount(acc)
+      console.log('id desde detail', id)
       if(!Object.keys(transactions).length) {
 
         dispatch(fetchTransactions(acc._id))
      }
        }, [])
-
     let accTransactions = transactions[acc._id]
        console.log(transactions, accTransactions)
         const options = {

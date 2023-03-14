@@ -15,14 +15,26 @@ function AccountCard({acc}) {
     const transactions = useSelector(state=>state.transactions)
     const [isOpen, setIsOpen] = useState(false)
 
+    function sortByDate(arr) {
+        arr.sort(function(a, b) {
+          return new Date(b.date) - new Date(a.date);
+        });
+        return arr;
+      }
+
     useEffect(() => {
        if(!Object.keys(transactions).length) {
 
            dispatch(fetchTransactions(acc._id))
         }
-    }, [])
 
-    let accTransactions = transactions[acc._id]
+    }, [])
+    
+
+    
+    let accTransactions = transactions[acc._id]?.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      })
 
 
     function handleDelete() {

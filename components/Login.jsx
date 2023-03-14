@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useRouter} from 'next/router'
 import Swal from 'sweetalert2'
 
-function Login({setIsOpenLogin, setIsOpen, setUser}) {
+function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
     const router = useRouter()
     const [input, setInput] = useState({
         email:'',
@@ -30,6 +30,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser}) {
             sessionStorage.setItem('id', res.id)
             sessionStorage.setItem('name', res.name)
             setUser(res.data)
+            setId(res.id)
             router.push(`/profile/${res.id}`)
             Swal.fire({
                 text:`Welcome back ${res.name}, ` + res.message,

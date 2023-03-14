@@ -25,7 +25,6 @@ function Navbar() {
    setUser(token)
    setId(id)
   }, [])
-
   function handleClick() {
 
     Swal.fire({
@@ -77,7 +76,7 @@ function Navbar() {
         {user && router.pathname!=="/profile/[id]" ? <Link href={'/profile/' + id} passHref><button className={style.signupButton}>Go to Profile</button> </Link>:null}
         {user?<button onClick={handleClick} className={style.logoutButton}>Log out</button>:null}
         {!user && (isOpen?<SignUp setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpen(true)} className={style.signupButton}>Sign Up</button>)}
-        {!user && (isOpenLogin?<Login setUser={setUser} setIsOpenLogin={setIsOpenLogin} setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpenLogin(true)} className={style.loginButton}>Log In</button>)}
+        {!user && (isOpenLogin?<Login setUser={setUser} setIsOpenLogin={setIsOpenLogin} setIsOpen={setIsOpen} setId={setId} />:<button onClick={()=>setIsOpenLogin(true)} className={style.loginButton}>Log In</button>)}
       </div>
     </div>
   )
