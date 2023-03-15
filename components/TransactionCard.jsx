@@ -56,7 +56,7 @@ function TransactionCard({ currentBalance, transaction}) {
                     <th>{transaction.date.slice(2,10)}</th>
                     <th>{transaction.type}</th>
                     <th>{transaction.method}</th>
-                    {transaction.type==='credit'?<th style={{color: '#4ada84'}}>+ ${transaction.amount}</th>:<th>- ${transaction.amount}</th>}
+                    {transaction.type==='credit'?<th style={{color: '#4ada84'}}>+ ${parseFloat(transaction.amount).toFixed(2)}</th>:<th>- ${parseFloat(transaction.amount).toFixed(2)}</th>}
                 </tr>
                 </tbody>
         </table>

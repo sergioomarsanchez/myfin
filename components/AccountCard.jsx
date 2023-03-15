@@ -80,7 +80,7 @@ function AccountCard({acc}) {
     <div className={style.container}>
         <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
         <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
-        <h3>Balance: ${acc.balance}</h3>
+        <h3>Balance: ${parseFloat(acc.balance).toFixed(2)}</h3>
         <div className={style.actions}>
         <span onClick={handleDelete} className={style.deleteAcc}>- Delete Account</span>
         <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span>

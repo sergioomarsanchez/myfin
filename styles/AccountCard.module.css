@@ -70,8 +70,18 @@
     background-color: rgb(67, 67, 67);
     width: 100%;
     border-radius: 10px;
-
 }
+
+.trTitle th{
+    width: 25%;
+}
+
+
+
+.trTitle th:nth-child(3), .trTitle th:nth-child(2){
+    padding-right: 1.7rem;
+}
+
 
 .transactionsContainer{
     height: 8rem;
@@ -86,6 +96,7 @@
 
 .deleteAcc, .addTransaction{
     transition: 0.2s ease;
+    cursor: pointer;
 }
 .deleteAcc:hover, .addTransaction:hover{
     text-shadow: 1px 1px 10px  rgb(137, 137, 137);

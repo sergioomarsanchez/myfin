@@ -20,6 +20,16 @@
     padding: 1rem 4rem 1.5rem 0rem;
 }
 
+.totalContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.totalAmount{
+    width: 10rem;
+    margin-left: 1rem;
+}
+
 .titleName{
     font-weight: 500;
     margin-left: 10px;
