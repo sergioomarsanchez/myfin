@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchTransactions } from '../../store/actions'
+import getMonthlyCreditDebit from './utils'
 import axios from 'axios'
 import style from '../../styles/AccountDetail.module.css'
 import Image from 'next/image'
@@ -30,6 +31,11 @@ function AccountDetail({acc}) {
     const [id, setId]= useState(false)
     const [account, setAccount]= useState({})
     const transactions = useSelector(state=>state.transactions)
+    const today = new Date();
+    const thisYear = today.getFullYear();   
+    const [year, setYear] = useState(thisYear.toString())
+    const [graphicData, setGraphicData] = useState([{'2023':{"credit":[], "debit":[]}}])
+    
     const dispatch = useDispatch()
     useEffect(() => {
       const token =  sessionStorage.getItem('token')
@@ -37,15 +43,18 @@ function AccountDetail({acc}) {
       setToken(token)
       setId(id)
       setAccount(acc)
-      console.log('id desde detail', id)
-      if(!Object.keys(transactions).length) {
 
+      if(!Object.keys(transactions).length) {
         dispatch(fetchTransactions(acc._id))
      }
+       setGraphicData(getMonthlyCreditDebit(accTransactions))
        }, [])
     let accTransactions = transactions[acc._id]
        console.log(transactions, accTransactions)
-        const options = {
+       console.log('graphic data', graphicData)
+       console.log('key del primer objeto de graphic data', graphicData.find(obj => Object.keys(obj)[0] === "2023"));
+       console.log('YEAR', year)
+       const options = {
         responsive: true,
         plugins: {
           legend: {
@@ -57,21 +66,21 @@ function AccountDetail({acc}) {
           },
         },
       };
-      
-      const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+      const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       
        const data = {
         labels,
         datasets: [
           {
             label: 'Debit',
-            data: [1000, 1203, 1231, 2023, 1023, 3213, 2231],
+            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['debit'],
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
             borderWidth: 1,
           },
           {
             label: 'Credit',
-            data: [1002, 1233, 1231, 2203, 1423, 2113, 231],
+            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['credit'],
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             borderWidth: 1,
           },
@@ -84,8 +93,17 @@ function AccountDetail({acc}) {
         { id && token?<div className={style.wrapper}>
         <Image src={account.logo} alt='' width={50} height={50}/>
         <h2 className={style.title}>{account.entityName} {account.type}</h2>
-        <h4 className={style.totals}>Balance is: <span style={{color: account.balance>0?'#4ada84':'red'}} className={style.totalammount}>${account.balance}</span></h4>
+        <h4 className={style.totals}>Balance is: <span style={{color: account.balance>0?'#4ada84':'red'}} className={style.totalammount}>${parseFloat(account.balance).toFixed(2)}</span></h4>
         <div className={style.graphic}>
+          Select a Year:  
+          <select className={style.yearSelector} name="year" value={year} onChange={e=>setYear(e.target.value)} id="">
+            {
+            graphicData?.map((year)=>{
+              return<option key={year}>
+                 { Object.keys(year)[0]}
+              </option>})
+              }
+          </select>
          <Bar options={options} data={data} />
 
         </div>
