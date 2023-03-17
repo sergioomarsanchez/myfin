@@ -1,7 +1,7 @@
 .container{
     display:flex;
-    background: linear-gradient(345deg, #4ada847f 10%, #9503e472 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%);
-    height: calc( 100vh - 2rem);
+    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
+    height: calc( 100vh - 7.5rem);
     width: 100vw;
     align-items: center;
     justify-content: space-evenly;
@@ -9,28 +9,26 @@
 
 .left{
     position: fixed;
-    top: 12rem;
+    top: 8rem;
     left: 1.2rem;
     display: flex;
-    font-size: 100px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 300;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .lineContainer{
-    height: 125px;
-    width: 20px;
+    height: 25px;
+    width: 2px;
     background-color: white;
-    margin: 0 50px 0 50px ;
+    margin: 0 10px 0 10px ;
 }
 
 .mContainer{
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.451));
     transition: 3s ease;
     animation: floatingM 5s infinite linear ;
 }
 .fContainer{
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.451));
     transition: 3s ease;
     animation: floatingF 5s infinite linear ;
 }
@@ -49,15 +47,16 @@
     75% {transform: translateY(15%)}
     100% {transform: translateY(0)}
 }
-.center{
-    align-self: flex-end;
-    padding-bottom: 4rem;
+
+.image{
+    border-radius: 10px;
+    box-shadow: 0 0 7px 0 white;
 }
 
 .right{
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 8rem;
     align-items: center;
 }

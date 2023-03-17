@@ -82,7 +82,7 @@
 }
 
 .signupButton:focus, .loginButton:focus, .logoutButton:focus {
-  border-color: #485fc7;
+  border-color: #297246;
   outline: 0;
 }
 

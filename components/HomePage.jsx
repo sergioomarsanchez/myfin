@@ -34,11 +34,11 @@ function HomePage() {
         <div className={style.fContainer}>F</div>
         </div>
         <div className={style.center}>
-            <Image src='/img/HomeImg.png' alt='' width={700} height={350}/>
+            <Image src='/img/HomeImg.jpg' alt='' width={375} height={525} placeholder className={style.image}/>
         </div>
         <div className={style.right}>
-            <h1>Take control of your finances, take control of your future</h1>
-            <h3>Like they did:</h3>
+            <h3>Take control of your finances, take control of your future</h3>
+            <h4>Like they did:</h4>
             <div className={style.statements} style={{transform: `translateY(${-1*index}VH)`}}>
                     {
                         statements?.map((e, i)=>(
