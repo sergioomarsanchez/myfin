@@ -72,7 +72,6 @@ function Navbar() {
         <div className={style.link}>Career</div>
       </div>
       <div className={style.signupContainer}>
-        
         {user && router.pathname!=="/profile/[id]" ? <Link href={'/profile/' + id} passHref><button className={style.signupButton}>Go to Profile</button> </Link>:null}
         {user?<button onClick={handleClick} className={style.logoutButton}>Log out</button>:null}
         {!user && (isOpen?<SignUp setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpen(true)} className={style.signupButton}>Sign Up</button>)}

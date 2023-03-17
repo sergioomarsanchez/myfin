@@ -1,19 +1,18 @@
 .container{
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(345deg, #4ada842c 10%, #9503e49f 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
+    background: rgb(20, 20, 20);
     align-items: center;
-    padding: 1rem 3rem 1rem  3rem;
-    color: white ;
+    color: rgb(226, 226, 226) ;
     text-align: center;
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    font-weight: 700;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 0 7px 0 #9603e4;
+    font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
+    font-weight: 200;
+    box-shadow: 0 0 2px 0 grey;
+    padding: 1em 1em 1em 1em ;
     margin-bottom: 2rem;
     position: fixed;
     top:0;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
 }
 
@@ -21,16 +20,19 @@
     display: flex;
     align-self: center;
     cursor: pointer;
+    flex: 1;
 }
 .logo{
-    box-shadow: 0 0 7px 0 #4ada84c3;
     border-radius: 5px;
+    width: 50px;
+    height: 50px;
 }
 .linksContainer{
     display: flex;
     align-self: center;
     font-size: 25px;
     justify-content: space-between;
+    flex: 3;
 }
 .link{
     margin: 0rem 2rem 0rem 2rem;
@@ -38,84 +40,60 @@
     transition: 0.3s ease;
 }
 .link:hover{
-    text-shadow: 1px 1px 20px  #4ada8490;
+    transform: scale(1.1);
 }
 
 .signupContainer{
     display: flex;
-    align-self: center;
-    align-items: center;
+    flex: 1;
+    justify-content: right;
 }
 
-.signupButton{
-    padding: 8px;
-    border: 1px solid #4ada847f;
-    border-radius: 5px;
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    background: linear-gradient(345deg, #4ada847f 10%, #9603e4c3 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
-    color: white;
-    transition: 0.2s linear;
-    border:2px solid transparent ;
+.signupButton, .loginButton, .logoutButton {
+  align-items: center;
+  appearance: none;
+  background-color: #323232;
+  border: 1px solid #323232;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
+  font-size: 0.9rem;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: calc(0.1em - 1px) 0.5em;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  margin-right: 1rem;
 }
 
-.signupButton:hover{
-    border: 2px solid #4ada84c3;
-    box-shadow: 0 0 4px 0 #4ada84c3;;
-}
-.signupButton:active{
-    background-color: grey;
-    transform: scale(0.99);
+.signupButton:active, .loginButton:active, .logoutButton:active {
+  border-color: #dbdbdb;
+  outline: 0;
 }
 
-.loginButton{
-    padding: 8px;
-    border: 1px solid #9603e47f;
-    border-radius: 5px;
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 15px;
-    background: linear-gradient(345deg, #9603e4c3 10%, #4ada847f 33%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 100%) 99% 50% / 400% 400%;
-    color: white;
-    transition: 0.2s linear;
-    border:2px solid transparent ;
-    margin-left: 1rem;
-    cursor: pointer;
+.signupButton:focus, .loginButton:focus, .logoutButton:focus {
+  border-color: #485fc7;
+  outline: 0;
 }
 
-.loginButton:hover{
-    border: 2px solid #9603e4c3;
-    box-shadow: 0 0 4px 0 #9603e4c3;;
-}
-.loginButton:active{
-    background-color: grey;
-    transform: scale(0.99);
+.signupButton:hover, .loginButton:hover, .logoutButton:hover {
+  border-color: #b5b5b5;
 }
 
-.logoutButton{
-    padding: 8px;
-    color: #9603e4c3;
-    border: 1px solid #9603e47f;
-    border-radius: 5px;
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.1s ease;
-    background-color: black;
-    margin-left: 1rem;
+.signupButton:focus:not(:active), .loginButton:focus:not(:active), .logoutButton:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
 }
-.logoutButton:hover{
-    border: 1px solid #9603e4c3;
-    transform: scale(1.01);
-    box-shadow: 0 0 4px 0 #9603e4c3;;
-}
-.logoutButton:active{
-    background-color: grey;
-    transform: scale(0.99);
-}
+
 /*
 #4ada84 verdecito
 #463ba3 lila
