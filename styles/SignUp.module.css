@@ -11,12 +11,12 @@
     z-index: 100;
 }
 .wrapper {
-    width: 400px;
+    width: 500px;
     background-color: #141c24;
     padding: 50px;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 #4ada847f;
+    box-shadow: 0 0 10px 0 #3535357f;
     position: relative;
     align-items: left;
 }
@@ -24,7 +24,7 @@
 .close{
     width: 30px;
     height: 30px;
-    border: 1px solid #463ba3;
+    border: 1px solid #322b78;
     background-color: black;
     border-radius: 50%;
     position: absolute;
@@ -38,6 +38,7 @@
 
 .title{
 margin-bottom: 2rem;
+font-weight: 300;
 }
 
 .input{
@@ -57,15 +58,15 @@ margin-bottom: 2rem;
 }
 
 .input input:focus{
-   border-bottom: 1px solid #4ada84;
+   border-bottom: 1px solid #36985d;
 }
 .buttonContainer{
     margin-top: 2rem;
 }
 .signupButton, .cancelButton{
     padding: 8px;
-    color: #4ada84c3;
-    border: 1px solid #4ada847f;
+    color: #318854c3;
+    border: 1px solid #3280517f;
     border-radius: 5px;
     font-family: monospace;
     font-weight: 700;
@@ -78,14 +79,14 @@ margin-bottom: 2rem;
 
 .cancelButton{
     margin: 0;
-    color: red;
-    border: 1px solid red;
+    color: rgb(140, 2, 2);
+    border: 1px solid rgb(162, 4, 4);
 }
 
 .signupButton:hover{
-    border: 1px solid #4ada84c3;
+    border: 1px solid #36a161c3;
     transform: scale(1.01);
-    box-shadow: 0 0 4px 0 #4ada84c3;;
+    box-shadow: 0 0 4px 0 #2d8851c3;;
 }
 .signupButton:active{
     background-color: grey;
@@ -93,14 +94,14 @@ margin-bottom: 2rem;
 }
 
 .error{
-    color: red;
+    color: rgb(190, 0, 0);
     font-size: 12px;
 }
 
 .cancelButton:hover{
-    border: 1px solid rgba(255, 0, 0, 0.619);
+    border: 1px solid rgba(176, 2, 2, 0.619);
     transform: scale(1.01);
-    box-shadow: 0 0 4px 0 rgba(255, 0, 0, 0.619);
+    box-shadow: 0 0 4px 0 rgba(154, 1, 1, 0.619);
 }
 .cancelButton:active{
     background-color: grey;

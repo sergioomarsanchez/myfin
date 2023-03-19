@@ -11,12 +11,12 @@
     z-index: 100;
 }
 .wrapper {
-    width: 400px;
+    width: 500px;
     background-color: #141c24;
     padding: 50px;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 #4ada847f;
+    box-shadow: 0 0 10px 0 #0000007f;
     position: relative;
     align-items: left;
 }
@@ -24,7 +24,7 @@
 .close{
     width: 30px;
     height: 30px;
-    border: 1px solid #463ba3;
+    border: 1px solid #28225b;
     background-color: black;
     border-radius: 50%;
     position: absolute;
@@ -38,6 +38,7 @@
 
 .title{
 margin-bottom: 2rem;
+font-weight: 300;
 }
 
 .input{
@@ -57,7 +58,7 @@ margin-bottom: 2rem;
 }
 
 .input input:focus{
-   border-bottom: 1px solid #4ada84;
+   border-bottom: 1px solid #215737;
 }
 
 .title2{
@@ -82,8 +83,8 @@ margin-bottom: 2rem;
 }
 .loginButton, .cancelButton{
     padding: 8px;
-    color: #4ada84c3;
-    border: 1px solid #4ada847f;
+    color: #308a54c3;
+    border: 1px solid #2e87517f;
     border-radius: 5px;
     font-family: monospace;
     font-weight: 700;
@@ -96,9 +97,9 @@ margin-bottom: 2rem;
 
 
 .loginButton:hover{
-    border: 1px solid #4ada84c3;
+    border: 1px solid #329b5cc3;
     transform: scale(1.01);
-    box-shadow: 0 0 4px 0 #4ada84c3;;
+    box-shadow: 0 0 4px 0 #359d5ec3;;
 }
 .loginButton:active{
     background-color: grey;
@@ -106,20 +107,20 @@ margin-bottom: 2rem;
 }
 
 .error{
-    color: red;
+    color: rgb(182, 3, 3);
     font-size: 12px;
 }
 
 .cancelButton{
     margin: 0;
-    color: red;
-    border: 1px solid red;
+    color: rgb(170, 3, 3);
+    border: 1px solid rgb(171, 1, 1);
 }
 
 .cancelButton:hover{
-    border: 1px solid rgba(255, 0, 0, 0.619);
+    border: 1px solid rgba(151, 0, 0, 0.619);
     transform: scale(1.01);
-    box-shadow: 0 0 4px 0 rgba(255, 0, 0, 0.619);
+    box-shadow: 0 0 4px 0 rgba(153, 3, 3, 0.619);
 }
 .cancelButton:active{
     background-color: grey;

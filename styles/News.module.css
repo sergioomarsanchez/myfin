@@ -1,0 +1,114 @@
+.container{
+    display: flex;
+    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
+    height: calc( 100vh - 7.5rem);
+    scroll-behavior: smooth;
+    overflow:scroll;
+    flex-flow: column;
+    padding-top: 6rem;
+    align-items: center;
+}
+
+.articlesContainer{
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+    margin-top: 5rem;
+}
+
+.article{
+    margin-bottom: 4rem;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+    color: rgb(200, 200, 200);
+    font-family: 'Lato', sans-serif;
+    width: 60%;
+
+}
+
+.image{
+    box-shadow: 0 0 4px 0 grey;
+}
+.content{
+    float: left;
+}
+.content img{
+    width: 40%;
+    box-shadow: 0 0 7px 0 grey;
+}
+.content p{
+    width: 70%;
+    margin-bottom: 2rem;
+}
+
+.content a{
+    color: lightskyblue;
+    text-decoration: underline;
+    font-weight: 200;
+}
+
+
+.line{
+    display: flex;
+    width: 50vw;
+    height: 2px;
+    background: radial-gradient(circle, rgba(56,56,56,1) 57%, rgba(252,70,107,0) 100%);
+    margin-left: 1rem;
+    margin-top: 3rem;
+    align-self: center;
+}
+
+.ldsripple {
+    display: flex;
+    position: relative;
+    align-self: center;
+    width: 120px;
+    height: 120px;
+    margin-top: 10rem;
+  }
+  .ldsripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .ldsripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 36px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 72px;
+      height: 72px;
+      opacity: 0;
+    }
+  }
+  

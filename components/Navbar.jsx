@@ -68,7 +68,9 @@ function Navbar() {
         <div className={style.link}>About</div>
         </Link>
         <div className={style.link}>Contact</div>
-        <div className={style.link}>Blog</div>
+        <Link href='/news' passHref>
+        <div className={style.link}>News</div>
+        </Link>
         <div className={style.link}>Career</div>
       </div>
       <div className={style.signupContainer}>

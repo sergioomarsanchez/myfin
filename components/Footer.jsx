@@ -1,7 +1,7 @@
 import React from 'react'
 import style from '../styles/Footer.module.css'
 import Image from 'next/image'
-// import facebook from '/img/socialMediaIcons/icons8-facebook-circled-94.png'
+import Link from 'next/link'
 
 function Footer() {
   return (
@@ -31,7 +31,9 @@ function Footer() {
       </div>
       <div className={style.right}>
         <ul className={style.list}>
+          <Link href='/about' passHref>
           <li className={style.item}>About</li>
+          </Link>
           <li className={style.item}>Product Help</li>
           <li className={style.item}>Report an issue</li>
           <li className={style.item}>Careers</li>

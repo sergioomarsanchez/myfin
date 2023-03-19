@@ -23,10 +23,13 @@
     flex: 1;
 }
 .logo{
-    border-radius: 5px;
+    border-radius: 50%;
     width: 50px;
     height: 50px;
+    position: relative;
 }
+
+
 .linksContainer{
     display: flex;
     align-self: center;
@@ -100,3 +103,4 @@
  #141c24 Dark
  #9603e4 
 */
+
