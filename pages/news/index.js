@@ -2,18 +2,20 @@ import React, {useEffect, useState} from 'react'
 import style from '../../styles/News.module.css'
 import axios from 'axios'
 import Image from 'next/image'
+import { ApiError } from 'next/dist/server/api-utils'
 
-function News() {
+
+
+function News({ apiKey }) {
   const [articles, setArticles] = useState([])
 
   useEffect(() => {
-
     const options = {
       method: 'GET',
       url: 'https://seeking-alpha.p.rapidapi.com/news/v2/list',
       params: {category: 'market-news::all', size: '20', number: '1'},
       headers: {
-        'X-RapidAPI-Key': 'c17456f91dmsha6a8377d7111b34p17d25ejsn784dc8b93066',
+        'X-RapidAPI-Key': apiKey,
         'X-RapidAPI-Host': 'seeking-alpha.p.rapidapi.com'
       }
     };
@@ -49,5 +51,15 @@ function News() {
     </div>
   )
 }
+
+export async function getServerSideProps(){
+  const APYKEY= process.env.APIKEY
+  return{
+    props:{
+      apiKey: APYKEY
+    }
+  }
+}
+
 
 export default News
