@@ -5,7 +5,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/AddTransactionForm.module.css'
 
-function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
+function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityName}) {
     const [input, setInput] = useState({
         amount:'',
         type:"credit",
@@ -60,16 +60,19 @@ function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
         try {
             const url='http://localhost:3000/api/transactions'
             const { data: res } = await axios.post(url, {...input, account:account})
-
+            let currentBalance = balance
             if(input.type === 'credit'){
-                currentBalance = currentBalance + Number(input.amount)
+                currentBalance=balance + Number(input.amount)
+                setBalance(balance + Number(input.amount))
+                
                 if(entityName.toLowerCase().includes(' ars')){
                     dispatch(updateTotals({transactionType:'credit', currency: 'ars', amount:input.amount}))
                 } else{
                     dispatch(updateTotals({transactionType:'credit', currency: 'usd', amount:input.amount}))
                 }
             } else {
-                currentBalance = currentBalance - Number(input.amount)
+                currentBalance=balance - Number(input.amount)
+                setBalance(balance - Number(input.amount))
                 if(entityName.toLowerCase().includes(' ars')){
                     dispatch(updateTotals({transactionType:'debit', currency: 'ars', amount:input.amount}))
                 } else{

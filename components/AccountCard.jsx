@@ -13,7 +13,9 @@ import AddTransactionForm from './AddTransactionForm'
 function AccountCard({acc}) {
     const dispatch = useDispatch()
     const transactions = useSelector(state=>state.transactions)
+    const [balance, setBalance] = useState(acc.balance)
     const [isOpen, setIsOpen] = useState(false)
+
 
 
     useEffect(() => {
@@ -75,11 +77,11 @@ function AccountCard({acc}) {
     <div className={style.container}>
         <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
         <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
-        <h3>Balance: ${parseFloat(acc.balance).toFixed(2)}</h3>
+        <h3>Balance: ${parseFloat(balance).toFixed(2)}</h3>
         <div className={style.actions}>
         <span onClick={handleDelete} className={style.deleteAcc}>- Delete Account</span>
         <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span>
-        {isOpen? <AddTransactionForm currentBalance={acc.balance} account={acc._id} setIsOpen={setIsOpen} entityName={acc.entityName}/> : null }
+        {isOpen? <AddTransactionForm setBalance={setBalance} balance={balance} account={acc._id} setIsOpen={setIsOpen} entityName={acc.entityName}/> : null }
         </div>
         <div className={style.wrapper}>
         <h5 className={style.movements}>Last movements:</h5>
