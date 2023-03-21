@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import style from '../../styles/News.module.css'
 import axios from 'axios'
 import Image from 'next/image'
-import { ApiError } from 'next/dist/server/api-utils'
+
 
 
 
@@ -21,7 +21,6 @@ function News({ apiKey }) {
     };
     
     axios.request(options).then(function (response) {
-      console.log(response.data['data']);
       setArticles(response.data['data']);
     }).catch(function (error) {
       console.error(error);

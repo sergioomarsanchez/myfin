@@ -1,18 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTransactions, updateTotals } from '../store/actions'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/AddTransactionForm.module.css'
 
-function AddTransactionForm({account, setIsOpen, currentBalance}) {
+function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
     const [input, setInput] = useState({
         amount:'',
         type:"credit",
         method:"credit",
+        category: 'Other',
         date:new Date()
     })
     const [error, setError] = useState('')
-    const methods = ['cash', 'debit', 'credit']
+    const [categories, setCategories] = useState({
+        'credit':[ 'Other', 'Salary', 'Freelance/Contract Work', 'Investments', 'Rental Income', 'Gifts'],
+        'debit':['Other', 'Housing', 'Transportation', 'Food', 'Entertainment', 'Utilities', 'Insurance', 'Healthcare', 'Debt Repayment', 'Savings', 'Investments', 'Taxes']
+})
+    const [methods, setMethods] = useState({
+                                            'credit':['credit','cash'],
+                                            'debit':['debit', 'cash']
+                                        })
     const types = ["debit", "credit"]
+
+    let dispatch = useDispatch()
 
     function  handleInput(e){
         setInput({
@@ -21,9 +33,6 @@ function AddTransactionForm({account, setIsOpen, currentBalance}) {
         })
        
     }
-    useEffect(() => {
-        console.log(input)
-    }, [input])
     function handleCancel(e){
         Swal.fire({
             title: `Are you sure you want to ${e.target.name!=='X'?'Close':'Cancel'} Create?`,
@@ -47,15 +56,25 @@ function AddTransactionForm({account, setIsOpen, currentBalance}) {
 
     async function handleSubmit(e){
         e.preventDefault()
-
+        console.log(input)
         try {
             const url='http://localhost:3000/api/transactions'
             const { data: res } = await axios.post(url, {...input, account:account})
 
             if(input.type === 'credit'){
                 currentBalance = currentBalance + Number(input.amount)
+                if(entityName.toLowerCase().includes(' ars')){
+                    dispatch(updateTotals({transactionType:'credit', currency: 'ars', amount:input.amount}))
+                } else{
+                    dispatch(updateTotals({transactionType:'credit', currency: 'usd', amount:input.amount}))
+                }
             } else {
                 currentBalance = currentBalance - Number(input.amount)
+                if(entityName.toLowerCase().includes(' ars')){
+                    dispatch(updateTotals({transactionType:'debit', currency: 'ars', amount:input.amount}))
+                } else{
+                    dispatch(updateTotals({transactionType:'debit', currency: 'usd', amount:input.amount}))
+                }
             }
             const acc = await axios.put('http://localhost:3000/api/accounts/' + account, { balance:currentBalance }) 
 
@@ -69,17 +88,8 @@ function AddTransactionForm({account, setIsOpen, currentBalance}) {
             color:'white',
             background:'#141c24',
             })
-
-           setInput({
-            amount:'',
-            type:"credit",
-            method:"credit",
-            date:''
-        })
             setIsOpen(false)
-        setTimeout(() => {
-            window.location.reload()
-        }, 1300);
+            dispatch(addTransactions(account, {...input, account:account}))
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
                 Swal.fire({
@@ -110,11 +120,21 @@ function AddTransactionForm({account, setIsOpen, currentBalance}) {
         </select>
         <label htmlFor="method">Select Method type:</label>
         <select value={input.method} name='method' className={style.select} onChange={(e)=>handleInput(e)}>
-        {methods.map(element=>{
+        {methods[input.type].map(element=>{
             return(
                 <option className={style.optionSelect}key={element} value={element} required >{element}</option>
                 )
             })}
+        </select>
+        <label htmlFor="category">Select Transaction Category:</label>
+        <select value={input.category} name='category' className={style.select} onChange={(e)=>handleInput(e)}>
+        { 
+        categories[input.type].map(element=>{
+            return(
+                <option className={style.optionSelect}key={element} value={element} required >{element}</option>
+            )
+        })
+        }
         </select>
         <div className={style.input}>Amount: <br/><input value={input.amount} name='amount' type="number" placeholder='e.g 1000' onChange={(e)=>handleInput(e)}/></div>
 

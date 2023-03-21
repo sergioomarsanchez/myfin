@@ -148,15 +148,15 @@ function AddAccountForm({ userId, setIsOpen}) {
         </div>
         }
         </div>
-        <label htmlFor="accountType">Select Account type:</label>
+        <label htmlFor="accountType">Select Account type:</label><br/>
         <select value={input.accountType} name='accountType' className={style.select} onChange={(e)=>handleInput(e)}>
                 {accountTypes.map(element=>{
                     return(
                         <option className={style.optionSelect}key={element} value={element} required >{element}</option>
                     )
                 })}
-        </select>
-        <label htmlFor="currency">Select Currency type:</label>
+        </select><br/>
+        <label htmlFor="currency">Select Currency type:</label><br/>
         <select value={input.currency} name='currency' className={style.select} onChange={(e)=>handleInput(e)}>
                 {currency.map(element=>{
                     return(

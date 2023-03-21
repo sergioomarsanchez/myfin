@@ -24,6 +24,7 @@ export default async function handler(req, res) {
           amount: req.body.amount,
           type: req.body.type,
           method: req.body.method,
+          category: req.body.category,
           date: req.body.date
         });
       

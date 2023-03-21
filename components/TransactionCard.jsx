@@ -55,7 +55,7 @@ function TransactionCard({ currentBalance, transaction}) {
                 <tr className={style.trTitle}>
                     <th>{transaction.date.slice(2,10)}</th>
                     <th>{transaction.type}</th>
-                    <th>{transaction.method}</th>
+                    <th>{transaction.category}</th>
                     {transaction.type==='credit'?<th style={{color: '#4ada84'}}>+ ${parseFloat(transaction.amount).toFixed(2)}</th>:<th>- ${parseFloat(transaction.amount).toFixed(2)}</th>}
                 </tr>
                 </tbody>

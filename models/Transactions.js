@@ -21,6 +21,12 @@ const TrasactionSchema = new mongoose.Schema({
       default: 'cash',
       required: true
     },
+    category: {
+      type: String,
+      enum: ['Housing', 'Transportation', 'Food', 'Entertainment', 'Utilities', 'Insurance', 'Healthcare', 'Debt Repayment', 'Savings', 'Investments', 'Taxes', 'Salary', 'Freelance/Contract Work', 'Investments', 'Rental Income', 'Gifts', 'Other'],
+      default: 'Other',
+      required: true
+    },
     date: {
       type: Date,
       default: Date.now
@@ -46,6 +52,13 @@ function validateTransaction(transaction) {
   } else if (!["debit", "credit"].includes(transaction.type)) {
     errors.type = "Invalid transaction type.";
   }
+
+  if (!transaction.category) {
+    errors.type = "Transaction category is required.";
+  } else if (!['Housing', 'Transportation', 'Food', 'Entertainment', 'Utilities', 'Insurance', 'Healthcare', 'Debt Repayment', 'Savings', 'Investments', 'Taxes', 'Salary', 'Freelance/Contract Work', 'Investments', 'Rental Income', 'Gifts', 'Other'].includes(transaction.category)) {
+    errors.type = "Invalid transaction category.";
+  }
+
     return errors;
   }
 

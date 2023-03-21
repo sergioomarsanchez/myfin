@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import style from '../styles/AccountCard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTransactions } from '../store/actions'
+import { fetchTransactions, setTotals } from '../store/actions'
 import TransactionCard from './TransactionCard'
 import Image from 'next/image'
 import Swal from 'sweetalert2'
@@ -15,14 +15,9 @@ function AccountCard({acc}) {
     const transactions = useSelector(state=>state.transactions)
     const [isOpen, setIsOpen] = useState(false)
 
-    function sortByDate(arr) {
-        arr.sort(function(a, b) {
-          return new Date(b.date) - new Date(a.date);
-        });
-        return arr;
-      }
 
     useEffect(() => {
+      dispatch(setTotals(acc))
        if(!Object.keys(transactions).length) {
 
            dispatch(fetchTransactions(acc._id))
@@ -84,7 +79,7 @@ function AccountCard({acc}) {
         <div className={style.actions}>
         <span onClick={handleDelete} className={style.deleteAcc}>- Delete Account</span>
         <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span>
-        {isOpen? <AddTransactionForm currentBalance={acc.balance} account={acc._id} setIsOpen={setIsOpen}/> : null }
+        {isOpen? <AddTransactionForm currentBalance={acc.balance} account={acc._id} setIsOpen={setIsOpen} entityName={acc.entityName}/> : null }
         </div>
         <div className={style.wrapper}>
         <h5 className={style.movements}>Last movements:</h5>
@@ -93,7 +88,7 @@ function AccountCard({acc}) {
                 <tr className={style.trTitle}>
                     <th>Date</th>
                     <th>Type</th>
-                    <th>Method</th>
+                    <th>Category</th>
                     <th>Amount</th>
                 </tr>
                 </tbody>

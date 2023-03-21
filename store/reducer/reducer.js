@@ -1,7 +1,9 @@
-import { FETCH_TRANSACTIONS, CLEAR_TRANSACTIONS } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS } from "../actions";
 
 const initialState = {
     transactions : {},
+    totalUSD:0,
+    totalARS:0
 }
 
 export default function reducer(state = initialState, action){
@@ -17,12 +19,45 @@ export default function reducer(state = initialState, action){
                 ...state,
                 transactions: {...state.transactions, [action.id]: action.payload},
              }}
-        case CLEAR_TRANSACTIONS:
+        case ADD_TRANSACTIONS:
+                const transactions = { ...state.transactions };
+                transactions[action.accountId] = [...transactions[action.accountId], action.payload];
+                return {
+                    ...state,
+                    transactions
+                };
+        case SET_TOTALS:
+                  if(action.payload.entityName.toLowerCase().includes(' ars')){
+                    return {
+                        ...state,
+                        totalARS: state.totalARS + action.payload.balance
+                    };
+                  } else {
+                    return {
+                        ...state,
+                        totalUSD: state.totalUSD + action.payload.balance
+                    };
+                  }
+        case UPDATE_TOTALS:
+                  if(action.payload.currency==='ars'){
+                    return {
+                        ...state,
+                        totalARS:  action.payload.transactionType==='credit'? state.totalARS+Number(action.payload.amount): state.totalARS-Number(action.payload.amount) 
+                    };
+                  } else {
+                    return {
+                        ...state,
+                        totalUSD:  action.payload.transactionType==='credit'? state.totalUSD+Number(action.payload.amount): state.totalUSD-Number(action.payload.amount)
+                    };
+                  }
+
+        case CLEAR_STATES:
 
             return {
-                ...state,
-                transactions: {},
-             }
+                transactions : {},
+                totalUSD:0,
+                totalARS:0
+            }
              default:
                 return state
            }

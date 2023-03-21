@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 import axios from 'axios'
 import style from '../../styles/Profile.module.css'
 import AccountCard from '../../components/AccountCard'
@@ -8,28 +9,15 @@ function Profile({user, acc}) {
     const [token, setToken]= useState(false)
     const [id, setId]= useState(false)
     const [isOpen, setIsOpen] = useState(false)
-    const [totalARS, setTotalARS] = useState(0)
-    const [totalUSD, setTotalUSD] = useState(0)
-    function setTotals(acc){
-      let usd = 0
-      let ars = 0
-      acc.forEach(element => {
-        if(element.entityName.toLowerCase().includes(' ars')){
-          ars+= element.balance
-        } else {
-          usd+= element.balance
-        }
-        setTotalARS(ars)
-        setTotalUSD(usd)
-      });
-    }
+    const totalARS = useSelector(state=>state.totalARS)
+    const totalUSD = useSelector(state=>state.totalUSD)
+
     
     useEffect(() => {
       const token =  sessionStorage.getItem('token')
       const id = sessionStorage.getItem('id')
       setToken(token)
       setId(id)
-      setTotals(acc)
        }, [])
   return (
     <div className={style.container}>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import SignUp from './SignUp'
 import Login from './Login'
 import Swal from 'sweetalert2'
-import { clearTransactions } from '../store/actions'
+import { clearStates } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 
@@ -42,7 +42,7 @@ function Navbar() {
         sessionStorage.clear()
         setUser(false)
         setId(false)
-        dispatch(clearTransactions())
+        dispatch(clearStates())
         router.push('/')
         Swal.fire({
           color:'white',
