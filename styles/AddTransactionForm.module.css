@@ -11,20 +11,21 @@
     z-index: 100;
 }
 .wrapper {
-    width: 400px;
+    width: 500px;
     background-color: #141c24;
     padding: 50px;
     flex-direction: column;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 #4ada847f;
+    box-shadow: 0 0 10px 0 #0000007f;
     position: relative;
-    align-items: left;
+    align-items: center;
+    justify-content: center;
 }
 
 .close{
     width: 30px;
     height: 30px;
-    border: 1px solid #463ba3;
+    border: 1px solid #28225b;
     background-color: black;
     border-radius: 50%;
     position: absolute;
@@ -38,11 +39,17 @@
 
 .title{
     margin-bottom: 2rem;
+    font-weight: 300;
+    text-align: center;
     }
     
     .input{
+        display: flex;
         margin-bottom: 1.5rem;
         margin-top: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .input input{
@@ -51,13 +58,13 @@
         padding: 5px;
         border-radius: 5px;
         width: 250px;
-        margin-top: 2px;
+        margin-top: 15px;
         outline: none;
         text-align: center;
     }
     
     .input input:focus{
-       border-bottom: 1px solid #4ada84;
+       border-bottom: 1px solid #2a7c4b;
     }
     .select{
         background-color: black;
@@ -65,19 +72,22 @@
         padding: 5px;
         border-radius: 5px;
         width: 250px;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
+        margin-top: 15px;
         outline: none;
         text-align: center;
         text-transform: capitalize;
+        justify-content: center;
     }
     .buttonContainer{
+        display: flex;
         margin-top: 2rem;
+        justify-content: center;
+        align-items: center;
     }
     .createButton, .cancelButton{
         padding: 8px;
-        color: #4ada84c3;
-        border: 1px solid #4ada847f;
+        color: #2a7f4cc3;
+        border: 1px solid #2d824f7f;
         border-radius: 5px;
         font-family: monospace;
         font-weight: 700;
@@ -90,9 +100,9 @@
     
     
     .createButton:hover{
-        border: 1px solid #4ada84c3;
+        border: 1px solid #37a362c3;
         transform: scale(1.01);
-        box-shadow: 0 0 4px 0 #4ada84c3;;
+        box-shadow: 0 0 4px 0 #2e8752c3;
     }
     .createButton:active{
         background-color: grey;
@@ -100,20 +110,20 @@
     }
     
     .error{
-        color: red;
+        color: rgb(168, 0, 0);
         font-size: 12px;
     }
     
     .cancelButton{
         margin: 0;
-        color: red;
-        border: 1px solid red;
+        color: rgb(171, 3, 3);
+        border: 1px solid rgb(171, 3, 3);
     }
     
     .cancelButton:hover{
-        border: 1px solid rgba(255, 0, 0, 0.619);
+        border: 1px solid rgb(202, 0, 0);
         transform: scale(1.01);
-        box-shadow: 0 0 4px 0 rgba(255, 0, 0, 0.619);
+        box-shadow: 0 0 4px 0 rgb(204, 1, 1);
     }
     .cancelButton:active{
         background-color: grey;

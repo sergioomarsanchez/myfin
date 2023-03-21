@@ -109,7 +109,7 @@ function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
         <h2 className={style.title}>Add new Transaction</h2>
         
         <div className={style.input}>Date<br/><input value={input.date} name='date' required type="date" onChange={(e)=>handleInput(e)}/></div>
-        
+        <div className={style.input}>
         <label htmlFor="type">Select Transaction type:</label>
         <select value={input.type} name='type' className={style.select} onChange={(e)=>handleInput(e)}>
         {types.map(element=>{
@@ -118,6 +118,8 @@ function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
             )
         })}
         </select>
+        </div>
+        <div className={style.input}>
         <label htmlFor="method">Select Method type:</label>
         <select value={input.method} name='method' className={style.select} onChange={(e)=>handleInput(e)}>
         {methods[input.type].map(element=>{
@@ -126,16 +128,19 @@ function AddTransactionForm({account, setIsOpen, currentBalance, entityName}) {
                 )
             })}
         </select>
+        </div>
+        <div className={style.input}>
         <label htmlFor="category">Select Transaction Category:</label>
         <select value={input.category} name='category' className={style.select} onChange={(e)=>handleInput(e)}>
         { 
         categories[input.type].map(element=>{
             return(
                 <option className={style.optionSelect}key={element} value={element} required >{element}</option>
-            )
-        })
+                )
+            })
         }
         </select>
+        </div>
         <div className={style.input}>Amount: <br/><input value={input.amount} name='amount' type="number" placeholder='e.g 1000' onChange={(e)=>handleInput(e)}/></div>
 
         {error && <div className={style.error}>* {error}</div>}
