@@ -1,7 +1,7 @@
 .container{
     display:flex;
     background-color: black;
-    padding-top: 8rem;
+    padding-top: 4rem;
     padding-left: 2rem;
     margin-bottom: 4rem;
     flex-wrap: wrap;
@@ -69,5 +69,6 @@
 .accountsContainer{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 15rem;
+    padding-left: 10rem;
+    justify-content: center;
 }
