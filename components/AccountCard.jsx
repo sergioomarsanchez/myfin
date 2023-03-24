@@ -17,14 +17,12 @@ function AccountCard({acc}) {
     const [isOpen, setIsOpen] = useState(false)
 
 
-
     useEffect(() => {
-      dispatch(setTotals(acc))
-       if(!Object.keys(transactions).length) {
-
-           dispatch(fetchTransactions(acc._id))
+        if(!Object.keys(transactions).length) {
+            
+            dispatch(fetchTransactions(acc._id))
         }
-
+       dispatch(setTotals(acc))
     }, [])
     
 

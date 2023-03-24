@@ -3,7 +3,8 @@ import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_T
 const initialState = {
     transactions : {},
     totalUSD:0,
-    totalARS:0
+    totalARS:0,
+    accounts:[],
 }
 
 export default function reducer(state = initialState, action){
@@ -27,17 +28,25 @@ export default function reducer(state = initialState, action){
                     transactions
                 };
         case SET_TOTALS:
-                  if(action.payload.entityName.toLowerCase().includes(' ars')){
-                    return {
-                        ...state,
-                        totalARS: state.totalARS + action.payload.balance
-                    };
-                  } else {
-                    return {
-                        ...state,
-                        totalUSD: state.totalUSD + action.payload.balance
-                    };
-                  }
+            if (state.accounts.includes(action.payload._id)) {
+                // Account already exists, return current state
+                return state;
+              }
+              if (action.payload.entityName.toLowerCase().includes('ars')) {
+                return {
+                  ...state,
+                  accounts: [...state.accounts, action.payload._id],
+                  totalARS: state.totalARS + action.payload.balance
+                };
+              } else if (action.payload.entityName.toLowerCase().includes('usd')) {
+                return {
+                  ...state,
+                  accounts: [...state.accounts, action.payload._id],
+                  totalUSD: state.totalUSD + action.payload.balance
+                };
+              }
+              // If entityName doesn't match 'ars' or 'usd', return current state
+              return state;
         case UPDATE_TOTALS:
                   if(action.payload.currency==='ars'){
                     return {

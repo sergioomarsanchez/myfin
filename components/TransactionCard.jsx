@@ -3,7 +3,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/TransactionCard.module.css'
 
-function TransactionCard({ currentBalance, transaction}) {
+function TransactionCard({ key, currentBalance, transaction}) {
 
 
     function handleDelete(id, transactionAccount){
@@ -49,7 +49,7 @@ function TransactionCard({ currentBalance, transaction}) {
             }})
     }
   return (
-    <div className={style.container}>
+    <div key={key} className={style.container}>
                 <table className={style.table}>
                 <tbody>
                 <tr className={style.trTitle}>
