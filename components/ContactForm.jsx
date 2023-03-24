@@ -45,14 +45,16 @@ useEffect(()=>{
         icon: 'success',
         title: 'Thank you very much for your email, Soon we will replying to your email address!',
         showConfirmButton: false,
-        timer: 1500,
+        timer: 6000,
         color:'white',
         background:'#141c24',
         })
         setName("");
         setEmail("");
         setMessage("");
+        isInitialMount.current = true;
     } catch (error) {
+        console.log(error)
         if(error.response && error.response.status >=400 && error.response.status <= 500){
             Swal.fire({
                 icon: 'error',

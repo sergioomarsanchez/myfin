@@ -67,7 +67,9 @@ function Navbar() {
         <Link href='/about' passHref>
         <div className={style.link}>About</div>
         </Link>
+        <Link href='/contact' passHref>
         <div className={style.link}>Contact</div>
+        </Link>
         <Link href='/news' passHref>
         <div className={style.link}>News</div>
         </Link>

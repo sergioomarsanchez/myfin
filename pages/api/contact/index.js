@@ -1,3 +1,4 @@
+import { mailOptoins, transporter } from "../../../emailHandeler/nodemailer";
 import { validateInput } from "../../../emailHandeler/validationFunction";
 
 export default async function handler(req, res) {
@@ -6,15 +7,21 @@ export default async function handler(req, res) {
     if(method==='POST'){
         const errors = validateInput(req.body.name, req.body.email, req.body.message);
         if (Object.keys(errors).length > 0) {
-          return res.status(400).json(errors);
+          return res.status(400).json({message:'Bad Request'});
         }
         
-        console.log(req.body)
-        // try {
-        //   await account.save();
-        //   res.status(201).json(account);
-        // } catch (error) {
-        //   res.status(500).json(error.message);
-        // }
+        try {
+            await transporter.sendMail({
+                ...mailOptoins,
+                subject: 'Mail from My Fin app',
+                text:'this is a test string',
+                html:`<hi>Mail from ${req.body.name}</h1><h3>From email: ${req.body.email}</h3><p>${req.body.message}</p>`
+            })
+            return res.status(200).json({success: true})
+        } catch (error) {
+            console.log(error)
+            return res.status(400).json({message:error.message});
+        }
     }
+    return res.status(400).json({message:'Bad Request'});
 }
