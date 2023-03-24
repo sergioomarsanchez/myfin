@@ -1,0 +1,72 @@
+/* ContactForm.module.css */
+
+.container {
+    min-width: 500px;
+    background-color: #141c24;
+    padding: 30px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #ababab7f;
+  }
+  
+  .container h2 {
+    margin-top: 1rem;
+  }
+  .inputContainer{
+      margin-bottom: 1rem;
+      height: calc(fit-content + 20px);
+  }
+  .container label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .inputContainer input,
+  .container textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    margin-top: 15px;
+    outline: none;
+  }
+  .inputContainer input:focus,
+  .container textarea:focus {
+    border-bottom: 1px solid #2a7c4b;
+    background-color: black;
+  }
+
+  .errors{
+      font-size: 14px;
+      font-family: 'Times New Roman', Times, serif;
+      color: red;
+      height: 15px;
+      margin-top: 0.3rem;
+  }
+.noErrors{
+    color: transparent;
+    height: 15px;
+    margin-top: 0.3rem;
+}
+
+  
+  .container button[type="submit"] {
+    background-color: teal;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.6s ease;
+  }
+  
+  .container button[type="submit"]:hover {
+    background-color: rgb(0, 183, 183);
+  }
+  .container button[type="submit"]:disabled {
+    background-color: #878787;
+    cursor: not-allowed;
+  }
+  

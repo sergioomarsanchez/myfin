@@ -56,7 +56,6 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
 
     async function handleSubmit(e){
         e.preventDefault()
-        console.log(input)
         try {
             const url='http://localhost:3000/api/transactions'
             const { data: res } = await axios.post(url, {...input, account:account})

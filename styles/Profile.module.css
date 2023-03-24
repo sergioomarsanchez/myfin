@@ -69,6 +69,6 @@
 .accountsContainer{
     display: flex;
     flex-wrap: wrap;
-    padding-left: 10rem;
+    padding-left: 5rem;
     justify-content: center;
 }

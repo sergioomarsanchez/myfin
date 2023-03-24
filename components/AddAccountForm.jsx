@@ -2,7 +2,6 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Select from 'react-select'
 import style from '../styles/AddAccountForm.module.css'
 
 function AddAccountForm({ userId, setIsOpen}) {

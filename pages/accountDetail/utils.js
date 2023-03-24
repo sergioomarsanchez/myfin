@@ -14,7 +14,7 @@ export default function getCreditDebitByMonth(transactions) {
         if (!creditByYearMonth[year][month]) {
           creditByYearMonth[year][month] = 0;
         }
-        creditByYearMonth[year][month] += transaction.amount;
+        creditByYearMonth[year][month] += Number(transaction.amount);
       } else if (transaction.type === 'debit') {
         if (!debitByYearMonth[year]) {
           debitByYearMonth[year] = {};
@@ -22,7 +22,7 @@ export default function getCreditDebitByMonth(transactions) {
         if (!debitByYearMonth[year][month]) {
           debitByYearMonth[year][month] = 0;
         }
-        debitByYearMonth[year][month] += transaction.amount;
+        debitByYearMonth[year][month] += Number(transaction.amount);
       }
     });
   
