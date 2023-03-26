@@ -1,8 +1,45 @@
-.contianer{
+.container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+}
 
+.title{
+    cursor: pointer;
+    font-weight: 200;
+    font-size: large;
+    letter-spacing: 5px;
+}
+.arrow{
+    margin-left: 2rem;
+}
+
+.wrapper{
+    flex-direction: column;
+    text-align: left;
+    font-weight: 100;
+    letter-spacing: 1px;
 }
 
 
-.arrow{
-    margin-left: 2rem;
+.contactCEO{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.hide{
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 10px;
+    display: flex;
+    color: rgb(0, 174, 255);
+    transition: 0.3s ease;
+}
+.hide:hover{
+    color: rgb(0, 204, 255);
 }

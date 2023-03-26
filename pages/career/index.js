@@ -3,7 +3,6 @@ import JobOpening from '../../components/JobOpening'
 import style from '../../styles/Career.module.css'
 import { perks, openings } from './data'
 function Career() {
-    console.log(openings, "before mapping")
   return (
     <div className={style.container}>
     <h2 className={style.title}>Join Us</h2> 
@@ -18,12 +17,13 @@ function Career() {
     </ul>  
     <p className={style.text}>{"Join our team at My Fin and take the next step in your career while making a positive impact on people's lives."}</p>  
     <h4 className={style.openingsTitle}>Our Openings</h4>  
+    <section className={style.openingContainer}>
     {
         openings? openings.map((opening, i)=>{
-            console.log(opening, "from Career")
             return <JobOpening key={i} opening={opening} />
         }):<div>We have no Openings at the moment</div>
     }
+    </section>
     </div>
   )
 }
