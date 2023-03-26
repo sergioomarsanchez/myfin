@@ -1,0 +1,22 @@
+.container{
+    display:flex;
+    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
+    height: calc( 100vh - 7.5rem);
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+.text{
+    font-weight: 300;
+    text-align: left;
+    width: 60%;
+    display: flex;
+}
+
+.perkList{
+    font-weight: 300;
+    text-align: left;
+    width: 60%;
+}

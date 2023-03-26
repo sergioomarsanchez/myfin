@@ -73,7 +73,9 @@ function Navbar() {
         <Link href='/news' passHref>
         <div className={style.link}>News</div>
         </Link>
+        <Link href='/career' passHref>
         <div className={style.link}>Career</div>
+        </Link>
       </div>
       <div className={style.signupContainer}>
         {user && router.pathname!=="/profile/[id]" ? <Link href={'/profile/' + id} passHref><button className={style.signupButton}>Go to Profile</button> </Link>:null}
