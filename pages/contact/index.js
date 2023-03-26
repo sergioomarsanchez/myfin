@@ -5,7 +5,6 @@ import ContactForm from '../../components/ContactForm'
 function Contact() {
   return (
     <div className={style.container}>
-        <h3>Contact</h3>
         <ContactForm/>
     </div>
   )

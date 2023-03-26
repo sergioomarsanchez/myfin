@@ -1,5 +1,3 @@
-/* ContactForm.module.css */
-
 .container {
     min-width: 500px;
     background-color: #141c24;
@@ -7,10 +5,15 @@
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 #ababab7f;
+    display: flex;
   }
   
   .container h2 {
+    display: flex;
     margin-top: 1rem;
+    align-self:center;
+    font-weight: 200;
+    font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
   }
   .inputContainer{
       margin-bottom: 1rem;
@@ -26,7 +29,7 @@
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgb(3, 3, 3);
     border: 1px solid transparent;
     box-sizing: border-box;
     margin-top: 15px;

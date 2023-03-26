@@ -1,5 +1,5 @@
 .container{
-    height: calc(23vh - 100px);
+    height: calc(23vh - 90px);
     background-color: rgb(20, 20, 20);
     display: flex;
     justify-content: space-between;

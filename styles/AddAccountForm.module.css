@@ -27,7 +27,7 @@
     width: 30px;
     height: 30px;
     border: 1px solid #28225b;
-    background-color: black;
+    background-color: rgb(3, 3, 3);
     border-radius: 50%;
     position: absolute;
     top: -10px;
@@ -79,7 +79,7 @@
 }
 
 .input input{
-    background-color: black;
+    background-color: rgb(3, 3, 3);
     border: 1px solid transparent;
     padding: 5px;
     border-radius: 5px;
@@ -106,7 +106,7 @@
     top: 80px;
 }
 .suggestions{
-    background-color: black;
+    background-color: rgb(3, 3, 3);
     border: 1px solid transparent;
     padding: 5px;
     border-radius: 5px;
@@ -150,7 +150,7 @@
     font-size: 15px;
     cursor: pointer;
     transition: 0.1s ease;
-    background-color: black;
+    background-color: rgb(3, 3, 3);
     margin-right: 2rem;
 }
 
