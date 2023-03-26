@@ -23,8 +23,26 @@
     text-align: left;
     font-weight: 100;
     letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 1.3s ease-in-out, visibility 1s ease-in-out 1.3s;
+    visibility: hidden;
 }
 
+.wrapper[style*="display: flex"] {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+
+  .wrapper label{
+    font-weight: 400;
+    font-size: small;
+  }
+  .wrapper li{
+    font-weight: 200;
+    font-size: smaller;
+  }
 
 .contactCEO{
     font-family: 'Times New Roman', Times, serif;

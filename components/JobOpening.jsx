@@ -3,15 +3,24 @@ import style from '../styles/JobOpening.module.css'
 
 function JobOpening({key, opening}) {
     const [display, setDisplay] = useState('none')
+    const [animate, setAnimate] = useState(false)
 
     function showHide(){
-        display==='none'?setDisplay('flex'):setDisplay('none')
+        if (display==='none') {
+            setAnimate(true)
+            setDisplay('flex')
+        } else {
+            setAnimate(false)
+            setTimeout(() => {
+                setDisplay('none')
+            }, 300)
+        }
     }
 
   return (
-    <div key={key}className={style.container}>
+    <div key={key} className={style.container}>
         <h4 onClick={()=>showHide()} className={style.title}>{opening.position}{display==='none'?<span className={style.arrow}>{">"}</span>:<span className={style.arrow}>{"v"}</span>}</h4>
-        <div className={style.wrapper} style={{"display":display}}>
+        <div className={style.wrapper} style={{"display":display, "opacity": animate ? "1" : "0", "transition": "opacity 0.3s ease-in-out"}}>
             <div>Location: {opening.location}</div>
             <p className={style.description}>What we are looking for: {opening.description}</p>
             <label htmlFor="responsibilities">Responsibilities:</label>
