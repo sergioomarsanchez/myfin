@@ -18,12 +18,13 @@ function AccountCard({acc}) {
 
 
     useEffect(() => {
+        dispatch(setTotals(acc))
         if(!Object.keys(transactions).length) {
             
             dispatch(fetchTransactions(acc._id))
         }
-       dispatch(setTotals(acc))
     }, [])
+    
     
 
     
@@ -72,7 +73,7 @@ function AccountCard({acc}) {
 
 
   return (
-    <div className={style.container}>
+    <div key={acc._id} className={style.container}>
         <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
         <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
         <h3>Balance: ${parseFloat(balance).toFixed(2)}</h3>
@@ -97,7 +98,7 @@ function AccountCard({acc}) {
     {
         accTransactions?.map(t=>{
             return(
-                <TransactionCard currentBalance={acc.balance} key={t._id} transaction={t}/>
+                <TransactionCard currentBalance={acc.balance} key={t._id} transaction={t} entityName={acc.entityName}/>
                 )
             })
         }

@@ -1,10 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteTransaction, updateTotals } from '../store/actions'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/TransactionCard.module.css'
 
-function TransactionCard({ key, currentBalance, transaction}) {
-
+function TransactionCard({ key, currentBalance, transaction, entityName}) {
+    const dispatch = useDispatch()
 
     function handleDelete(id, transactionAccount){
            
@@ -35,7 +37,9 @@ function TransactionCard({ key, currentBalance, transaction}) {
                   title:'Deleted successfully!',
                   text:'Done.',
                   icon:'success'})
-                  window.location.reload()
+                  dispatch(deleteTransaction(transactionAccount, id))
+                  dispatch(updateTotals({transactionType:'debit', currency: entityName.toLowerCase().includes(' ars')?'ars':'usd', amount:transaction.amount}))
+                  //window.location.reload()
                 } catch (error) {
                     if(error.response && error.response.status >=400 && error.response.status <= 500){
                         Swal.fire({

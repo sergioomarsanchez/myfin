@@ -5,12 +5,13 @@ import style from '../../styles/Profile.module.css'
 import AccountCard from '../../components/AccountCard'
 import AddAccountForm from '../../components/AddAccountForm'
 
-function Profile({user, acc}) {
+function Profile({user}) {
     const [token, setToken]= useState(false)
     const [id, setId]= useState(false)
     const [isOpen, setIsOpen] = useState(false)
     const totalARS = useSelector(state=>state.totalARS)
     const totalUSD = useSelector(state=>state.totalUSD)
+    const acc = useSelector(state=>state.allAccounts)
 
     
     useEffect(() => {
@@ -18,8 +19,6 @@ function Profile({user, acc}) {
       const id = sessionStorage.getItem('id')
       setToken(token)
       setId(id)
-      console.log(totalARS, 'pesos')
-      console.log(totalUSD, 'usd')
        }, [])
   return (
     <div className={style.container}>
@@ -49,11 +48,9 @@ function Profile({user, acc}) {
 
 export const getServerSideProps = async ({params})=>{
     const res = await axios.get(`http://localhost:3000/api/users/${params.id}`)
-    const acc = await axios.get(`http://localhost:3000/api/accounts/?userId=` + params.id )
     return {
         props:{
         user: res.data,
-        acc: acc.data
       }
     }
   }

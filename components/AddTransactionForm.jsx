@@ -91,7 +91,7 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
             background:'#141c24',
             })
             setIsOpen(false)
-            dispatch(addTransactions(account, {...input, account:account}))
+            dispatch(addTransactions(account, res))
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
                 Swal.fire({

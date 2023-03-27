@@ -4,7 +4,26 @@ export const ADD_TRANSACTIONS = 'ADD_TRANSACTIONS';
 export const SET_TOTALS = 'SET_TOTALS';
 export const UPDATE_TOTALS = 'UPDATE_TOTALS';
 export const CLEAR_STATES = 'CLEAR_STATES';
+export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
+export const DELETE_TRANSACTION = 'DELETE_TRANSACTION'
 
+
+
+
+export function fetchAccounts(accountId){
+    return async (dispatch)=>{
+        try {
+            const {data} = await axios.get(`http://localhost:3000/api/accounts/?userId=` + accountId )
+            return dispatch({
+                type:FETCH_ACCOUNTS,
+                payload:data,
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
 export function fetchTransactions(accountId){
     return async (dispatch)=>{
 
@@ -36,9 +55,23 @@ export function addTransactions(accountId, payload){
     
 }
 } 
-export function setTotals(payload){
+export function deleteTransaction(accountId, transactionId){
     return async (dispatch)=>{
 
+        try {
+            return dispatch({
+                type:DELETE_TRANSACTION,
+                payload:transactionId,
+                accountId
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
+export function setTotals(payload){
+    return async (dispatch)=>{
         try {
             return dispatch({
                 type:SET_TOTALS,
@@ -64,6 +97,8 @@ export function updateTotals(payload){
     
 }
 } 
+
+
 
 export function clearStates(){
 

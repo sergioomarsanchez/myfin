@@ -42,8 +42,8 @@ function Navbar() {
         sessionStorage.clear()
         setUser(false)
         setId(false)
-        dispatch(clearStates())
         router.push('/')
+        dispatch(clearStates())
         Swal.fire({
           color:'white',
           background:'#141c24',
