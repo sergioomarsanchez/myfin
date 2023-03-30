@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import style from '../styles/AccountCard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTransactions, setTotals } from '../store/actions'
+import { fetchTransactions, setTotals, deleteAccount } from '../store/actions'
 import TransactionCard from './TransactionCard'
 import Image from 'next/image'
 import Swal from 'sweetalert2'
@@ -13,6 +13,7 @@ import AddTransactionForm from './AddTransactionForm'
 function AccountCard({acc}) {
     const dispatch = useDispatch()
     const transactions = useSelector(state=>state.transactions)
+    const allAccounts= useSelector(state=>state.allAccounts)
     const [balance, setBalance] = useState(acc.balance)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -24,6 +25,10 @@ function AccountCard({acc}) {
             dispatch(fetchTransactions(acc._id))
         }
     }, [])
+    
+    useEffect(() => {
+        setBalance(acc.balance)
+    }, [transactions])
     
     
 
@@ -51,13 +56,13 @@ function AccountCard({acc}) {
                 try {
                     const { data: res } = await axios.delete(`http://localhost:3000/api/transactions/?accountId=${acc._id}`)
                     const { data: deleted } = await axios.delete(`http://localhost:3000/api/accounts/${acc._id}`)
+                    dispatch(deleteAccount(acc._id, acc.balance, acc.entityName))
                 Swal.fire({
                   color:'white',
                   background:'#141c24',
                   title:'Deleted successfully!',
                   text:'Done.',
                   icon:'success'})
-                  window.location.reload()
                 } catch (error) {
                     if(error.response && error.response.status >=400 && error.response.status <= 500){
                         Swal.fire({

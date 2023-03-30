@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE, DELETE_ACCOUNT } from "../actions";
 
 const initialState = {
     transactions : {},
@@ -42,6 +42,30 @@ export default function reducer(state = initialState, action){
               [action.accountId]: transactionFiltered
             }
           };
+        case DELETE_ACCOUNT:
+          const filteredAccounts = Object.keys(state.transactions).filter(key=>key!==action.payload)
+          .reduce((acc, key)=>{
+            acc[key]=state.transactions[key];
+            return acc
+          }, {})
+
+          if(action.entityName.includes('ars')){
+            return {
+              ...state,
+              allAccounts: state.allAccounts.filter(acc=>acc._id!==action.payload),
+              accounts:state.accounts.filter(acc=>acc!==action.payload),
+              transactions: filteredAccounts,
+              totalARS: state.totalARS-action.balance
+            } 
+          } else {
+          return {
+            ...state,
+            allAccounts: state.allAccounts.filter(acc=>acc._id!==action.payload),
+            accounts:state.accounts.filter(acc=>acc!==action.payload),
+            transactions: filteredAccounts,
+            totalUSD: state.totalUSD - action.balance
+          };
+        }
         case SET_TOTALS:
           if (state.accounts.includes(action.payload._id)) {
             return state;

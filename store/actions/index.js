@@ -7,6 +7,7 @@ export const UPDATE_ACC_BALANCE = 'UPDATE_ACC_BALANCE';
 export const CLEAR_STATES = 'CLEAR_STATES';
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
 export const DELETE_TRANSACTION = 'DELETE_TRANSACTION'
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
 
 
 
@@ -64,6 +65,22 @@ export function deleteTransaction(accountId, transactionId){
                 type:DELETE_TRANSACTION,
                 payload:transactionId,
                 accountId
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
+export function deleteAccount(accountId, balance, entityName){
+    return async (dispatch)=>{
+
+        try {
+            return dispatch({
+                type:DELETE_ACCOUNT,
+                payload:accountId,
+                balance,
+                entityName
              })
         } catch (e) {
             e=>alert(e)

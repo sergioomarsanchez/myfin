@@ -23,6 +23,11 @@ function Profile({user}) {
       setId(id)
       if(!acc.length)dispatch(fetchAccounts(id))
        }, [])
+
+    useEffect(() => {
+      dispatch(fetchAccounts(id))
+    }, [acc])
+    
   return (
     <div className={style.container}>
         { id && token?<div className={style.wrapper}>
@@ -39,7 +44,7 @@ function Profile({user}) {
         {
             acc?.map(a=>{
                 return(
-                    <AccountCard key={a._id} acc={a}/>
+                    <AccountCard key={a._id} acc={a} accounts={acc}/>
                     )
                 })
             }

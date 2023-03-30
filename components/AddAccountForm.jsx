@@ -96,9 +96,9 @@ function AddAccountForm({ userId, setIsOpen}) {
             entityName:''
             })
             setIsOpen(false)
-        setTimeout(() => {
-            window.location.reload()
-        }, 1300);
+        // setTimeout(() => {
+        //     window.location.reload()
+        // }, 1300);
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
                 Swal.fire({
