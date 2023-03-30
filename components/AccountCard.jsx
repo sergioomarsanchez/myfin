@@ -98,7 +98,7 @@ function AccountCard({acc}) {
     {
         accTransactions?.map(t=>{
             return(
-                <TransactionCard currentBalance={acc.balance} key={t._id} transaction={t} entityName={acc.entityName}/>
+                <TransactionCard setBalance={setBalance} currentBalance={acc.balance} key={t._id} transaction={t} entityName={acc.entityName}/>
                 )
             })
         }

@@ -3,6 +3,7 @@ export const FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS';
 export const ADD_TRANSACTIONS = 'ADD_TRANSACTIONS';
 export const SET_TOTALS = 'SET_TOTALS';
 export const UPDATE_TOTALS = 'UPDATE_TOTALS';
+export const UPDATE_ACC_BALANCE = 'UPDATE_ACC_BALANCE';
 export const CLEAR_STATES = 'CLEAR_STATES';
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
 export const DELETE_TRANSACTION = 'DELETE_TRANSACTION'
@@ -89,6 +90,20 @@ export function updateTotals(payload){
         try {
             return dispatch({
                 type:UPDATE_TOTALS,
+                payload,
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
+export function updateAccBalance(payload){
+    return async (dispatch)=>{
+
+        try {
+            return dispatch({
+                type:UPDATE_ACC_BALANCE,
                 payload,
              })
         } catch (e) {

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteTransaction, updateTotals } from '../store/actions'
+import { deleteTransaction, updateAccBalance, updateTotals } from '../store/actions'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/TransactionCard.module.css'
 
-function TransactionCard({ key, currentBalance, transaction, entityName}) {
+function TransactionCard({ key, currentBalance, transaction, entityName, setBalance}) {
     const dispatch = useDispatch()
 
     function handleDelete(id, transactionAccount){
@@ -26,10 +26,13 @@ function TransactionCard({ key, currentBalance, transaction, entityName}) {
 
                     if(transaction.type === 'debit'){
                         currentBalance = currentBalance + Number(transaction.amount)
+                       // setBalance(currentBalance)
                     } else {
                         currentBalance = currentBalance - Number(transaction.amount)
+                       // setBalance(currentBalance)
                     }
                     await axios.put(`http://localhost:3000/api/accounts/` + transactionAccount, { balance:currentBalance })
+                    dispatch(updateAccBalance({id:transactionAccount, newBalance:currentBalance}))
                     await axios.delete(`http://localhost:3000/api/transactions/` + id)
                 Swal.fire({
                   color:'white',

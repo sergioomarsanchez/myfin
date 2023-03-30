@@ -93,8 +93,8 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
         <span onClick={handleClick} className={style.signup}>Click here to Sign up</span>
 
         <div className={style.buttonContainer}>
-            <button className={style.loginButton} type='submit'>Log In</button>
             <button className={style.cancelButton} onClick={()=>setIsOpenLogin(false)}>Cancel</button>
+            <button className={style.loginButton} type='submit'>Log In</button>
         </div>
         </form>
     </div>

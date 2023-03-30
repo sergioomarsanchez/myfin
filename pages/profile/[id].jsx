@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchAccounts } from '../../store/actions'
 import axios from 'axios'
 import style from '../../styles/Profile.module.css'
 import AccountCard from '../../components/AccountCard'
@@ -12,6 +13,7 @@ function Profile({user}) {
     const totalARS = useSelector(state=>state.totalARS)
     const totalUSD = useSelector(state=>state.totalUSD)
     const acc = useSelector(state=>state.allAccounts)
+    const dispatch = useDispatch()
 
     
     useEffect(() => {
@@ -19,6 +21,7 @@ function Profile({user}) {
       const id = sessionStorage.getItem('id')
       setToken(token)
       setId(id)
+      if(!acc.length)dispatch(fetchAccounts(id))
        }, [])
   return (
     <div className={style.container}>

@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE } from "../actions";
 
 const initialState = {
     transactions : {},
@@ -60,6 +60,12 @@ export default function reducer(state = initialState, action){
                 };
               }
               return state;
+        case UPDATE_ACC_BALANCE:
+                  const accToUpdate = allAccounts.find(account=>{account._id===action.payload.id})
+                return {
+                    ...state,
+                    allAccounts:  [...state.allAccounts.filter(account=>{account._id!==action.payload.id}), {...accToUpdate, balance:action.payload.newBalance}]
+                };
         case UPDATE_TOTALS:
                   if(action.payload.currency==='ars'){
                     return {

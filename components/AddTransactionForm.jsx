@@ -148,8 +148,8 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
         {error && <div className={style.error}>* {error}</div>}
 
         <div className={style.buttonContainer}>
-            <button className={style.createButton} type='submit'>Add transaction</button>
             <button className={style.cancelButton} name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
+            <button className={style.createButton} type='submit'>Add transaction</button>
         </div>
         </form>
         </div>
