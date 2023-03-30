@@ -41,6 +41,8 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
+            color:'white',
+            background:'#141c24',
             confirmButtonText: `Yes, ${e.target.name==='X'?'Close':'Cancel'} it!`
           }).then((result) => {
             if (result.isConfirmed) {

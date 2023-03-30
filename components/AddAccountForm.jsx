@@ -33,6 +33,7 @@ function AddAccountForm({ userId, setIsOpen}) {
        
     }
     function handleOnClick(e,logo, name){
+        console.log(e.target.name)
         setInput({
             ...input,
             ['entityName']: name,
@@ -54,8 +55,8 @@ function AddAccountForm({ userId, setIsOpen}) {
             text: "All data inputed will be lost!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            color:'white',
+            background:'#141c24',
             confirmButtonText: `Yes, ${e.target.name==='X'?'Close':'Cancel'} it!`
           }).then((result) => {
             if (result.isConfirmed) {
@@ -168,7 +169,7 @@ function AddAccountForm({ userId, setIsOpen}) {
         {error && <div className={style.error}>* {error}</div>}
 
         <div className={style.buttonContainer}>
-            <button className={style.cancelButton} name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
+            <button className={style.cancelButton} type='button' name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
             <button className={style.createButton} type='submit'>Create Account</button>
         </div>
         </form>
