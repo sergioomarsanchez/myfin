@@ -19,7 +19,7 @@ function AddAccountForm({ userId, setIsOpen}) {
     const [selected, setSelected] = useState({state:false})
     const accountTypes = ["checking", "savings", "credit card"]
     const currency = ["USD", "ARS"]
-    
+
     async function  handleInput(e){
         setInput({
             ...input,
@@ -32,8 +32,7 @@ function AddAccountForm({ userId, setIsOpen}) {
         }
        
     }
-    function handleOnClick(e,logo, name){
-        console.log(e.target.name)
+    function handleOnClick(logo, name){
         setInput({
             ...input,
             ['entityName']: name,
@@ -44,8 +43,6 @@ function AddAccountForm({ userId, setIsOpen}) {
             name:name,
             logo:logo
         })
-        console.log(selected)
-        console.log(input)
         setEntities([])
     }
     
@@ -60,11 +57,13 @@ function AddAccountForm({ userId, setIsOpen}) {
             confirmButtonText: `Yes, ${e.target.name==='X'?'Close':'Cancel'} it!`
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Canceled!',
-                'Your creation has been canceled.',
-                'info'
-              )
+              Swal.fire({
+              title:'Canceled!',
+              text: 'Your account creation has been canceled.',
+              icon: 'error',
+              color:'white',
+              background:'#141c24',
+            })
               setIsOpen(false)
             }
           })
@@ -97,16 +96,15 @@ function AddAccountForm({ userId, setIsOpen}) {
             entityName:''
             })
             setIsOpen(false)
-        // setTimeout(() => {
-        //     window.location.reload()
-        // }, 1300);
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Something went wrong!',
-                    footer: error.response.data.message
+                    footer: error.response.data.message,
+                    color:'white',
+                    background:'#141c24',
                   })
                 setError(error.response.data.message)
             }
@@ -139,7 +137,7 @@ function AddAccountForm({ userId, setIsOpen}) {
             selected.state || !entities.length?null:
         <div className={style.suggestionsContainer}>
         {entities?.map(element=>{
-            return(<div className={style.suggestions} key={element.name} onClick={(e)=>handleOnClick(e,element.logo, element.name)}>
+            return(<div className={style.suggestions} key={element.name} onClick={()=>handleOnClick(element.logo, element.name)}>
                 <Image className={style.entityLogo} src={element.logo} alt={element.name} width={10} height={10}/>
                 <span className={style.entityName} value={element.name} name='entityName' >{element.name}</span>
             </div>
@@ -169,8 +167,8 @@ function AddAccountForm({ userId, setIsOpen}) {
         {error && <div className={style.error}>* {error}</div>}
 
         <div className={style.buttonContainer}>
-            <button className={style.cancelButton} type='button' name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
             <button className={style.createButton} type='submit'>Create Account</button>
+            <button className={style.cancelButton} type='button' name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
         </div>
         </form>
         </div>

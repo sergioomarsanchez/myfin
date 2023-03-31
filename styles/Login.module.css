@@ -79,7 +79,11 @@ font-weight: 300;
 }
 
 .buttonContainer{
+    display: flex;
     margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 .loginButton, .cancelButton{
     padding: 8px;

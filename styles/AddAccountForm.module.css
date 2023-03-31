@@ -139,6 +139,7 @@
     margin-top: 2rem;
     justify-content: center;
     align-items: center;
+    flex-direction: row-reverse;
 }
 .createButton, .cancelButton{
     padding: 8px;

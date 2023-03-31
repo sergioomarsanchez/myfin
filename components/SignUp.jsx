@@ -73,8 +73,8 @@ function SignUp({setIsOpen}) {
         {error && <div className={style.error}>* {error}</div>}
 
         <div className={style.buttonContainer}>
-            <button className={style.cancelButton} onClick={()=>setIsOpen(false)}>Cancel</button>
             <button className={style.signupButton} type='submit'>Sign Up</button>
+            <button className={style.cancelButton} onClick={()=>setIsOpen(false)}>Cancel</button>
         </div>
         </form>
     </div>

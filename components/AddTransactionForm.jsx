@@ -1,4 +1,4 @@
-import React, { useState, } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTransactions, updateTotals } from '../store/actions'
 import axios from 'axios'
@@ -23,7 +23,6 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
                                             'debit':['debit', 'cash']
                                         })
     const types = ["debit", "credit"]
-
     let dispatch = useDispatch()
 
     function  handleInput(e){
@@ -46,11 +45,13 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
             confirmButtonText: `Yes, ${e.target.name==='X'?'Close':'Cancel'} it!`
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Canceled!',
-                'Your creation has been canceled.',
-                'info'
-              )
+              Swal.fire({
+                title:'Canceled!',
+                text: 'Your transaction creation has been canceled.',
+                icon: 'error',
+                color:'white',
+                background:'#141c24',
+            })
               setIsOpen(false)
             }
           })
@@ -150,8 +151,8 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
         {error && <div className={style.error}>* {error}</div>}
 
         <div className={style.buttonContainer}>
-            <button className={style.cancelButton} name='Cancel' onClick={(e)=>handleCancel(e)}>Cancel</button>
-            <button className={style.createButton} type='submit'>Add transaction</button>
+            <button className={style.createButton} type='submit' >Add transaction</button>
+            <button className={style.cancelButton} name='Cancel'  onClick={(e)=>handleCancel(e)}>Cancel</button>
         </div>
         </form>
         </div>

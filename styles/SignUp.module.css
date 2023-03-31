@@ -61,7 +61,11 @@ font-weight: 300;
    border-bottom: 1px solid #36985d;
 }
 .buttonContainer{
+    display: flex;
     margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 .signupButton, .cancelButton{
     padding: 8px;
