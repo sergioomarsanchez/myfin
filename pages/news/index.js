@@ -13,7 +13,7 @@ function News({ apiKey }) {
     const options = {
       method: 'GET',
       url: 'https://seeking-alpha.p.rapidapi.com/news/v2/list',
-      params: {category: 'market-news::all', size: '20', number: '1'},
+      params: {category: 'market-news::all', size: '10', number: '1'},
       headers: {
         'X-RapidAPI-Key': apiKey,
         'X-RapidAPI-Host': 'seeking-alpha.p.rapidapi.com'
@@ -31,7 +31,7 @@ function News({ apiKey }) {
 
   return (
     <div className={style.container}>
-      <h2>Lastest News</h2>
+      <h2 className={style.pageTitle}>Lastest 10 market News</h2>
       <div className={style.articlesContainer}>
         {
           articles.length?

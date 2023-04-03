@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE, DELETE_ACCOUNT } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE, DELETE_ACCOUNT, SET_TRANSACTIONS_PER_YEAR } from "../actions";
 
 const initialState = {
     transactions : {},
@@ -6,6 +6,7 @@ const initialState = {
     totalARS:0,
     accounts:[],
     allAccounts:[],
+    transactionsPerYear:{}
 }
 
 export default function reducer(state = initialState, action){
@@ -32,6 +33,11 @@ export default function reducer(state = initialState, action){
                 return {
                     ...state,
                     transactions
+                };
+        case SET_TRANSACTIONS_PER_YEAR:
+                return {
+                    ...state,
+                    transactionsPerYear: action.payload
                 };
         case DELETE_TRANSACTION:
           const transactionFiltered = state.transactions[action.accountId].filter(transaction => transaction._id !== action.payload);
@@ -110,7 +116,8 @@ export default function reducer(state = initialState, action){
                 totalUSD:0,
                 totalARS:0,
                 accounts:[],
-                allAccounts:[]
+                allAccounts:[],
+                transactionsPerYear:{}
             }
              default:
                 return state

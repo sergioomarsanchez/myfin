@@ -1,4 +1,4 @@
-export default function getCreditDebitByMonth(transactions) {
+function getMonthlyCreditDebit(transactions) {
   const creditByYearMonth = {};
   const debitByYearMonth = {};
 
@@ -46,4 +46,31 @@ export default function getCreditDebitByMonth(transactions) {
   });
 
   return result;
+};
+
+
+ function getMonthlyGraphicData(transactions) {
+  const categories = {
+    credit: ['Other', 'Salary', 'Freelance/Contract Work', 'Investments', 'Rental Income', 'Gifts'],
+    debit: ['Other', 'Housing', 'Transportation', 'Food', 'Entertainment', 'Utilities', 'Insurance', 'Healthcare', 'Debt Repayment', 'Savings', 'Investments', 'Taxes']
+  };
+
+  const monthlyData = {};
+  for (let i = 0; i < 12; i++) {
+    const month = i + 1;
+    monthlyData[month] = {
+      credit: new Array(categories.credit.length).fill(0),
+      debit: new Array(categories.debit.length).fill(0),
+    };
+  }
+  transactions.forEach((transaction) => {
+    const date = new Date(transaction.date);
+    const month = date.getMonth() + 1;
+    const categoryIndex = categories[transaction.type].indexOf(transaction.category);
+    if (categoryIndex >= 0) {
+      monthlyData[month][transaction.type][categoryIndex] += transaction.amount;
+    }
+  });
+  return monthlyData;
 }
+ export { getMonthlyCreditDebit, getMonthlyGraphicData};

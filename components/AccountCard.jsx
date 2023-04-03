@@ -102,9 +102,9 @@ function AccountCard({acc}) {
         <div className={style.transactionsContainer}>
     {
         accTransactions?.map(t=>{
-            return(
-                <TransactionCard setBalance={setBalance} currentBalance={acc.balance} key={t._id} transaction={t} entityName={acc.entityName}/>
-                )
+            return<div key={t._id}>
+                <TransactionCard setBalance={setBalance} currentBalance={acc.balance} transId={t._id} transaction={t} entityName={acc.entityName}/>
+                </div> 
             })
         }
         </div>

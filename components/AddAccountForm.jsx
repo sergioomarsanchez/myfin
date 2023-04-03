@@ -27,7 +27,6 @@ function AddAccountForm({ userId, setIsOpen}) {
         })
         if(e.target.name === 'entityName'&& e.target.value!==''){
             let {data} = await axios.get(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${e.target.value}`)
-            console.log(data)
             data?setEntities([...data]):null
         }
        

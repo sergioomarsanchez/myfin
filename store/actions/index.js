@@ -8,6 +8,7 @@ export const CLEAR_STATES = 'CLEAR_STATES';
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS'
 export const DELETE_TRANSACTION = 'DELETE_TRANSACTION'
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'
+export const SET_TRANSACTIONS_PER_YEAR = 'SET_TRANSACTIONS_PER_YEAR'
 
 
 
@@ -50,6 +51,20 @@ export function addTransactions(accountId, payload){
                 type:ADD_TRANSACTIONS,
                 payload,
                 accountId
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
+export function setTransactionsPerYear(payload){
+    return async (dispatch)=>{
+
+        try {
+            return dispatch({
+                type:SET_TRANSACTIONS_PER_YEAR,
+                payload,
              })
         } catch (e) {
             e=>alert(e)
