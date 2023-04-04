@@ -41,7 +41,7 @@ function TransactionCard({ transId, currentBalance, transaction, entityName, set
                   text:'Done.',
                   icon:'success'})
                   dispatch(deleteTransaction(transactionAccount, id))
-                  dispatch(updateTotals({transactionType:'credit', currency: entityName.toLowerCase().includes(' ars')?'ars':'usd', amount:transaction.amount}))
+                  dispatch(updateTotals({transactionType:transaction.type, currency: entityName.toLowerCase().includes(' ars')?'ars':'usd', amount:transaction.amount}))
                   
                 } catch (error) {
                     if(error.response && error.response.status >=400 && error.response.status <= 500){
