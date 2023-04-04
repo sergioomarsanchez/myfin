@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchAccounts } from '../../store/actions'
+import { fetchAccounts, fetchTransactions } from '../../store/actions'
 import axios from 'axios'
 import style from '../../styles/Profile.module.css'
 import AccountCard from '../../components/AccountCard'
@@ -24,9 +24,12 @@ function Profile({user}) {
       if(!acc.length)dispatch(fetchAccounts(id))
        }, [])
 
-    useEffect(() => {
-      dispatch(fetchAccounts(id))
-    }, [acc])
+       useEffect(() => {
+         if(acc.length)acc.forEach(acc => {
+           fetchTransactions(acc._id)
+         });
+       }, [acc])
+       
     
   return (
     <div className={style.container}>

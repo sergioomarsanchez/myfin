@@ -1,42 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchTransactions, setTransactionsPerYear } from '../../store/actions'
+import { setTransactionsPerYear, fetchTransactions } from '../../store/actions'
 import {getMonthlyCreditDebit, getMonthlyGraphicData} from './utils'
 import axios from 'axios'
 import style from '../../styles/AccountDetail.module.css'
 import Image from 'next/image'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  PointElement,
-  LineElement
-} from 'chart.js';
+import {Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, PointElement, LineElement} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
 import MonthlyGraphic from '../../components/MonthlyGraphic'
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
+ChartJS.register( CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend );
 
 
 function AccountDetail({acc}) {
@@ -45,7 +19,7 @@ function AccountDetail({acc}) {
     const [account, setAccount]= useState({})
     const [graphicFormat, setGraphicFormat] = useState('Bar')
     const transactions = useSelector(state=>state.transactions)
-    const accTransactions = transactions[acc._id]
+    const [accTransactions, setAccTransactions] = useState([])
     const today = new Date();
     const thisYear = today.getFullYear();   
     const [year, setYear] = useState(thisYear.toString())
@@ -60,15 +34,22 @@ function AccountDetail({acc}) {
       setToken(token)
       setId(id)
       setAccount(acc)
-    
-      if (!Object.keys(transactions).length) {
-        dispatch(fetchTransactions(acc._id))
+      if(!Object.keys(transactions).length)dispatch(fetchTransactions(acc._id))
+      return () => {
+        console.log(Object.keys(transactions))
       }
     }, [acc._id])
     
     useEffect(() => {
-      if(accTransactions)setGraphicData(getMonthlyCreditDebit(accTransactions))
+      if(transactions[acc._id]){setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
+        return new Date(b.date) - new Date(a.date);
+      }))
+     }
     }, [transactions])
+    useEffect(() => {
+      if(accTransactions.length)setGraphicData(getMonthlyCreditDebit(accTransactions))
+    }, [accTransactions])
+
     function filterTransactionsByYear(accTransactions, year) {
       return accTransactions.filter(transaction => {
         const date = new Date(transaction.date)
@@ -83,13 +64,9 @@ function AccountDetail({acc}) {
         dispatch(setTransactionsPerYear(getMonthlyGraphicData(yearTransactions)))
       }
       console.log(yearTransactions)
-    }, [year])
+    }, [accTransactions,year])
        
 
-      //  console.log(transactions, accTransactions)
-      //  console.log('graphic data', graphicData)
-      //  console.log('key del primer objeto de graphic data', graphicData.find(obj => Object.keys(obj)[0] === "2023"));
-      //  console.log('YEAR', year)
        const options = {
         responsive: true,
         plugins: {
@@ -173,11 +150,11 @@ function AccountDetail({acc}) {
                   }
             </select>
           </div>
-            { yearTransactions? <div className={style.graphicMonth}>
+            { yearTransactions.length? <div className={style.graphicMonth}>
               <h3>Credit transactions</h3>
               <MonthlyGraphic month={month} type='credit' yearTransactions={yearTransactions} />
             </div>:<div>Loading...</div>}
-            { yearTransactions? <div className={style.graphicMonth}>
+            { yearTransactions.length? <div className={style.graphicMonth}>
               <h3>Debit transactions</h3>
               <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
             </div>:<div>Loading...</div>}

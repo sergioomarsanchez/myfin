@@ -13,30 +13,29 @@ import AddTransactionForm from './AddTransactionForm'
 function AccountCard({acc}) {
     const dispatch = useDispatch()
     const transactions = useSelector(state=>state.transactions)
-    const allAccounts= useSelector(state=>state.allAccounts)
+    const [accTransactions, setAccTransactions] = useState([])
     const [balance, setBalance] = useState(acc.balance)
     const [isOpen, setIsOpen] = useState(false)
+    const [amountOfTransactions, setAmountOfTransactions] = useState(0)
 
 
     useEffect(() => {
         dispatch(setTotals(acc))
-        if(!Object.keys(transactions).length) {
-            
-            dispatch(fetchTransactions(acc._id))
-        }
+        if(!Object.keys(transactions).length)dispatch(fetchTransactions(acc._id))
     }, [])
     
     useEffect(() => {
         setBalance(acc.balance)
+        if(transactions[acc._id]){setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
+            return new Date(b.date) - new Date(a.date);
+          }))
+         }
     }, [transactions])
     
+    useEffect(() => {
+        if(transactions[acc._id])setAmountOfTransactions(accTransactions.length)
+    }, [transactions, accTransactions])
     
-
-    
-    let accTransactions = transactions[acc._id]?.sort(function(a, b) {
-        return new Date(b.date) - new Date(a.date);
-      })
-
 
     function handleDelete() {
 
@@ -108,10 +107,11 @@ function AccountCard({acc}) {
             })
         }
         </div>
+        {amountOfTransactions>0?
         <Link href={`/accountDetail/${acc._id}`}>
         <button className={style.detailButton}>Details</button>
-        </Link>
-        </div>
+        </Link>:null
+        }</div>
     </div>
   )
 }
