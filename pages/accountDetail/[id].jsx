@@ -87,14 +87,14 @@ function AccountDetail({acc}) {
         datasets: [
           {
             label: 'Debit',
-            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['debit'],
+            data: graphicData.hasOwnProperty(year)? graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['debit']:[0,0,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
             borderWidth: 1,
             borderColor: 'rgb(255, 99, 132)',
           },
           {
             label: 'Credit',
-            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['credit'],
+            data: graphicData.hasOwnProperty(year)? graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['credit']:[0,0,0,0,0,0,0,0,0,0,0,0],
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             borderWidth: 1,
             borderColor: 'rgb(53, 162, 235)',
