@@ -101,7 +101,7 @@ useEffect(() => {
     {
         accTransactions?.map(t=>{
             return<div key={t._id}>
-                <TransactionCard setBalance={setBalance} currentBalance={acc.balance} transId={t._id} transaction={t} entityName={acc.entityName}/>
+                <TransactionCard setBalance={setBalance} balance={balance} transId={t._id} transaction={t} entityName={acc.entityName}/>
                 </div> 
             })
         }

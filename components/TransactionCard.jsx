@@ -5,7 +5,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import style from '../styles/TransactionCard.module.css'
 
-function TransactionCard({ transId, currentBalance, transaction, entityName, setBalance}) {
+function TransactionCard({ transId, balance, transaction, entityName, setBalance}) {
     const dispatch = useDispatch()
 
     function handleDelete(id, transactionAccount){
@@ -25,14 +25,14 @@ function TransactionCard({ transId, currentBalance, transaction, entityName, set
                 try {
 
                     if(transaction.type === 'debit'){
-                        currentBalance = currentBalance + Number(transaction.amount)
-                      setBalance(currentBalance)
+                      setBalance(prev + Number(transaction.amount))
+                      balance += transaction.amount
                     } else {
-                        currentBalance = currentBalance - Number(transaction.amount)
-                      setBalance(currentBalance)
+                      setBalance(prev - Number(transaction.amount))
+                      balance -= transaction.amount
                     }
-                    await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:currentBalance })
-                      dispatch(updateAccBalance({id:transactionAccount, newBalance:currentBalance}))
+                    await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:balance })
+                      dispatch(updateAccBalance({id:transactionAccount, newBalance:balance}))
                     await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/` + id)
                 Swal.fire({
                   color:'white',
