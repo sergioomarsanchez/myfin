@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const FETCH_TRANSACTIONS = 'FETCH_TRANSACTIONS';
 export const ADD_TRANSACTIONS = 'ADD_TRANSACTIONS';
+export const ADD_ACCOUNT = 'ADD_ACCOUNT';
 export const SET_TOTALS = 'SET_TOTALS';
 export const UPDATE_TOTALS = 'UPDATE_TOTALS';
 export const UPDATE_ACC_BALANCE = 'UPDATE_ACC_BALANCE';
@@ -51,6 +52,20 @@ export function addTransactions(accountId, payload){
                 type:ADD_TRANSACTIONS,
                 payload,
                 accountId
+             })
+        } catch (e) {
+            e=>alert(e)
+        }
+    
+}
+} 
+export function addAccount(payload){
+    return async (dispatch)=>{
+
+        try {
+            return dispatch({
+                type:ADD_ACCOUNT,
+                payload
              })
         } catch (e) {
             e=>alert(e)

@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE, DELETE_ACCOUNT, SET_TRANSACTIONS_PER_YEAR } from "../actions";
+import { FETCH_TRANSACTIONS, CLEAR_STATES, ADD_TRANSACTIONS, ADD_ACCOUNT, SET_TOTALS,UPDATE_TOTALS, FETCH_ACCOUNTS, DELETE_TRANSACTION, UPDATE_ACC_BALANCE, DELETE_ACCOUNT, SET_TRANSACTIONS_PER_YEAR } from "../actions";
 
 const initialState = {
     transactions : {},
@@ -28,6 +28,11 @@ export default function reducer(state = initialState, action){
                 transactions: {...state.transactions, [action.id]: action.payload},
              }}
         case ADD_TRANSACTIONS:
+                return {
+                    ...state,
+                    allAccounts: [...state.allAccounts, action.payload]
+                };
+        case ADD_ACCOUNT:
                 const transactions = { ...state.transactions };
                 transactions[action.accountId] = [...transactions[action.accountId], action.payload];
                 return {
