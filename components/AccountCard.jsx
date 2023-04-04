@@ -25,7 +25,7 @@ function AccountCard({acc}) {
     }, [])
     
     useEffect(() => {
-        setBalance(acc.balance)
+       // setBalance(acc.balance)
         if(transactions[acc._id]){setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
             return new Date(b.date) - new Date(a.date);
           }))

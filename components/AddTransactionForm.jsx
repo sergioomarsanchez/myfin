@@ -65,7 +65,7 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
             let currentBalance = balance
             if(input.type === 'credit'){
                 currentBalance=balance + Number(input.amount)
-                setBalance(balance + Number(input.amount))
+                setBalance(currentBalance)
                 
                 if(entityName.toLowerCase().includes(' ars')){
                     dispatch(updateTotals({transactionType:'credit', currency: 'ars', amount:input.amount}))
@@ -74,7 +74,7 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
                 }
             } else {
                 currentBalance=balance - Number(input.amount)
-                setBalance(balance - Number(input.amount))
+                setBalance(currentBalance)
                 if(entityName.toLowerCase().includes(' ars')){
                     dispatch(updateTotals({transactionType:'debit', currency: 'ars', amount:input.amount}))
                 } else{
