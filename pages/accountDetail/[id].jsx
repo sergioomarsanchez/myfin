@@ -119,7 +119,7 @@ function AccountDetail({acc}) {
                   </option>})
                   }
                   {
-                    graphicData.hasOwnProperty(year)?null:<option key={year}>{year}</option>
+                    graphicData.hasOwnProperty(today.getFullYear().toString())?null:<option key={today.getFullYear().toString()}>{today.getFullYear().toString()}</option>
                   }
             </select>
           </div>
