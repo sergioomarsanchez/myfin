@@ -23,16 +23,16 @@ function TransactionCard({ transId, balance, transaction, entityName, setBalance
         }).then(async(result) => {
             if (result.isConfirmed) {
                 try {
-
+                  let newBalance = 0
                     if(transaction.type === 'debit'){
-                      setBalance(prev + Number(transaction.amount))
-                      balance += transaction.amount
+                      newBalance = balance + Number(transaction.amount)
+                      setBalance(newBalance)
                     } else {
-                      setBalance(prev - Number(transaction.amount))
-                      balance -= transaction.amount
+                      newBalance = balance - Number(transaction.amount)
+                      setBalance(newBalance)
                     }
-                    await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:balance })
-                      dispatch(updateAccBalance({id:transactionAccount, newBalance:balance}))
+                    await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:newBalance })
+                      dispatch(updateAccBalance({id:transactionAccount, newBalance:newBalance}))
                     await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/` + id)
                 Swal.fire({
                   color:'white',
