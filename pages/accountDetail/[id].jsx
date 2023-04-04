@@ -87,14 +87,14 @@ function AccountDetail({acc}) {
         datasets: [
           {
             label: 'Debit',
-            data: graphicData.hasOwnProperty(year)? graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['debit']:[0,0,0,0,0,0,0,0,0,0,0,0],
+            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['debit'],
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
             borderWidth: 1,
             borderColor: 'rgb(255, 99, 132)',
           },
           {
             label: 'Credit',
-            data: graphicData.hasOwnProperty(year)? graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['credit']:[0,0,0,0,0,0,0,0,0,0,0,0],
+            data: graphicData?.find(obj => Object.keys(obj)[0] === year)[year]['credit'],
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
             borderWidth: 1,
             borderColor: 'rgb(53, 162, 235)',
@@ -118,9 +118,7 @@ function AccountDetail({acc}) {
                     { Object.keys(year)[0]}
                   </option>})
                   }
-                  {
-                    graphicData.hasOwnProperty(today.getFullYear().toString())?null:<option key={today.getFullYear().toString()}>{today.getFullYear().toString()}</option>
-                  }
+                  
             </select>
           </div>
           <div className={style.formatSelectorContainer}>
