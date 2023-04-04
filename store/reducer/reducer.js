@@ -27,13 +27,12 @@ export default function reducer(state = initialState, action){
                 ...state,
                 transactions: {...state.transactions, [action.id]: action.payload},
              }}
-        case ADD_TRANSACTIONS:
+        case ADD_ACCOUNT:
                 return {
                     ...state,
                     allAccounts: [...state.allAccounts, action.payload]
                 };
-        case ADD_ACCOUNT:
-          console.log('I get to addAccount with res', action.payload)
+        case ADD_TRANSACTIONS:
                 const transactions = { ...state.transactions };
                 transactions[action.accountId] = [...transactions[action.accountId], action.payload];
                 return {
@@ -79,7 +78,6 @@ export default function reducer(state = initialState, action){
           };
         }
         case SET_TOTALS:
-          console.log('I get to setTotals with res', action.payload)
           if (state.accounts.includes(action.payload._id)) {
             return state;
           }
