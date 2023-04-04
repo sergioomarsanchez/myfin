@@ -16,7 +16,7 @@ export const SET_TRANSACTIONS_PER_YEAR = 'SET_TRANSACTIONS_PER_YEAR'
 export function fetchAccounts(accountId){
     return async (dispatch)=>{
         try {
-            const {data} = await axios.get(`http://localhost:3000/api/accounts/?userId=` + accountId )
+            const {data} = await axios.get(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/?userId=` + accountId )
             return dispatch({
                 type:FETCH_ACCOUNTS,
                 payload:data,
@@ -31,7 +31,7 @@ export function fetchTransactions(accountId){
     return async (dispatch)=>{
 
         try {
-            const {data} = await axios.get(`http://localhost:3000/api/transactions/?accountId=${accountId}`)
+            const {data} = await axios.get(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/?accountId=${accountId}`)
             return dispatch({
                 type:FETCH_TRANSACTIONS,
                 payload:data,

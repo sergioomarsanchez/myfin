@@ -166,7 +166,7 @@ function AccountDetail({acc}) {
 }
 
 export const getServerSideProps = async ({params})=>{
-    const acc = await axios.get(`http://localhost:3000/api/accounts/` + params.id )
+    const acc = await axios.get(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + params.id )
     return {
         props:{
         acc: acc.data

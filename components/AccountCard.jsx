@@ -53,8 +53,8 @@ function AccountCard({acc}) {
         }).then(async(result) => {
             if (result.isConfirmed) {
                 try {
-                    const { data: res } = await axios.delete(`http://localhost:3000/api/transactions/?accountId=${acc._id}`)
-                    const { data: deleted } = await axios.delete(`http://localhost:3000/api/accounts/${acc._id}`)
+                    const { data: res } = await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/?accountId=${acc._id}`)
+                    const { data: deleted } = await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/${acc._id}`)
                     dispatch(deleteAccount(acc._id, acc.balance, acc.entityName))
                 Swal.fire({
                   color:'white',
