@@ -32,7 +32,7 @@ function TransactionCard({ transId, currentBalance, transaction, entityName, set
                        setBalance(currentBalance)
                     }
                     await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:currentBalance })
-                   dispatch(updateAccBalance({id:transactionAccount, newBalance:currentBalance}))
+                  // dispatch(updateAccBalance({id:transactionAccount, newBalance:currentBalance}))
                     await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/` + id)
                 Swal.fire({
                   color:'white',
