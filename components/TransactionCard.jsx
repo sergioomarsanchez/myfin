@@ -26,10 +26,10 @@ function TransactionCard({ transId, currentBalance, transaction, entityName, set
 
                     if(transaction.type === 'debit'){
                         currentBalance = currentBalance + Number(transaction.amount)
-                      // setBalance(currentBalance)
+                      setBalance(currentBalance)
                     } else {
                         currentBalance = currentBalance - Number(transaction.amount)
-                      // setBalance(currentBalance)
+                      setBalance(currentBalance)
                     }
                     await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:currentBalance })
                       dispatch(updateAccBalance({id:transactionAccount, newBalance:currentBalance}))

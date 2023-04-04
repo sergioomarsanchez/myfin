@@ -32,7 +32,6 @@ function AccountCard({acc}) {
 }, [transactions])
 
 useEffect(() => {
-        setBalance(acc.balance)
         if(transactions[acc._id])setAmountOfTransactions(accTransactions.length)
     }, [transactions, accTransactions])
     
