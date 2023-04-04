@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    margin-top: 3rem;
+    height: calc(100vh - 10rem);
+    padding: 5rem 15rem 5rem 15rem;
+    align-items: center;
+    flex-flow: column;
+}
+
+.title{
+    margin-bottom: 3rem;
+    font-family:'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.text{
+    font-weight: 300;
+    text-align: left;
+    width: 60%;
+}
