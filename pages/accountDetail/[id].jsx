@@ -118,6 +118,9 @@ function AccountDetail({acc}) {
                     { Object.keys(year)[0]}
                   </option>})
                   }
+                  {
+                    graphicData.hasOwnProperty(year)?null:<option key={year}>{year}</option>
+                  }
             </select>
           </div>
           <div className={style.formatSelectorContainer}>
