@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import React, { useState } from 'react'
-import { addAccount } from '../store/actions'
+import { addAccount, setTotals } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import Image from 'next/image'
 import style from '../styles/AddAccountForm.module.css'
@@ -78,9 +78,8 @@ function AddAccountForm({ userId, setIsOpen}) {
             input.entityName = `${input.entityName} ${input.currency}`
             const url='https://myfin-sergioomarsanchez.vercel.app/api/accounts'
             const { data: res } = await axios.post(url, {...input, userId:userId})
-            
-
-
+            dispatch(addAccount(res))
+            dispatch(setTotals(res))
             Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -90,7 +89,6 @@ function AddAccountForm({ userId, setIsOpen}) {
             color:'white',
             background:'#141c24',
             })
-            if(res)dispatch(addAccount(res))
            setInput({
             accountType:'',
             balance:'',
