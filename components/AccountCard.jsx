@@ -25,14 +25,14 @@ function AccountCard({acc}) {
     }, [])
     
     useEffect(() => {
-        setBalance(acc.balance)
         if(transactions[acc._id]){setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
             return new Date(b.date) - new Date(a.date);
-          }))
-         }
-    }, [transactions])
-    
-    useEffect(() => {
+        }))
+    }
+}, [transactions])
+
+useEffect(() => {
+        setBalance(acc.balance)
         if(transactions[acc._id])setAmountOfTransactions(accTransactions.length)
     }, [transactions, accTransactions])
     
