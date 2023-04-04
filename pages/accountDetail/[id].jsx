@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setTransactionsPerYear, fetchTransactions } from '../../store/actions'
-import {getMonthlyCreditDebit, getMonthlyGraphicData} from './utils'
+import {getMonthlyCreditDebit, getMonthlyGraphicData} from '../../graphicFunctions/utils'
 import axios from 'axios'
 import style from '../../styles/AccountDetail.module.css'
 import Image from 'next/image'

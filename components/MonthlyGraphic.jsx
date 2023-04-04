@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { getMonthlyGraphicData } from '../pages/accountDetail/utils';
+import { getMonthlyGraphicData } from '../graphicFunctions/utils';
 import { setTransactionsPerYear } from '../store/actions';
 import style from '../styles/MonthlyGraphic.module.css'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';

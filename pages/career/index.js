@@ -1,7 +1,7 @@
 import React from 'react'
 import JobOpening from '../../components/JobOpening'
 import style from '../../styles/Career.module.css'
-import { perks, openings } from './data'
+import {perks, openings} from '../../data/data.js'
 function Career() {
   return (
     <div className={style.container}>
