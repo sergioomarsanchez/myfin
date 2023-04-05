@@ -23,7 +23,6 @@
 .graphicContainer{
     display: flex;
     flex-direction: column;
-
 }
 
 .yearGraphic{
@@ -46,4 +45,12 @@
 .graphicMonth{
     width: 40%;
     margin: 3rem;
+}
+
+.message{
+    font-weight: 300;
+    letter-spacing: 12px;
+    font-style: oblique;
+    margin: 2rem;
+    color: #777;
 }

@@ -141,7 +141,7 @@ function AccountDetail({acc}) {
             <Line options={options} data={data} />
           </div>}
           </div>
-          :<div>Sorry No Transactions found in the year slected, try other</div>
+          :<div className={style.message}>Sorry No Transactions found in the year slected, try other</div>
           }
           <div className={style.monthGraphicsContainer}>
           <div className={style.monthSelectorContainer}>
@@ -166,7 +166,7 @@ function AccountDetail({acc}) {
               <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
             </div>
             </div>
-            :<div>No Credit Transactions found in the year slected</div>}
+            :<div className={style.message}>No Transactions found in the year slected</div>}
           </div>
         </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
