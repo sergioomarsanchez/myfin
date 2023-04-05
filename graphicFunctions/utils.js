@@ -27,6 +27,9 @@ function getMonthlyCreditDebit(transactions) {
   });
 
   const years = Object.keys(creditByYearMonth).sort();
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  if(!years.includes(currentYear))years.push(currentYear)
 
   const result = years.map(year => {
     const credit = [];
