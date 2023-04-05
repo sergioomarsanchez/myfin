@@ -130,14 +130,18 @@ function AccountDetail({acc}) {
           </div>
         <div className={style.graphicContainer}>
           {
-            graphicFormat === 'Bar'?
+            yearTransactions.length?
+            <div className={style.yearGraphicContainer}>
+           { graphicFormat === 'Bar'?
           <div className={style.yearGraphic}>
             <Bar options={options} data={data} />
           </div>
           :
           <div className={style.yearGraphic}>
             <Line options={options} data={data} />
+          </div>}
           </div>
+          :<div>Sorry No Transactions found in the year slected, try other</div>
           }
           <div className={style.monthGraphicsContainer}>
           <div className={style.monthSelectorContainer}>
@@ -151,14 +155,18 @@ function AccountDetail({acc}) {
                   }
             </select>
           </div>
-            { yearTransactions.length? <div className={style.graphicMonth}>
+            { yearTransactions.length?
+            <div className={style.graphicWrapper}>
+            <div className={style.graphicMonth}>
               <h3>Credit transactions</h3>
               <MonthlyGraphic month={month} type='credit' yearTransactions={yearTransactions} />
-            </div>:<div>Loading...</div>}
-            { yearTransactions.length? <div className={style.graphicMonth}>
+            </div>
+            <div className={style.graphicMonth}>
               <h3>Debit transactions</h3>
               <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
-            </div>:<div>Loading...</div>}
+            </div>
+            </div>
+            :<div>No Credit Transactions found in the year slected</div>}
           </div>
         </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
