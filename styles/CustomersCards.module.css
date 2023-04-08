@@ -48,3 +48,23 @@
     right: 0;
     font-size: 50px;
 }
+
+@media only screen and (max-width: 850px) {
+    .container{
+        flex-wrap: wrap;
+        height: 20rem;
+        width: 20rem;
+        margin: 1rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .image{
+        height: 150px;
+    }
+    .profile{
+        height: 150px;
+    }
+}
