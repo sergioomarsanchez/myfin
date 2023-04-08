@@ -5,8 +5,8 @@ import { useRouter } from 'next/router'
 
 
 function MobileMenu({ setMobileIsOpen, mobileIsOpen, handleClick, setIsOpen, setIsOpenLogin, user}) {
-    const [initial, setInitial] = useState(false)
     const router = useRouter()
+    const [initial, setInitial] = useState(false)
     const isInitialMount = useRef(true)
 
 

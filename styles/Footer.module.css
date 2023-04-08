@@ -1,5 +1,5 @@
 .container{
-    height: calc(23vh - 90px);
+    min-height: 150px;
     background-color: rgb(20, 20, 20);
     display: flex;
     justify-content: space-between;
@@ -62,4 +62,25 @@
 .item{
     cursor: pointer;
     margin-bottom: 0.3rem;
+}
+
+@media only screen and (max-width: 850px) {
+    .container{
+        flex-direction: column-reverse;
+    }
+    .left{
+        display: none;
+    }
+    .list{
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    .item{
+        margin: 1rem;
+        flex-wrap: wrap;
+    }
+    .right{
+        width: 100%;
+    }
 }

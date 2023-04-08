@@ -37,8 +37,6 @@ function Footer() {
           <Link href='/contact' passHref>
           <li className={style.item}>Contact</li>
           </Link>
-          <li className={style.item}>Product Help</li>
-          <li className={style.item}>Report an issue</li>
           <Link href='/career' passHref>
           <li className={style.item}>Career</li>
           </Link>
