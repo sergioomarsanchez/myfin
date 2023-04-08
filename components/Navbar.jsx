@@ -92,6 +92,8 @@ function Navbar() {
         </label>
           { <MobileMenu
             setMobileIsOpen={setMobileIsOpen}
+            user={user}
+            id={id}
             mobileIsOpen={mobileIsOpen}
             handleClick={handleClick}
             setIsOpen={setIsOpen}

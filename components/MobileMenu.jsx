@@ -4,19 +4,13 @@ import style from '../styles/MobileMenu.module.css'
 import { useRouter } from 'next/router'
 
 
-function MobileMenu({ setMobileIsOpen, mobileIsOpen, handleClick, setIsOpen, setIsOpenLogin}) {
+function MobileMenu({ user, id, setMobileIsOpen, mobileIsOpen, handleClick, setIsOpen, setIsOpenLogin}) {
     const router = useRouter()
-    const [user, setUser]= useState(false)
-    const [id, setId]= useState(false)
+
     const [initial, setInitial] = useState(false)
     const isInitialMount = useRef(true)
 
-    useEffect(() => {
-      const token =  sessionStorage.getItem('token')
-      const id = sessionStorage.getItem('id')
-      setUser(token)
-      setId(id)
-     }, [])
+
     useEffect(()=>{  
         if (isInitialMount.current) {
             isInitialMount.current = false;
