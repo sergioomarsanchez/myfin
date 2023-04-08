@@ -96,11 +96,8 @@ function Navbar() {
             handleClick={handleClick}
             setIsOpen={setIsOpen}
             setIsOpenLogin={setIsOpenLogin}
-            user={user}
             isOpen={isOpen}
             isOpenLogin={isOpenLogin}
-            setUser={setUser}
-            setId={setId}
             />}
         </div>
       </div>
