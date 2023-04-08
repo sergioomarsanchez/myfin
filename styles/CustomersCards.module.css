@@ -49,7 +49,8 @@
     font-size: 50px;
 }
 
-@media only screen and (max-width: 850px) {
+
+@media only screen and (max-width: 1080px) {
     .container{
         flex-wrap: wrap;
         height: 20rem;

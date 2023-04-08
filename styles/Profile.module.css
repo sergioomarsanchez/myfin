@@ -5,7 +5,7 @@
     padding-left: 2rem;
     margin-bottom: 4rem;
     flex-wrap: wrap;
-    min-height: 81vh ;
+    height: calc(90vh - 5rem);
 }
 .wrapper{
     width: 90%;
@@ -71,4 +71,23 @@
     flex-wrap: wrap;
     padding-left: 5rem;
     justify-content: center;
+}
+.mobileTitle{
+    display: none;
+}
+@media only screen and (max-width: 850px) {
+    .title{
+        display: none;
+    }
+    .mobileTitle{
+        display: flex;
+        flex-direction: column;
+        font-weight: 200;
+        font-size: 20px;
+    }
+    .titleName{
+        margin-left: 0;
+        font-weight: 200;
+        font-size: 20px;
+    }
 }

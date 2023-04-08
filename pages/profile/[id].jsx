@@ -35,6 +35,7 @@ function Profile({user}) {
     <div className={style.container}>
         { id && token?<div className={style.wrapper}>
         <h2 className={style.title}>Welcome back <span className={style.titleName}>{user.firstName + ' ' + user.lastName}</span>, nice to see you again</h2>
+        <h2 className={style.mobileTitle}>Welcome back<span className={style.titleName}>{user.firstName + ' ' + user.lastName}</span>Nice to see you again</h2>
         <div className={style.totalContainer}>
         <h4 className={style.totals}>Your total USD Balance is: <span style={{color: totalUSD>0?'#4ada84':'white'}} className={style.totalAmount}>${parseFloat(Number(totalUSD)).toFixed(2)}</span></h4>
         <h4 className={style.totals}>Your total ARS Balance is: <span style={{color: totalARS>0?'#4ada84':'white'}} className={style.totalAmount}>${parseFloat(Number(totalARS)).toFixed(2)}</span></h4>
