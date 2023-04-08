@@ -1,10 +1,17 @@
 .container{
     display: flex;
     margin-top: 3rem;
-    height: calc(100vh - 10rem);
-    padding: 5rem 15rem 5rem 15rem;
+    height: calc(90vh - 5rem);
+    background-color: rgb(40, 40, 40);
     align-items: center;
-    flex-flow: column;
+    justify-content: center;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
 }
 
 .title{
@@ -15,7 +22,26 @@
 }
 
 .text{
+    display: flex;
     font-weight: 300;
-    text-align: left;
+    align-items: center;
+    height: 6rem;
     width: 60%;
+    margin-bottom: 1rem;
 }
+
+@media only screen and (max-width: 900px) {
+
+    .container{
+         margin-top: 3rem;
+    } 
+    .wrapper{
+        width: 90%;
+    }
+    .text{
+        width: 90%;
+        font-size: 12px;
+        margin-bottom: 1rem;
+    }
+    
+} 
