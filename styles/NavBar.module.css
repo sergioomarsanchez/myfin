@@ -97,10 +97,113 @@
   box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
 }
 
-/*
-#4ada84 verdecito
-#463ba3 lila
- #141c24 Dark
- #9603e4 
-*/
+.mobileMenuContainer{
+  display: none;
+}
 
+@media only screen and (max-width: 850px) {
+  
+  .signupButton, .loginButton, .logoutButton {
+  display: none;
+  }
+  .mobileMenuContainer{
+      display: fixed;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+  }
+  .linksContainer{
+    display: none;
+  }
+  .logo{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+.webContainer{
+  display: none;
+}
+.mobileMenuContainer{
+  display: flex;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+
+.menuButton,
+.close {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  transition: 0.5s ease-in-out;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+.menuButtonTop,
+.closeTop {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  transition: 0.5s ease-in-out;
+  border-radius: 2px;
+}
+
+.menuButtonBottom,
+.closeBottom {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  transition: 0.5s ease-in-out;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+.close {
+  display: block;
+  opacity: 0;
+}
+
+.closeTop {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  transition: 0.5s ease-in-out;
+  border-radius: 2px;
+  margin-top: 10px;
+  transform: rotate(135deg);
+}
+
+
+.closeBottom {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  transition: 0.5s ease-in-out;
+  border-radius: 2px;
+  margin-top: 10px;
+  transform: rotate(-135deg);
+}
+
+
+
+
+
+
+
+
+}

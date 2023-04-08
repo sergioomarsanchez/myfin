@@ -8,10 +8,12 @@ import Swal from 'sweetalert2'
 import { clearStates } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
+import MobileMenu from './MobileMenu'
 
 function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false)
+  const [mobileIsOpen, setMobileIsOpen] = useState(false)
   const [user, setUser]= useState(false)
   const [id, setId]= useState(false)
   const [isOpenLogin, setIsOpenLogin] = useState(false)
@@ -82,6 +84,26 @@ function Navbar() {
         {user?<button onClick={handleClick} className={style.logoutButton}>Log out</button>:null}
         {!user && (isOpen?<SignUp setIsOpen={setIsOpen}/>:<button onClick={()=>setIsOpen(true)} className={style.signupButton}>Sign Up</button>)}
         {!user && (isOpenLogin?<Login setUser={setUser} setIsOpenLogin={setIsOpenLogin} setIsOpen={setIsOpen} setId={setId} />:<button onClick={()=>setIsOpenLogin(true)} className={style.loginButton}>Log In</button>)}
+        <div onClick={()=>setMobileIsOpen(!mobileIsOpen)} className={style.mobileMenuContainer}>
+        <label className={style.menuButtonContainer} htmlFor="menu-toggle">
+          <div className={!mobileIsOpen?style.menuButtonTop:style.closeTop}></div>
+          <div className={!mobileIsOpen?style.menuButton:style.close}></div>
+          <div className={!mobileIsOpen?style.menuButtonBottom:style.closeBottom}></div>
+        </label>
+            {/* <button className={style.MobileMenuButton} onClick={()=>setMobileIsOpen(true)}>MobileButton</button> */}
+          { <MobileMenu
+            setMobileIsOpen={setMobileIsOpen}
+            mobileIsOpen={mobileIsOpen}
+            handleClick={handleClick}
+            setIsOpen={setIsOpen}
+            setIsOpenLogin={setIsOpenLogin}
+            user={user}
+            isOpen={isOpen}
+            isOpenLogin={isOpenLogin}
+            setUser={setUser}
+            setId={setId}
+            />}
+        </div>
       </div>
     </div>
   )
