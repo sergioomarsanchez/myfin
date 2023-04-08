@@ -19,8 +19,10 @@ function Career() {
     <h4 className={style.openingsTitle}>Our Openings</h4>  
     <section className={style.openingContainer}>
     {
-        openings? openings.map((opening, i)=>{
-            return <JobOpening key={i} opening={opening} />
+        openings? openings.map((opening, index)=>{
+            return <div key={index} >
+              <JobOpening opening={opening} />
+              </div>
         }):<div>We have no Openings at the moment</div>
     }
     </section>
