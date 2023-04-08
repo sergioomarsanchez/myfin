@@ -116,3 +116,31 @@
     }
   }
   
+  @media only screen and (max-width: 850px) {
+    .pageTitle{
+      font-weight:lighter;
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+    .image{
+      width: 70%;
+      height: 50%;
+  }
+  .content{
+    font-size: 12px;
+}
+  .title{
+    font-size: 1.5rem;
+    width: 90%;
+  }
+  .content img{
+      width: 40%;
+      box-shadow: 0 0 7px 0 grey;
+  }
+  .content p{
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  
+  
+  }
