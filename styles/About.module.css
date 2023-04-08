@@ -38,6 +38,9 @@
     .wrapper{
         width: 90%;
     }
+    .title{
+        margin-bottom: 1rem;
+    }
     .text{
         width: 90%;
         font-size: 12px;
