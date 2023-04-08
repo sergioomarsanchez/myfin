@@ -131,3 +131,11 @@ font-weight: 300;
     transform: scale(0.99);
 
 }
+@media only screen and (max-width: 850px) {
+    .container{
+        width: 100vw;
+    }
+    .wrapper {
+        width: 90%;
+    }
+}
