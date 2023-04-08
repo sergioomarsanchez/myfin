@@ -1,3 +1,6 @@
+.initial{
+    display: none;
+}
 .container, .containerOut{
     position: fixed;
     top: 40px;
@@ -19,7 +22,7 @@
 .containerOut {
     position: fixed;
     right: -250px;
-    animation: outro 0.7s  ease-in;
+    animation: outro 0.7s  ease-out;
 }
 
 @keyframes outro {

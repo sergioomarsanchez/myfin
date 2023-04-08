@@ -1,12 +1,25 @@
-import React from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
 import style from '../styles/MobileMenu.module.css'
-import SignUp from './SignUp'
-import Login from './Login'
+import { useRouter } from 'next/router'
 
-function MobileMenu({ setMobileIsOpen, mobileIsOpen, handleClick, setIsOpen, setIsOpenLogin, isOpen, isOpenLogin, user, setUser, setId}) {
+
+function MobileMenu({ setMobileIsOpen, mobileIsOpen, handleClick, setIsOpen, setIsOpenLogin, user}) {
+    const [initial, setInitial] = useState(false)
+    const router = useRouter()
+    const isInitialMount = useRef(true)
+
+
+    useEffect(()=>{  
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+         } else{
+             setInitial(true)
+         }
+    }, [mobileIsOpen] )
+
   return (
-    <div className={mobileIsOpen ? style.container : style.containerOut}>
+    <div className={initial ? mobileIsOpen ? style.container : style.containerOut : style.initial}>
        <h5 className={style.title}>Menu</h5>
        <div className={style.linksContainer}>
       <Link href='/' passHref>

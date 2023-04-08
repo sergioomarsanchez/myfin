@@ -90,7 +90,6 @@ function Navbar() {
           <div className={!mobileIsOpen?style.menuButton:style.close}></div>
           <div className={!mobileIsOpen?style.menuButtonBottom:style.closeBottom}></div>
         </label>
-            {/* <button className={style.MobileMenuButton} onClick={()=>setMobileIsOpen(true)}>MobileButton</button> */}
           { <MobileMenu
             setMobileIsOpen={setMobileIsOpen}
             mobileIsOpen={mobileIsOpen}

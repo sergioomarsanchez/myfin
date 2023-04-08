@@ -17,8 +17,6 @@ const ContactForm = () => {
         e.target.name==='name'?setName(e.target.value)
                               :e.target.name==='email'?setEmail(e.target.value)
                               :setMessage(e.target.value)
-
-                              console.log(name, email, message)
     }
 
     const isInitialMount = useRef(true)
