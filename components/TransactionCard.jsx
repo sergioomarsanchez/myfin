@@ -31,9 +31,9 @@ function TransactionCard({ transId, balance, transaction, entityName, setBalance
                       newBalance = balance - Number(transaction.amount)
                       setBalance(newBalance)
                     }
-                    await axios.put(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + transactionAccount, { balance:newBalance })
+                    await axios.put(`http://localhost:3000/api/accounts/` + transactionAccount, { balance:newBalance })
                       dispatch(updateAccBalance({id:transactionAccount, newBalance:newBalance}))
-                    await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/` + id)
+                    await axios.delete(`http://localhost:3000/api/transactions/` + id)
                 Swal.fire({
                   color:'white',
                   background:'#141c24',
@@ -66,7 +66,18 @@ function TransactionCard({ transId, balance, transaction, entityName, setBalance
                     {transaction.type==='credit'?<th style={{color: '#4ada84'}}>+ ${parseFloat(transaction.amount).toFixed(2)}</th>:<th>- ${parseFloat(transaction.amount).toFixed(2)}</th>}
                 </tr>
                 </tbody>
-        </table>
+                </table>
+                <table className={style.mobileTable}>
+                <tbody>
+                <tr className={style.trTitle}>
+                    <th>
+                      <div>{transaction.date.slice(2,10)}</div>
+                      <div>{transaction.category}</div>
+                    </th>
+                    {transaction.type==='credit'?<th style={{color: '#4ada84'}}>+ ${parseFloat(transaction.amount).toFixed(2)}</th>:<th>- ${parseFloat(transaction.amount).toFixed(2)}</th>}
+                </tr>
+                </tbody>
+                </table>
         <div className={style.delete} onClick={()=>handleDelete(transaction._id, transaction.account)}>X</div>
     </div>
   )

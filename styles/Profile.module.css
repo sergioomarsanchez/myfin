@@ -5,7 +5,7 @@
     padding-left: 2rem;
     margin-bottom: 4rem;
     flex-wrap: wrap;
-    height: calc(90vh - 5rem);
+    min-height: calc(90vh - 5rem);
 }
 .wrapper{
     width: 90%;
@@ -75,6 +75,20 @@
 .mobileTitle{
     display: none;
 }
+
+@media only screen and (max-width: 1500px) {
+    .container{
+        padding-left: 0.5rem;
+    }
+    .totalContainer{
+        justify-content:space-between;
+        width: 90%;
+    }
+    .accountsContainer{
+        padding-left: 0rem;
+    }
+}
+
 @media only screen and (max-width: 850px) {
     .title{
         display: none;
@@ -87,7 +101,15 @@
     }
     .titleName{
         margin-left: 0;
-        font-weight: 200;
+        font-weight: 300;
         font-size: 20px;
+    }
+    .totalContainer{
+       font-size: 12px;
+       flex-direction: column;
+    }
+    .division{
+        margin-left: 0;
+        font-size: 10px;
     }
 }

@@ -4,7 +4,7 @@
     min-width: 48%;
     height: 25rem;
     background-color: rgb(23, 23, 23);
-    color: white;
+    color: rgb(224, 224, 224);
     border: 1px solid grey;
     border-radius: 15px;
     padding: 1rem;
@@ -90,7 +90,7 @@
 }
 .transactionsContainer{
     height: 8rem;
-    background-color: white;
+    background-color: rgb(227, 227, 227);
     overflow: scroll;
     border-radius: 10px;
     padding: 1rem;
@@ -130,4 +130,44 @@
 .detailButton:active{
     background-color: grey;
     transform: scale(0.99);
+}
+.noTransactions{
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1500px) {
+    .container{
+        min-width: 40%;
+    }
+    .actions{
+        top: 1.5rem;
+    }
+    .deleteAcc{
+        margin-bottom: 2rem;
+    }
+    .trTitle{
+        display: none;
+    }
+    .entityName, .type{
+        font-size: 12px;
+    }
+    .container h3{
+        margin: 0.5rem;
+    }
+    .container h3:nth-child(2){
+        margin: 0 0 0 0.5rem;
+    }
+    .wrapper{
+        position: relative;
+        align-self: center;
+        top: 20px;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .transactionsContainer{
+        height: 12rem;
+    }
+    .noTransactions{
+        margin-top: 4rem;
+      }
 }

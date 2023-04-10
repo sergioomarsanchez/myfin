@@ -35,7 +35,7 @@ useEffect(()=>{
     async function handleSubmit (event) {
     event.preventDefault();
     try {
-        const url='https://myfin-sergioomarsanchez.vercel.app/api/contact'
+        const url='http://localhost:3000/api/contact'
         const { data: res } = await axios.post(url, {name, email, message})
 
         Swal.fire({

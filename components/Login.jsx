@@ -27,7 +27,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
         e.preventDefault()
 
         try {
-            const url='https://myfin-sergioomarsanchez.vercel.app/api/auth'
+            const url='http://localhost:3000/api/auth'
             const { data: res } = await axios.post(url, input)
             sessionStorage.setItem('token', res.data)
             sessionStorage.setItem('id', res.id)

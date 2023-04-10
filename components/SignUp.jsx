@@ -26,7 +26,7 @@ function SignUp({setIsOpen}) {
         e.preventDefault()
 
         try {
-            const url='https://myfin-sergioomarsanchez.vercel.app/api/users'
+            const url='http://localhost:3000/api/users'
             const { data: res } = await axios.post(url, input)
             router.push('/')
             Swal.fire({

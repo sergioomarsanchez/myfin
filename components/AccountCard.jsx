@@ -52,8 +52,8 @@ useEffect(() => {
         }).then(async(result) => {
             if (result.isConfirmed) {
                 try {
-                    const { data: res } = await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/transactions/?accountId=${acc._id}`)
-                    const { data: deleted } = await axios.delete(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/${acc._id}`)
+                    const { data: res } = await axios.delete(`http://localhost:3000/api/transactions/?accountId=${acc._id}`)
+                    const { data: deleted } = await axios.delete(`http://localhost:3000/api/accounts/${acc._id}`)
                     dispatch(deleteAccount(acc._id, acc.balance, acc.entityName))
                 Swal.fire({
                   color:'white',
@@ -78,8 +78,8 @@ useEffect(() => {
   return (
     <div key={acc._id} className={style.container}>
         <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
-        <h3>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
-        <h3>Balance: ${parseFloat(balance).toFixed(2)}</h3>
+        <h3 className={style.entityName}>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
+        <h3 className={style.entityName}>Balance: ${parseFloat(balance).toFixed(2)}</h3>
         <div className={style.actions}>
         <span onClick={handleDelete} className={style.deleteAcc}>- Delete Account</span>
         <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span>
@@ -98,12 +98,13 @@ useEffect(() => {
                 </tbody>
         </table>
         <div className={style.transactionsContainer}>
-    {
+    {   accTransactions.length!==0?
         accTransactions?.map(t=>{
             return<div key={t._id}>
                 <TransactionCard setBalance={setBalance} balance={balance} transId={t._id} transaction={t} entityName={acc.entityName}/>
                 </div> 
             })
+        :<div className={style.noTransactions}>No Transactions added. - <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span></div>
         }
         </div>
         {amountOfTransactions>0?
