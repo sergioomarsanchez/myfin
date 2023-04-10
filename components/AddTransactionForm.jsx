@@ -62,6 +62,7 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
         try {
             const url='https://myfin-sergioomarsanchez.vercel.app/api/transactions'
             const { data: res } = await axios.post(url, {...input, account:account})
+            dispatch(addTransactions(account, res))
             let currentBalance = balance
             if(input.type === 'credit'){
                 currentBalance=balance + Number(input.amount)
@@ -94,7 +95,6 @@ function AddTransactionForm({account, setIsOpen, setBalance, balance,  entityNam
             background:'#141c24',
             })
             setIsOpen(false)
-            dispatch(addTransactions(account, res))
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
                 Swal.fire({
