@@ -60,7 +60,7 @@ export default function reducer(state = initialState, action){
             return acc
           }, {})
 
-          if(action.entityName.includes('ars')){
+          if(action.entityName.toLowerCase().includes('ars')){
             return {
               ...state,
               allAccounts: state.allAccounts.filter(acc=>acc._id!==action.payload),
