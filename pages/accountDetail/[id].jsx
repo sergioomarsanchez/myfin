@@ -163,14 +163,14 @@ function AccountDetail({acc}) {
           </div>
             { yearTransactions.length?
             <div className={style.graphicWrapper}>
-            <div className={style.graphicMonth}>
-              <h3>Credit transactions</h3>
-              <MonthlyGraphic month={month} type='credit' yearTransactions={yearTransactions} />
-            </div>
-            <div className={style.graphicMonth}>
-              <h3>Debit transactions</h3>
-              <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
-            </div>
+              <div className={style.graphicMonth}>
+                <h3>Credit transactions</h3>
+                <MonthlyGraphic month={month} type='credit' yearTransactions={yearTransactions} />
+              </div>
+              <div className={style.graphicMonth}>
+                <h3>Debit transactions</h3>
+                <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
+              </div>
             </div>
             :<div className={style.message}>No Transactions found in the year slected</div>}
           </div>
@@ -181,7 +181,7 @@ function AccountDetail({acc}) {
 }
 
 export const getServerSideProps = async ({params})=>{
-    const acc = await axios.get(`http://localhost:3000/api/accounts/` + params.id )
+    const acc = await axios.get(`https://myfin-sergioomarsanchez.vercel.app/api/accounts/` + params.id )
     return {
         props:{
         acc: acc.data

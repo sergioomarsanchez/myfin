@@ -59,7 +59,7 @@ function Profile({user}) {
 }
 
 export const getServerSideProps = async ({params})=>{
-    const res = await axios.get(`http://localhost:3000/api/users/${params.id}`)
+    const res = await axios.get(`https://myfin-sergioomarsanchez.vercel.app/api/users/${params.id}`)
     return {
         props:{
         user: res.data,

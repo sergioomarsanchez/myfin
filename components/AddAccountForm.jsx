@@ -76,7 +76,7 @@ function AddAccountForm({ userId, setIsOpen}) {
         try {
 
             input.entityName = `${input.entityName} ${input.currency}`
-            const url='http://localhost:3000/api/accounts'
+            const url='https://myfin-sergioomarsanchez.vercel.app/api/accounts'
             const { data: res } = await axios.post(url, {...input, userId:userId})
             dispatch(addAccount(res))
             dispatch(setTotals(res))
