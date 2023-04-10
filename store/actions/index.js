@@ -45,6 +45,7 @@ export function fetchTransactions(accountId){
 }
 } 
 export function addTransactions(accountId, payload){
+ 
     return async (dispatch)=>{
         try {
             return dispatch({
