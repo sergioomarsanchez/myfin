@@ -33,13 +33,9 @@ export default function reducer(state = initialState, action){
                     allAccounts: [...state.allAccounts, action.payload]
                 };
         case ADD_TRANSACTIONS:
-          const newTransactions = {
-            ...state.transactions,
-            [action.accountId]: [...state.transactions[action.accountId], action.payload]
-          };
           return {
             ...state,
-            transactions: newTransactions
+            transactions: {...state.transactions, [action.accountId]: [...state.transactions[action.accountId], action.payload]}
           };
         case SET_TRANSACTIONS_PER_YEAR:
                 return {
