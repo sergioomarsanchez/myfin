@@ -69,6 +69,7 @@ function SignUp({setIsOpen}) {
         <div className={style.input}>Last Name: <br/><input value={input.lastName} name='lastName' type="text" placeholder='e.g Doe' required onChange={(e)=>handleInput(e)}/></div>
         <div className={style.input}>Email Address: <br/><input value={input.email} name='email' type="text" placeholder='e.g jondoe@example.com' required onChange={(e)=>handleInput(e)}/></div>
         <div className={style.input}>Password: <br/><input value={input.password} name='password' type="password" placeholder='e.g Amias12!' required onChange={(e)=>handleInput(e)}/></div>
+        <span className={style.passwordRequirements}>Password must contain at least one capital letter, one number, and one special character (e.g. !, @, #, $, %, ^, &amp;#38;, *, _, -, +, =, |, &amp;#92;, :, ;, &amp;quot;, &amp;lt;, &amp;gt;)</span>
 
         {error && <div className={style.error}>* {error}</div>}
 
