@@ -52,7 +52,6 @@ useEffect(()=>{
         setMessage("");
         isInitialMount.current = true;
     } catch (error) {
-        console.log(error)
         if(error.response && error.response.status >=400 && error.response.status <= 500){
             Swal.fire({
                 icon: 'error',

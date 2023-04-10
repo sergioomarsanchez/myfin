@@ -36,7 +36,6 @@ function AccountDetail({acc}) {
       setAccount(acc)
       if(!Object.keys(transactions).length)dispatch(fetchTransactions(acc._id))
       return () => {
-        console.log(Object.keys(transactions))
       }
     }, [acc._id])
     
@@ -63,7 +62,6 @@ function AccountDetail({acc}) {
         setYearTransactions(yearTransactions)
         dispatch(setTransactionsPerYear(getMonthlyGraphicData(yearTransactions)))
       }
-      console.log(yearTransactions)
     }, [accTransactions,year])
        
 
