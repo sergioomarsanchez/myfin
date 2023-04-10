@@ -106,32 +106,38 @@ function AccountDetail({acc}) {
   return (
     <div className={style.container}>
         { id && token?<div className={style.wrapper}>
-        <Image src={account.logo} alt='' width={50} height={50}/>
-        <h2 className={style.title}>{account.entityName} {account.type}</h2>
-        <h4 className={style.totals}>Balance is: <span style={{color: account.balance>0?'#4ada84':'red'}} className={style.totalammount}>${parseFloat(account.balance).toFixed(2)}</span></h4>
-          <div className={style.yearSelectorContainer}>
-            Select a Year:  
-            <select className={style.yearSelector} name="year" value={year} onChange={e=>setYear(e.target.value)} id="">
-                {
-                  graphicData?.map((year)=>{
-                    return<option key={year}>
-                    { Object.keys(year)[0]}
-                  </option>})
-                  }
-                  
-            </select>
-          </div>
-          <div className={style.formatSelectorContainer}>
-            Select a Graphic Format:  
-            <select className={style.formatSelector} name="format" value={graphicFormat} onChange={e=>setGraphicFormat(e.target.value)} id="">
-                <option value='Bar'>Bar</option>
-                <option value='Line'>Line</option>
-            </select>
+          <div className={style.header}>
+            <div className={style.account}>
+            <Image src={account.logo} alt='' width={50} height={50}/>
+            <h2 className={style.title}>{account.entityName} {account.type}</h2>
+            </div>
+            <div className={style.balanceYear}>
+            <h4 className={style.totals}>Balance is: <span style={{color: account.balance>0?'#4ada84':'red'}} className={style.totalammount}>${parseFloat(account.balance).toFixed(2)}</span></h4>
+              <div className={style.yearSelectorContainer}>
+                Select a Year:  
+                <select className={style.yearSelector} name="year" value={year} onChange={e=>setYear(e.target.value)} id="">
+                    {
+                      graphicData?.map((year)=>{
+                        return<option key={year}>
+                        { Object.keys(year)[0]}
+                      </option>})
+                      }
+                      
+                </select>
+              </div>
+            </div>
           </div>
         <div className={style.graphicContainer}>
           {
             yearTransactions.length?
             <div className={style.yearGraphicContainer}>
+              <div className={style.formatSelectorContainer}>
+                Select a Graphic Format:  
+                <select className={style.formatSelector} name="format" value={graphicFormat} onChange={e=>setGraphicFormat(e.target.value)} id="">
+                    <option value='Bar'>Bar</option>
+                    <option value='Line'>Line</option>
+                </select>
+              </div>
            { graphicFormat === 'Bar'?
           <div className={style.yearGraphic}>
             <Bar options={options} data={data} />
