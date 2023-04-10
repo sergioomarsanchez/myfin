@@ -98,6 +98,7 @@
         flex-direction: column;
         font-weight: 200;
         font-size: 20px;
+        margin-left: 1rem;
     }
     .titleName{
         margin-left: 0;
@@ -107,9 +108,11 @@
     .totalContainer{
        font-size: 12px;
        flex-direction: column;
+       margin-left: 1rem;
     }
     .division{
         margin-left: 0;
         font-size: 10px;
+        margin-left: 1rem;
     }
 }
