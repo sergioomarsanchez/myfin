@@ -20,20 +20,22 @@ function AccountCard({acc}) {
 
 
     useEffect(() => {
-        dispatch(setTotals(acc))
-        if(!Object.keys(transactions).length)dispatch(fetchTransactions(acc._id))
-    }, [])
+        dispatch(setTotals(acc));
+        if (!Object.keys(transactions).length) {
+            dispatch(fetchTransactions(acc._id));
+        }
+        if (transactions[acc._id]) {
+            setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
+                return new Date(b.date) - new Date(a.date);
+            }));
+        }
+    }, [acc, dispatch, transactions]);
     
     useEffect(() => {
-        if(transactions[acc._id]){setAccTransactions(transactions[acc._id]?.sort(function(a, b) {
-            return new Date(b.date) - new Date(a.date);
-        }))
-    }
-}, [transactions])
-
-useEffect(() => {
-        if(transactions[acc._id])setAmountOfTransactions(accTransactions.length)
-    }, [transactions, accTransactions])
+        if (transactions[acc._id]) {
+            setAmountOfTransactions(transactions[acc._id]?.length);
+        }
+    }, [transactions, accTransactions]);
     
 
     function handleDelete() {
