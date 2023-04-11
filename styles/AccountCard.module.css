@@ -136,9 +136,6 @@
 }
 
 @media only screen and (max-width: 1500px) {
-    .container{
-        min-width: 90%;
-    }
     .actions{
         top: 1.5rem;
     }
@@ -170,4 +167,10 @@
     .noTransactions{
         margin-top: 4rem;
       }
+}
+
+@media only screen and (max-width: 450px) {
+    .container{
+        min-width: 90%;
+    }
 }
