@@ -113,7 +113,7 @@ function AddAccountForm({ userId, setIsOpen}) {
     <div className={style.container}>
   <form className={style.wrapper} onSubmit={handleSubmit}>
         <div className={style.close} name='X' onClick={(e)=>handleCancel(e)}>X</div>
-        <h2 className={style.title}>Add new Accoung</h2>
+        <h2 className={style.title}>Add new Account</h2>
         <div className={style.entityInputContainer}>
 
         {
