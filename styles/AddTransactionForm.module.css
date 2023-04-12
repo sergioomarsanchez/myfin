@@ -61,6 +61,7 @@
         margin-top: 15px;
         outline: none;
         text-align: center;
+        color: white;
     }
     
     .input input:focus{
