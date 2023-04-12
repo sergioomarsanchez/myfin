@@ -60,10 +60,11 @@ function Profile({user}) {
         {
             acc?.map((a, i)=>{
                 return(
-                    <AccountCard key={a._id} acc={a} accounts={acc} reffer={i === acc.length - 1 ? inToScroll : null}/>
+                    <AccountCard key={a._id} acc={a} accounts={acc}/>
                     )
                 })
             }
+            <div ref={inToScroll}></div>
             </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
     </div>
