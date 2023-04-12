@@ -14,7 +14,9 @@ function Profile({user}) {
     const totalUSD = useSelector(state=>state.totalUSD)
     const acc = useSelector(state=>state.allAccounts)
     const dispatch = useDispatch()
-
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [])
     
     useEffect(() => {
       const token =  sessionStorage.getItem('token')

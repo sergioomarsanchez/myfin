@@ -29,6 +29,9 @@ function AccountDetail({acc}) {
     
     const dispatch = useDispatch()
     useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [])
+    useEffect(() => {
       const token = sessionStorage.getItem('token')
       const id = sessionStorage.getItem('id')
       setToken(token)

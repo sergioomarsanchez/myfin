@@ -8,7 +8,9 @@ import Image from 'next/image'
 
 function News({ apiKey }) {
   const [articles, setArticles] = useState([])
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   useEffect(() => {
     const options = {
       method: 'GET',

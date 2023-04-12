@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import JobOpening from '../../components/JobOpening'
 import style from '../../styles/Career.module.css'
 import {perks, openings} from '../../data/data.js'
 function Career() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <div className={style.container}>
     <h2 className={style.title}>Join Us</h2> 

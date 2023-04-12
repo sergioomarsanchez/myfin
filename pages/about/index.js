@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import style from '../../styles/About.module.css'
 
 function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
