@@ -10,7 +10,7 @@ import axios from 'axios'
 import AddTransactionForm from './AddTransactionForm'
 
 
-function AccountCard({acc}) {
+function AccountCard({acc, ref}) {
     const dispatch = useDispatch()
     const transactions = useSelector(state=>state.transactions)
     const [accTransactions, setAccTransactions] = useState([])
@@ -78,7 +78,7 @@ function AccountCard({acc}) {
 
 
   return (
-    <div key={acc._id} className={style.container}>
+    <div key={acc._id} className={style.container} ref={ref}>
         <Image className={style.entityLogo} alt='' src={acc.logo} width={25} height={25}/>
         <h3 className={style.entityName}>{acc.entityName} <span className={style.type}>{acc.accountType}</span>account</h3>
         <h3 className={style.entityName}>Balance: ${parseFloat(balance).toFixed(2)}</h3>

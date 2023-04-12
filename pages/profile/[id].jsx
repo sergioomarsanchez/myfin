@@ -57,17 +57,16 @@ function Profile({user}) {
         <h3>Your accounts</h3><div className={style.line}/> <div className={style.addAccount} onClick={()=>setIsOpen(true)}>+ Add New Account</div>
         </div>
         <div className={style.accountsContainer}>
-          {
-            acc?.map((a, i)=>{
-              return(
-                <div key={a._id} ref={i === acc.length - 1 ? inToScroll : null}>
-                  <AccountCard acc={a} accounts={acc}/>
-                </div>
-              )
-            })
-          }
-        </div>
+        {
+            acc?.map(a=>{
+                return(
+                    <AccountCard key={a._id} acc={a} accounts={acc} ref={i === acc.length - 1 ? inToScroll : null}/>
+                    )
+                })
+            }
+            </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
+        <div ref={inToScroll}></div>
     </div>
   )
 }
