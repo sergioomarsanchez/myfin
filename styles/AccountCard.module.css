@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     min-width: 48%;
-    height: 25rem;
+    min-height: 25rem;
     background-color: rgb(23, 23, 23);
     color: rgb(224, 224, 224);
     border: 1px solid grey;
@@ -162,7 +162,7 @@
         margin-right: 1rem;
     }
     .transactionsContainer{
-        height: 10rem;
+        min-height: 10rem;
     }
     .noTransactions{
         margin-top: 4rem;
