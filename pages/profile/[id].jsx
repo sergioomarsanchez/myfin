@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAccounts, fetchTransactions } from '../../store/actions'
 import axios from 'axios'
@@ -14,6 +14,17 @@ function Profile({user}) {
     const totalUSD = useSelector(state=>state.totalUSD)
     const acc = useSelector(state=>state.allAccounts)
     const dispatch = useDispatch()
+    const isInitialMount = useRef(true)
+    const inToScroll = useRef(null)
+
+    useEffect(()=>{  
+        if (isInitialMount.current) {
+            isInitialMount.current = false;
+         } else{
+          inToScroll.current?.scrollIntoView({behavior: 'smooth'})
+         }
+    }, [acc] )
+
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [])
@@ -56,6 +67,7 @@ function Profile({user}) {
             }
             </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
+        <div ref={inToScroll}></div>
     </div>
   )
 }
