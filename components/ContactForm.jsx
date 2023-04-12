@@ -71,17 +71,17 @@ useEffect(()=>{
       <form onSubmit={handleSubmit}>
           <div className={style.inputContainer}>
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={name} required onChange={(e)=>handleInput(e)}/>
+        <input className={style.inputElement} type="text" id="name" name="name" value={name} required onChange={(e)=>handleInput(e)}/>
         {errors.name?<div className={style.errors}>* {errors.name}</div>:<div className={style.noErrors}></div>}
           </div>
           <div className={style.inputContainer}>
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" value={email} required onChange={(e)=>handleInput(e)}/>
+        <input className={style.inputElement} type="email" id="email" name="email" value={email} required onChange={(e)=>handleInput(e)}/>
         {errors.email?<div className={style.errors}>* {errors.email}</div>:<div className={style.noErrors}></div>}
           </div>
           <div className={style.inputContainer}>
         <label htmlFor="message">Message:</label>
-        <textarea id="message" name="message" rows="5" value={message} required onChange={(e)=>handleInput(e)}/>
+        <textarea className={style.inputElement} id="message" name="message" rows="5" value={message} required onChange={(e)=>handleInput(e)}/>
         {errors.message?<div className={style.errors}>* {errors.message}</div>:<div className={style.noErrors}></div>}
           </div>
         <button disabled={name===''||email===''||message===''||Object.keys(errors).length > 0} type="submit">Send Message</button>

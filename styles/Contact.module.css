@@ -8,6 +8,6 @@
     flex-direction: column;
     color: white;
 }
-.inputContainer input, .inputContainer textarea{
+.inputElement{
     color:white
 }
