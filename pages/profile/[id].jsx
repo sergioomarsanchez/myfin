@@ -17,14 +17,6 @@ function Profile({user}) {
     const isInitialMount = useRef(true)
     const inToScroll = useRef(null)
 
-    useEffect(()=>{  
-        if (isInitialMount.current) {
-            isInitialMount.current = false;
-         } else{
-          inToScroll.current?.scrollIntoView({behavior: 'smooth'})
-         }
-    }, [acc] )
-
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [])
@@ -41,6 +33,11 @@ function Profile({user}) {
          if(acc.length)acc.forEach(acc => {
            fetchTransactions(acc._id)
          });
+         if (isInitialMount.current) {
+          isInitialMount.current = false;
+       } else{
+        inToScroll.current.scrollIntoView({behavior: 'smooth'})
+       }
        }, [acc])
        
     
