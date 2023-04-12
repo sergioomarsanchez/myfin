@@ -69,6 +69,7 @@
     .select{
         background-color: rgb(3, 3, 3);
         border: 1px solid transparent;
+        color: white;
         padding: 5px;
         border-radius: 5px;
         width: 250px;
