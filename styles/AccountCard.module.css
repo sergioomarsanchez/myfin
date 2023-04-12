@@ -11,6 +11,19 @@
     position: relative;
     margin: 1rem;
     flex-direction: column;
+    animation: wiggle 1s linear;
+}
+
+@keyframes wiggle {
+
+    0% { transform: rotate(0deg);}
+    50% { transform: rotate(0deg); box-shadow: 0 0 10px 0 #ababab7f; }
+    55% { transform: rotate(2deg); }
+    65% { transform: rotate(-2deg); }
+   80% { transform: rotate(0deg); }
+   100% { transform: rotate(0deg); box-shadow: 0 0 5px 0 #ababab7f; }
+
+    
 }
 
 .entityLogo{
