@@ -29,6 +29,7 @@
     align-self: center;
     position: relative;
     right: -12px;
+    cursor: pointer;
 }
 .delete:hover{
     color: red ;
