@@ -66,7 +66,6 @@ function Profile({user}) {
             }
             </div>
         </div> :<div className={style.warning}>Sorry you have no credentials, please, Log in again</div>}
-        <div ref={inToScroll}></div>
     </div>
   )
 }
