@@ -29,16 +29,18 @@ function Profile({user}) {
       if(!acc.length)dispatch(fetchAccounts(id))
        }, [])
 
-       useEffect(() => {
-         if(acc.length)acc.forEach(acc => {
-           fetchTransactions(acc._id)
-         });
-         if (isInitialMount.current) {
-          isInitialMount.current = false;
-       } else{
-        inToScroll.current.scrollIntoView({behavior: 'smooth'})
-       }
-       }, [acc])
+    useEffect(() => {
+    if (acc.length) {
+      const promises = acc.map((account) => dispatch(fetchTransactions(account._id)))
+      Promise.all(promises).then(() => {
+        if (!isInitialMount.current) {
+          inToScroll.current.scrollIntoView({ behavior: "smooth" })
+        }
+      })
+    } else {
+      isInitialMount.current = false
+    }
+  }, [acc])
        
     
   return (
