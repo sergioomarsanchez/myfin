@@ -58,7 +58,7 @@ function Profile({user}) {
         </div>
         <div className={style.accountsContainer}>
         {
-            acc?.map(a=>{
+            acc?.map((a, i)=>{
                 return(
                     <AccountCard key={a._id} acc={a} accounts={acc} ref={i === acc.length - 1 ? inToScroll : null}/>
                     )
