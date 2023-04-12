@@ -55,6 +55,7 @@ font-weight: 300;
     margin-top: 2px;
     outline: none;
     text-align: center;
+    color: white;
 }
 
 .input input:focus{
