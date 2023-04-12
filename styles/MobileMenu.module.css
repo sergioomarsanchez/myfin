@@ -71,7 +71,9 @@
   white-space: nowrap;
   margin-right: 1rem;
 }
-
+.logoutButton{
+  margin-right: 0;
+}
 .signupButton:active, .loginButton:active, .logoutButton:active {
   border-color: #dbdbdb;
   outline: 0;

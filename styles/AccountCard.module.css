@@ -182,8 +182,8 @@
       }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 510px) {
     .container{
-        min-width: 95%;
+        min-width: 80%;
     }
 }
