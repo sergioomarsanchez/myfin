@@ -60,7 +60,7 @@ function Profile({user}) {
         {
             acc?.map((a, i)=>{
                 return(
-                    <AccountCard key={a._id} acc={a} accounts={acc} ref={i === acc.length - 1 ? inToScroll : null}/>
+                    <AccountCard key={a._id} acc={a} accounts={acc} reffer={i === acc.length - 1 ? inToScroll : null}/>
                     )
                 })
             }
