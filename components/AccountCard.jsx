@@ -106,7 +106,7 @@ function AccountCard({acc}) {
                 <TransactionCard setBalance={setBalance} balance={balance} transId={t._id} transaction={t} entityName={acc.entityName}/>
                 </div> 
             })
-        :<div className={style.noTransactions}>No Transactions added. - <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span></div>
+        :<div className={style.noTransactions}>No Transactions added. <br></br>- <span className={style.addTransaction} onClick={()=>setIsOpen(true)}>+ Add transaction</span></div>
         }
         </div>
         {amountOfTransactions>0?
