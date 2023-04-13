@@ -11,7 +11,7 @@
     position: relative;
     margin: 1rem;
     flex-direction: column;
-    animation: wiggle 4s linear;
+    animation: wiggle 2s linear;
 }
 
 @keyframes wiggle {
@@ -184,6 +184,6 @@
 
 @media only screen and (max-width: 510px) {
     .container{
-        min-width: 80%;
+        min-width: 90%;
     }
 }
