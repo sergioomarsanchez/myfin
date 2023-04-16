@@ -7,7 +7,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function MonthlyGraphic({month, type, yearTransactions}) {
+function MonthlyGraphic({year, month, type, yearTransactions}) {
     const dispatch = useDispatch()
     const graphicData = useSelector(state=>state.transactionsPerYear)
     const [totalCredit, setTotalCredit] = useState(0)

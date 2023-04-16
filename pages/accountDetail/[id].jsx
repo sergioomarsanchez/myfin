@@ -166,11 +166,11 @@ function AccountDetail({acc}) {
             <div className={style.graphicWrapper}>
               <div className={style.graphicMonth}>
                 <h3>Credit transactions</h3>
-                <MonthlyGraphic month={month} type='credit' yearTransactions={yearTransactions} />
+                <MonthlyGraphic year={year} month={month} type='credit' yearTransactions={yearTransactions} />
               </div>
               <div className={style.graphicMonth}>
                 <h3>Debit transactions</h3>
-                <MonthlyGraphic month={month} type='debit' yearTransactions={yearTransactions} />
+                <MonthlyGraphic year={year} month={month} type='debit' yearTransactions={yearTransactions} />
               </div>
             </div>
             :<div className={style.message}>No Transactions found in the year slected</div>}
