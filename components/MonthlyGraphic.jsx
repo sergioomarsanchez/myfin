@@ -20,7 +20,7 @@ function MonthlyGraphic({year, month, type, yearTransactions}) {
 
     useEffect(() => {
         if(!graphicData)dispatch(setTransactionsPerYear(getMonthlyGraphicData(yearTransactions)))
-    }, [])
+    }, [year])
     useEffect(() => {
         if(!graphicData)return
         setTotalCredit(graphicData[Number(month)+1]['credit'].reduce((total,transactions)=>total+transactions))
