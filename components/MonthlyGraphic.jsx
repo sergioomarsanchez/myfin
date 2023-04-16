@@ -25,7 +25,7 @@ function MonthlyGraphic({year, month, type, yearTransactions}) {
         if(!graphicData)return
         setTotalCredit(graphicData[Number(month)+1]['credit'].reduce((total,transactions)=>total+transactions))
         setTotalDebit(graphicData[Number(month)+1]['debit'].reduce((total,transactions)=>total+transactions))
-    }, [month])
+    }, [month, year])
     
     const data = {
         labels: categories[type],
