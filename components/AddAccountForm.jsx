@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { addAccount, setTotals } from '../store/actions'
 import { useDispatch } from 'react-redux'
 import Image from 'next/image'

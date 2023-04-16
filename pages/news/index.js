@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import style from '../../styles/News.module.css'
 import axios from 'axios'
 import Image from 'next/image'

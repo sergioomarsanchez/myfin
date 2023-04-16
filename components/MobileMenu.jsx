@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Link from 'next/link'
 import style from '../styles/MobileMenu.module.css'
 import { useRouter } from 'next/router'

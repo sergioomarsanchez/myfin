@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import JobOpening from '../../components/JobOpening'
 import style from '../../styles/Career.module.css'
 import {perks, openings} from '../../data/data.js'

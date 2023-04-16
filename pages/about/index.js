@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 import style from '../../styles/About.module.css'
 
 function About() {

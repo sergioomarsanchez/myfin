@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import style from '../styles/ContactForm.module.css';
 import { validateInput } from '../emailHandeler/validationFunction';
 import Swal from 'sweetalert2';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import style from '../styles/AccountCard.module.css'
 import { useDispatch, useSelector } from 'react-redux'

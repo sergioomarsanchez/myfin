@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import style from '../styles/JobOpening.module.css'
 
 function JobOpening({key, opening}) {
