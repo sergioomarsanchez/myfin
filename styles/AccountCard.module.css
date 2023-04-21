@@ -128,7 +128,9 @@
     transition: 0.2s linear;
     border:2px solid grey ;
     margin-bottom: 1rem;
-    align-self: right;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .detailButton:hover{
