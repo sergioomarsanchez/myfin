@@ -1,6 +1,6 @@
 .container{
     display:flex;
-    background-color: rgb(3, 3, 3);
+    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
     padding-top: 4rem;
     padding-left: 2rem;
     margin-bottom: 4rem;
