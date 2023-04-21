@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     min-width: 48%;
     min-height: 25rem;
-    background-color: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
     color: rgb(224, 224, 224);
     border: 1px solid grey;
     border-radius: 15px;
@@ -123,10 +123,10 @@
     font-family: monospace;
     font-size: 12px;
     cursor: pointer;
-    background-color: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
+    background: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
     color: white;
     transition: 0.2s linear;
-    border:2px solid transparent ;
+    border:2px solid grey ;
     margin-bottom: 1rem;
 }
 
