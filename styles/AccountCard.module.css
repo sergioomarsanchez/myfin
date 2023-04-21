@@ -119,12 +119,11 @@
 
 .detailButton{
     padding: 2px;
-    border: 1px solid #1e5a367f;
     border-radius: 5px;
     font-family: monospace;
     font-size: 12px;
     cursor: pointer;
-    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+    background: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
     color: white;
     transition: 0.2s linear;
     border:2px solid transparent ;
