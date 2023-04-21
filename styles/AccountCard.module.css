@@ -124,10 +124,11 @@
     font-size: 12px;
     cursor: pointer;
     background: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
-    color: white;
+    color: black;
     transition: 0.2s linear;
     border:2px solid grey ;
     margin-bottom: 1rem;
+    align-self: right;
 }
 
 .detailButton:hover{
