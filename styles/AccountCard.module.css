@@ -175,7 +175,7 @@
         min-height: 10rem;
     }
     .detailButton{
-        bottom: 0.4rem;
+        bottom: -1rem;
     }
     .noTransactions{
         margin-top: 4rem;
