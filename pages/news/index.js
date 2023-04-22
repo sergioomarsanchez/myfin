@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import style from '../../styles/News.module.css'
 import axios from 'axios'
 import Image from 'next/image'
+import Loader from '../../components/Loader'
 
 
 
@@ -45,7 +46,7 @@ function News({ apiKey }) {
               <div className={style.line}/>
             </div>
           })
-          :<div className={style.ldsripple}><div></div><div></div></div>
+          :<Loader/>
         }
       </div>
       

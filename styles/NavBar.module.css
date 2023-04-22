@@ -55,7 +55,7 @@
 .signupButton, .loginButton, .logoutButton {
   align-items: center;
   appearance: none;
-  background-color: #323232;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   border: 1px solid #323232;
   border-radius: .375em;
   box-shadow: none;
@@ -78,14 +78,20 @@
   white-space: nowrap;
   margin-right: 1rem;
 }
-
+.logoutButton {
+  background: linear-gradient(90deg, #b74b4b 0%, #182848 100%);
+}
 .signupButton:active, .loginButton:active, .logoutButton:active {
   border-color: #dbdbdb;
   outline: 0;
 }
 
-.signupButton:focus, .loginButton:focus, .logoutButton:focus {
+.signupButton:focus, .loginButton:focus {
   border-color: #297246;
+  outline: 0;
+}
+.logoutButton:focus {
+  border-color: #7c2424;
   outline: 0;
 }
 
@@ -198,12 +204,4 @@
   margin-top: 10px;
   transform: rotate(-135deg);
 }
-
-
-
-
-
-
-
-
 }

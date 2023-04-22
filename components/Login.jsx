@@ -14,6 +14,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
         password:''
     })
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
     function  handleInput(e){
         setInput({
@@ -25,7 +26,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
 
     async function handleSubmit(e){
         e.preventDefault()
-
+        setLoading(true)
         try {
             const url='https://myfin-sergioomarsanchez.vercel.app/api/auth'
             const { data: res } = await axios.post(url, input)
@@ -36,6 +37,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
             setId(res.id)
             dispatch(fetchAccounts(res.id))
             router.push(`/profile/${res.id}`)
+            setLoading(false)
             Swal.fire({
                 text:`Welcome back ${res.name}, ` + res.message,
                 icon: 'success',
@@ -53,6 +55,7 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
             setIsOpenLogin(false)
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
+                setLoading(false)
                 Swal.fire({
                     text:error.response.data.message,
                     icon: 'error',
