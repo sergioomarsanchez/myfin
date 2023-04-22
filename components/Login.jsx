@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useRouter} from 'next/router'
 import { fetchAccounts } from '../store/actions'
 import Swal from 'sweetalert2'
+import Loader from './Loader'
 
 function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
     const router = useRouter()
@@ -84,7 +85,8 @@ function Login({setIsOpenLogin, setIsOpen, setUser, setId}) {
     }
   return (
     <div className={style.container}>
-        <form className={style.wrapper} onSubmit={handleSubmit}>
+        {loading && <div className={style.loader}><Loader/></div>}
+        <form className={loading? style.wrapperLoading :style.wrapper} onSubmit={handleSubmit}>
         <div className={style.close} onClick={()=>setIsOpenLogin(false)}>X</div>
         <h2 className={style.title}>Welcome Back, Log In!</h2>
         <div className={style.input}>Email Address: <br/><input value={input.email} name='email' type="text" placeholder='e.g jondoe@example.com' required onChange={(e)=>handleInput(e)}/></div>

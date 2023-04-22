@@ -181,7 +181,11 @@
         margin-top: 4rem;
       }
 }
-
+@media only screen and (max-width: 720px) {
+    .container{
+        min-width: 90%;
+    }
+}
 @media only screen and (max-width: 510px) {
     .container{
         min-width: 90%;
