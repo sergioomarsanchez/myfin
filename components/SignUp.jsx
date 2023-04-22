@@ -3,6 +3,7 @@ import style from '../styles/SignUp.module.css'
 import axios from 'axios'
 import { useRouter} from 'next/router'
 import Swal from 'sweetalert2'
+import Loader from './Loader'
 
 function SignUp({setIsOpen}) {
     const router = useRouter()
@@ -13,6 +14,7 @@ function SignUp({setIsOpen}) {
         password:''
     })
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
     function  handleInput(e){
         setInput({
@@ -24,11 +26,12 @@ function SignUp({setIsOpen}) {
 
     async function handleSubmit(e){
         e.preventDefault()
-
+        setLoading(true)
         try {
             const url='https://myfin-sergioomarsanchez.vercel.app/api/users'
             const { data: res } = await axios.post(url, input)
             router.push('/')
+            setLoading(false)
             Swal.fire({
                 text:res.message,
                 icon: 'sucess',
@@ -55,6 +58,25 @@ function SignUp({setIsOpen}) {
             setIsOpen(false)
         } catch (error) {
             if(error.response && error.response.status >=400 && error.response.status <= 500){
+                setLoading(false)
+                Swal.fire({
+                    text:error.response.data.message,
+                    icon: 'error',
+                    iconColor: 'red',
+                    showCloseButton: true,
+                    showDenyButton: false,
+                    confirmButtonText: 'Ok',
+                    allowEnterKey: false,
+                    color:'white',
+                    background:'#141c24',
+                    footer: '<b>Be sure that you are not already singed up and that you are introducing a correct email and password</b>',
+                    customClass: {
+                        popup: 'Alert',
+                        closeButton: 'closeButton',
+                        confirmButton: 'confirmButton',
+                        denyButton: 'denyButton',
+                    }
+                })
                 setError(error.response.data.message)
             }
         }
@@ -62,7 +84,8 @@ function SignUp({setIsOpen}) {
 
   return (
     <div className={style.container}>
-        <form className={style.wrapper} onSubmit={handleSubmit}>
+        {loading && <div className={style.loader}><Loader/></div>}
+        <form className={loading? style.wrapperLoading :style.wrapper} onSubmit={handleSubmit}>
         <div className={style.close} onClick={()=>setIsOpen(false)}>X</div>
         <h2 className={style.title}>Welcome to My Fin, Sign Up!</h2>
         <div className={style.input}>First Name: <br/><input value={input.firstName} name='firstName' type="text" placeholder='e.g Jon' required onChange={(e)=>handleInput(e)}/></div>
