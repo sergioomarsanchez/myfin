@@ -6,7 +6,8 @@ const initialState = {
     totalARS:0,
     accounts:[],
     allAccounts:[],
-    transactionsPerYear:{}
+    transactionsPerYear:{},
+    transactionsLoading: true
 }
 
 export default function reducer(state = initialState, action){
@@ -21,11 +22,13 @@ export default function reducer(state = initialState, action){
                 return {
                     ...state,
                     transactions: {...state.transactions.filter(t=>Object.keys(t)[0]===action.accountId), [action.id]: action.payload},
+                    transactionsLoading: false
                 }
             } else {
             return {
                 ...state,
                 transactions: {...state.transactions, [action.id]: action.payload},
+                transactionsLoading: false
              }}
         case ADD_ACCOUNT:
                 return {

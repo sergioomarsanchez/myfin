@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import AddTransactionForm from './AddTransactionForm'
+import Loader from './Loader'
 
 
 function AccountCard({acc}) {
@@ -17,6 +18,7 @@ function AccountCard({acc}) {
     const [balance, setBalance] = useState(acc.balance)
     const [isOpen, setIsOpen] = useState(false)
     const [amountOfTransactions, setAmountOfTransactions] = useState(0)
+    const loading = useSelector(state=>state.transactionsLoading)
 
 
     useEffect(() => {
@@ -100,7 +102,7 @@ function AccountCard({acc}) {
                 </tbody>
         </table>
         <div className={style.transactionsContainer}>
-    {   accTransactions.length!==0?
+    {  loading?<div className={style.loader}><Loader/></div>: accTransactions.length!==0?
         accTransactions?.map(t=>{
             return<div key={t._id}>
                 <TransactionCard setBalance={setBalance} balance={balance} transId={t._id} transaction={t} entityName={acc.entityName}/>

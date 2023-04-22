@@ -108,7 +108,11 @@
     margin-bottom: 1rem;
     font-size: 12px;
 }
-
+.loader{
+    position: absolute;
+    top: -6rem;
+    left: 18rem;
+}
 .deleteAcc, .addTransaction{
     transition: 0.2s ease;
     cursor: pointer;
@@ -180,14 +184,26 @@
     .noTransactions{
         margin-top: 4rem;
       }
+      .loader{
+        top: -7rem;
+        left: 8rem;
+    }
 }
 @media only screen and (max-width: 720px) {
     .container{
         min-width: 90%;
     }
+    .loader{
+        top: -7rem;
+        left: 11rem;
+    }
 }
 @media only screen and (max-width: 510px) {
     .container{
         min-width: 90%;
+    }
+    .loader{
+        top: -7rem;
+        left: 5rem;
     }
 }
