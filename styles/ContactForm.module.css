@@ -1,6 +1,6 @@
 .container {
     min-width: 500px;
-    background-color: #141c24;
+    background: radial-gradient(circle, rgba(174,208,238,1) -100%, rgba(18,44,75,1) 100%);
     padding: 30px;
     flex-direction: column;
     border-radius: 10px;
