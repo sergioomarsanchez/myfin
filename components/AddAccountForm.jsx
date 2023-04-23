@@ -22,31 +22,45 @@ function AddAccountForm({ userId, setIsOpen}) {
     const accountTypes = ["checking", "savings", "credit card"]
     const currency = ["USD", "ARS"]
     const dispatch = useDispatch()
-    async function  handleInput(e){
-        setInput({
-            ...input,
-            [e.target.name]: e.target.value
-        })
-        if(e.target.name === 'entityName'&& e.target.value!==''){
-            let {data} = await axios.get(`https://autocomplete.clearbit.com/v1/companies/suggest?query=${e.target.value}`)
-            data?setEntities([...data]):null
+    async function handleInput(e) {
+        const { name, value } = e.target;
+        if(!value) setEntities([])
+        setInput((prevInput) => ({
+          ...prevInput,
+          [name]: value,
+        }));
+      
+        if (name === "entityName" && value) {
+          try {
+            const { data } = await axios.get(
+              `https://autocomplete.clearbit.com/v1/companies/suggest?query=${value}`
+            );
+            if (data && data.length) {
+              setEntities(data);
+            } else {
+              setEntities([]);
+            }
+          } catch (error) {
+            console.log("Error fetching companies", error);
+            setEntities([]);
+          }
         }
-       
-    }
-    function handleOnClick(logo, name){
+      }
+      
+      function handleOnClick(logo, name) {
         setInput({
-            ...input,
-            ['entityName']: name,
-            ['logo']: logo
-        })
+          ...input,
+          entityName: name,
+          logo,
+        });
         setSelected({
-            state:true,
-            name:name,
-            logo:logo
-        })
-        setEntities([])
-    }
-    
+          state: true,
+          name,
+          logo,
+        });
+        setEntities([]);
+      }
+      
     function handleCancel(e){
         Swal.fire({
             title: `Are you sure you want to ${e.target.name!=='X'?'Close':'Cancel'} Create?`,
@@ -135,13 +149,13 @@ function AddAccountForm({ userId, setIsOpen}) {
         {
             selected.state || !entities.length?null:
         <div className={style.suggestionsContainer}>
-        {entities?.map(element=>{
+        {entities.length? entities.map(element=>{
             return(<div className={style.suggestions} key={element.name} onClick={()=>handleOnClick(element.logo, element.name)}>
                 <Image className={style.entityLogo} src={element.logo} alt={element.name} width={10} height={10}/>
                 <span className={style.entityName} value={element.name} name='entityName' >{element.name}</span>
             </div>
                     )
-                })}
+                }):null}
         </div>
         }
         </div>
