@@ -7,3 +7,11 @@
     justify-content: space-evenly;
     flex-direction: column;
 }
+@media only screen and (max-height: 400px) {
+    .container{
+       min-height: calc(180vh + 2rem);
+       justify-content: center;
+       overflow: hidden;
+       padding-top: 2rem;
+    }
+}
