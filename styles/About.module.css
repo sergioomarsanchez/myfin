@@ -55,3 +55,15 @@
     } 
     
 } 
+@media only screen and (max-height: 400px) {
+    .container{
+       min-height: 100vh;
+       overflow: hidden;
+       align-items: start;
+    }
+    .text{
+        margin-bottom: 0.5rem;
+        height: 3rem;
+    }
+  
+}
