@@ -69,3 +69,14 @@
         height: 150px;
     }
 }
+@media only screen and (max-height: 400px) {
+    .container{
+    flex-direction: row;
+    height: calc(100vh - 100px);
+    width: 90%;
+    }
+    .name{
+        margin-left: 2rem;
+    }
+  
+}

@@ -1,8 +1,7 @@
 .container{
     display:flex;
     background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
-    height: calc( 100vh - 7.5rem);
-    width: 100vw;
+    min-height: calc( 100vh - 7.5rem);
     align-items: center;
     justify-content: space-evenly;
 }
@@ -92,4 +91,19 @@
         align-self: center;
     }
     
+}
+@media only screen and (max-height: 400px) {
+    .container{
+       min-height: 110vh;
+       overflow: hidden;
+       padding-bottom: 20rem;
+       padding-top: 10rem;
+    }
+    .right{
+        width: 90%;
+        text-align: center;
+        margin-top: 10rem;
+        align-self: center;
+    }
+  
 }
