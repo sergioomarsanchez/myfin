@@ -1,45 +1,51 @@
-.container{
-    display:flex;
-    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
-    min-height: calc( 100vh - 7.5rem);
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5rem;
-    padding-bottom: 2rem;
+.container {
+  display: flex;
+  background: linear-gradient(
+    345deg,
+    grey 0.1%,
+    RGB(20 20 20) 15%,
+    RGB(20, 21, 24) 66%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  min-height: calc(100vh - 7.5rem);
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
 }
 
-.text{
-    font-weight: 300;
-    text-align: left;
-    width: 60%;
-    display: flex;
+.text {
+  font-weight: 300;
+  text-align: left;
+  width: 60%;
+  display: flex;
 }
 
-.perkList{
-    font-weight: 300;
-    text-align: left;
-    width: 60%;
+.perkList {
+  font-weight: 300;
+  text-align: left;
+  width: 60%;
 }
 
-.openingContainer{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    flex-direction: column;
+.openingContainer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 850px) {
-    .text{
-        width: 90%;
-        font-size: 12px;
-    }
-    .perkList{
-        font-size: 12px;
-        width: 85%;
-    }
-    .openingContainer{
-        font-size: 12px;
-        width: 90%;
-    }
+  .text {
+    width: 90%;
+    font-size: 12px;
+  }
+  .perkList {
+    font-size: 12px;
+    width: 85%;
+  }
+  .openingContainer {
+    font-size: 12px;
+    width: 90%;
+  }
 }

@@ -1,69 +1,70 @@
-.container{
-    display: flex;
-    justify-content: space-between;
-    background: rgb(20, 20, 20);
-    align-items: center;
-    color: rgb(226, 226, 226) ;
-    text-align: center;
-    font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
-    font-weight: 200;
-    box-shadow: 0 0 2px 0 grey;
-    padding: 1em 1em 1em 1em ;
-    margin-bottom: 2rem;
-    position: fixed;
-    top:0;
-    width: 100%;
-    z-index: 1;
+.container {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(20, 20, 20);
+  align-items: center;
+  color: rgb(226, 226, 226);
+  text-align: center;
+  font-family: "Roboto", "Open Sans", "Helvetica Neue";
+  font-weight: 200;
+  box-shadow: 0 0 2px 0 grey;
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.logoContainer{
-    display: flex;
-    align-self: center;
-    cursor: pointer;
-    flex: 1;
+.logoContainer {
+  display: flex;
+  align-self: center;
+  cursor: pointer;
+  flex: 1;
 }
-.logo{
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    position: relative;
-}
-
-
-.linksContainer{
-    display: flex;
-    align-self: center;
-    font-size: 25px;
-    justify-content: space-between;
-    flex: 3;
-}
-.link{
-    margin: 0rem 2rem 0rem 2rem;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-.link:hover{
-    transform: scale(1.1);
+.logo {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: relative;
 }
 
-.signupContainer{
-    display: flex;
-    flex: 1;
-    justify-content: right;
+.linksContainer {
+  display: flex;
+  align-self: center;
+  font-size: 25px;
+  justify-content: space-between;
+  flex: 3;
+}
+.link {
+  margin: 0rem 2rem 0rem 2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.link:hover {
+  transform: scale(1.1);
 }
 
-.signupButton, .loginButton, .logoutButton {
+.signupContainer {
+  display: flex;
+  flex: 1;
+  justify-content: right;
+}
+
+.signupButton,
+.loginButton,
+.logoutButton {
   align-items: center;
   appearance: none;
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   border: 1px solid #323232;
-  border-radius: .375em;
+  border-radius: 0.375em;
   box-shadow: none;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
   display: inline-flex;
-  font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
+  font-family: "Roboto", "Open Sans", "Helvetica Neue";
   font-size: 0.9rem;
   height: 2.5em;
   justify-content: center;
@@ -81,12 +82,15 @@
 .logoutButton {
   background: linear-gradient(90deg, #b74b4b 0%, #182848 100%);
 }
-.signupButton:active, .loginButton:active, .logoutButton:active {
+.signupButton:active,
+.loginButton:active,
+.logoutButton:active {
   border-color: #dbdbdb;
   outline: 0;
 }
 
-.signupButton:focus, .loginButton:focus {
+.signupButton:focus,
+.loginButton:focus {
   border-color: #297246;
   outline: 0;
 }
@@ -95,113 +99,116 @@
   outline: 0;
 }
 
-.signupButton:hover, .loginButton:hover, .logoutButton:hover {
+.signupButton:hover,
+.loginButton:hover,
+.logoutButton:hover {
   border-color: #b5b5b5;
 }
 
-.signupButton:focus:not(:active), .loginButton:focus:not(:active), .logoutButton:focus:not(:active) {
-  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+.signupButton:focus:not(:active),
+.loginButton:focus:not(:active),
+.logoutButton:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, 0.25) 0 0 0 0.125em;
 }
 
-.mobileMenuContainer{
+.mobileMenuContainer {
   display: none;
 }
 
 @media only screen and (max-width: 850px) {
-  
-  .signupButton, .loginButton, .logoutButton {
-  display: none;
-  }
-  .mobileMenuContainer{
-      display: fixed;
-      position: absolute;
-      top: 25px;
-      right: 25px;
-  }
-  .linksContainer{
+  .signupButton,
+  .loginButton,
+  .logoutButton {
     display: none;
   }
-  .logo{
+  .mobileMenuContainer {
+    display: fixed;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+  }
+  .linksContainer {
+    display: none;
+  }
+  .logo {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     position: relative;
-}
-.webContainer{
-  display: none;
-}
-.mobileMenuContainer{
-  display: flex;
-  height: 100%;
-  width: 30px;
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
+  }
+  .webContainer {
+    display: none;
+  }
+  .mobileMenuContainer {
+    display: flex;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
 
+  .menuButton,
+  .close {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    transition: 0.5s ease-in-out;
+    border-radius: 2px;
+    margin-top: 10px;
+  }
+  .menuButtonTop,
+  .closeTop {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    transition: 0.5s ease-in-out;
+    border-radius: 2px;
+  }
 
-.menuButton,
-.close {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 2px;
-  width: 30px;
-  transition: 0.5s ease-in-out;
-  border-radius: 2px;
-  margin-top: 10px;
-}
-.menuButtonTop,
-.closeTop {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 2px;
-  width: 30px;
-  transition: 0.5s ease-in-out;
-  border-radius: 2px;
-}
+  .menuButtonBottom,
+  .closeBottom {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    transition: 0.5s ease-in-out;
+    border-radius: 2px;
+    margin-top: 20px;
+  }
 
-.menuButtonBottom,
-.closeBottom {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 2px;
-  width: 30px;
-  transition: 0.5s ease-in-out;
-  border-radius: 2px;
-  margin-top: 20px;
-}
+  .close {
+    display: block;
+    opacity: 0;
+  }
 
-.close {
-  display: block;
-  opacity: 0;
-}
+  .closeTop {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    transition: 0.5s ease-in-out;
+    border-radius: 2px;
+    margin-top: 10px;
+    transform: rotate(135deg);
+  }
 
-.closeTop {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 2px;
-  width: 30px;
-  transition: 0.5s ease-in-out;
-  border-radius: 2px;
-  margin-top: 10px;
-  transform: rotate(135deg);
-}
-
-
-.closeBottom {
-  display: block;
-  background-color: #fff;
-  position: absolute;
-  height: 2px;
-  width: 30px;
-  transition: 0.5s ease-in-out;
-  border-radius: 2px;
-  margin-top: 10px;
-  transform: rotate(-135deg);
-}
+  .closeBottom {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    transition: 0.5s ease-in-out;
+    border-radius: 2px;
+    margin-top: 10px;
+    transform: rotate(-135deg);
+  }
 }

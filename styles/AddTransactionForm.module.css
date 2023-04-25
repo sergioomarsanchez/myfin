@@ -1,144 +1,143 @@
-.container{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(128, 128, 128, 0.591);
-    z-index: 100;
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.591);
+  z-index: 100;
 }
 .wrapper {
-    width: 500px;
-    background-color: #141c24;
-    padding: 50px;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #0000007f;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+  width: 500px;
+  background-color: #141c24;
+  padding: 50px;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #0000007f;
+  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
-.close{
-    width: 30px;
-    height: 30px;
-    border: 1px solid #28225b;
-    background-color: rgb(3, 3, 3);
-    border-radius: 50%;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #28225b;
+  background-color: rgb(3, 3, 3);
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title{
-    margin-bottom: 2rem;
-    font-weight: 300;
-    text-align: center;
-    }
-    
-    .input{
-        display: flex;
-        margin-bottom: 1.5rem;
-        margin-top: 1rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .input input{
-        background-color: rgb(3, 3, 3);
-        border: 1px solid transparent;
-        padding: 5px;
-        border-radius: 5px;
-        width: 250px;
-        margin-top: 15px;
-        outline: none;
-        text-align: center;
-        color: white;
-    }
-    
-    .input input:focus{
-       border-bottom: 1px solid #2a7c4b;
-    }
-    .select{
-        background-color: rgb(3, 3, 3);
-        border: 1px solid transparent;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-        width: 250px;
-        margin-top: 15px;
-        outline: none;
-        text-align: center;
-        text-transform: capitalize;
-        justify-content: center;
-    }
-    .buttonContainer{
-        display: flex;
-        margin-top: 2rem;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row-reverse;
-    }
-    .createButton, .cancelButton{
-        padding: 8px;
-        color: #2a7f4cc3;
-        border: 1px solid #2d824f7f;
-        border-radius: 5px;
-        font-family: monospace;
-        font-weight: 700;
-        font-size: 15px;
-        cursor: pointer;
-        transition: 0.1s ease;
-        background-color: rgb(3, 3, 3);
-        margin-left: 2rem;
-    }
-    
-    
-    .createButton:hover{
-        border: 1px solid #37a362c3;
-        transform: scale(1.01);
-        box-shadow: 0 0 4px 0 #2e8752c3;
-    }
-    .createButton:active{
-        background-color: grey;
-        transform: scale(0.99);
-    }
-    
-    .error{
-        color: rgb(168, 0, 0);
-        font-size: 12px;
-    }
-    
-    .cancelButton{
-        margin: 0;
-        color: rgb(171, 3, 3);
-        border: 1px solid rgb(171, 3, 3);
-    }
-    
-    .cancelButton:hover{
-        border: 1px solid rgb(202, 0, 0);
-        transform: scale(1.01);
-        box-shadow: 0 0 4px 0 rgb(204, 1, 1);
-    }
-    .cancelButton:active{
-        background-color: grey;
-        transform: scale(0.99);
-    
-    }
-    
-    @media only screen and (max-width: 850px) {
-        .container{
-            width: 100vw;
-        }
-        .wrapper {
-            width: 90%;
-        }
-    }
+.title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input input {
+  background-color: rgb(3, 3, 3);
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 5px;
+  width: 250px;
+  margin-top: 15px;
+  outline: none;
+  text-align: center;
+  color: white;
+}
+
+.input input:focus {
+  border-bottom: 1px solid #2a7c4b;
+}
+.select {
+  background-color: rgb(3, 3, 3);
+  border: 1px solid transparent;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  width: 250px;
+  margin-top: 15px;
+  outline: none;
+  text-align: center;
+  text-transform: capitalize;
+  justify-content: center;
+}
+.buttonContainer {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.createButton,
+.cancelButton {
+  padding: 8px;
+  color: #2a7f4cc3;
+  border: 1px solid #2d824f7f;
+  border-radius: 5px;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.1s ease;
+  background-color: rgb(3, 3, 3);
+  margin-left: 2rem;
+}
+
+.createButton:hover {
+  border: 1px solid #37a362c3;
+  transform: scale(1.01);
+  box-shadow: 0 0 4px 0 #2e8752c3;
+}
+.createButton:active {
+  background-color: grey;
+  transform: scale(0.99);
+}
+
+.error {
+  color: rgb(168, 0, 0);
+  font-size: 12px;
+}
+
+.cancelButton {
+  margin: 0;
+  color: rgb(171, 3, 3);
+  border: 1px solid rgb(171, 3, 3);
+}
+
+.cancelButton:hover {
+  border: 1px solid rgb(202, 0, 0);
+  transform: scale(1.01);
+  box-shadow: 0 0 4px 0 rgb(204, 1, 1);
+}
+.cancelButton:active {
+  background-color: grey;
+  transform: scale(0.99);
+}
+
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 100vw;
+  }
+  .wrapper {
+    width: 90%;
+  }
+}

@@ -1,166 +1,166 @@
-.container{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(128, 128, 128, 0.591);
-    z-index: 100;
+.container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.591);
+  z-index: 100;
 }
-.loader{
-    z-index: 10;
-    position: relative;
-    left: 20rem;
-    top: -5rem;
+.loader {
+  z-index: 10;
+  position: relative;
+  left: 20rem;
+  top: -5rem;
 }
 .wrapper {
-    width: 500px;
-    background-color: #141c24;
-    padding: 50px;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #0000007f;
-    position: relative;
-    align-items: left;
+  width: 500px;
+  background-color: #141c24;
+  padding: 50px;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #0000007f;
+  position: relative;
+  align-items: left;
 }
 .wrapperLoading {
-    filter:blur(5px);
-    width: 500px;
-    background-color: #141c24;
-    padding: 50px;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #0000007f;
-    position: relative;
-    align-items: left;
+  filter: blur(5px);
+  width: 500px;
+  background-color: #141c24;
+  padding: 50px;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #0000007f;
+  position: relative;
+  align-items: left;
 }
 
-.close{
-    width: 30px;
-    height: 30px;
-    border: 1px solid #28225b;
-    background-color: rgb(3, 3, 3);
-    border-radius: 50%;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #28225b;
+  background-color: rgb(3, 3, 3);
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.title{
-margin-bottom: 2rem;
-font-weight: 300;
+.title {
+  margin-bottom: 2rem;
+  font-weight: 300;
 }
 
-.input{
-    margin-bottom: 1.5rem;
-    margin-top: 1rem;
+.input {
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 }
 
-.input input{
-    background-color: black;
-    border: 1px solid transparent;
-    padding: 5px;
-    border-radius: 5px;
-    width: 250px;
-    margin-top: 2px;
-    outline: none;
-    text-align: center;
-    color: white;
+.input input {
+  background-color: black;
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 5px;
+  width: 250px;
+  margin-top: 2px;
+  outline: none;
+  text-align: center;
+  color: white;
 }
 
-.input input:focus{
-   border-bottom: 1px solid #215737;
+.input input:focus {
+  border-bottom: 1px solid #215737;
 }
 
-.title2{
-    margin-bottom: 0.5rem;
+.title2 {
+  margin-bottom: 0.5rem;
 }
 
-.signup{
-    color: rgba(255, 255, 255, 0.797);
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 800;
-    transition: 0.5s linear;
+.signup {
+  color: rgba(255, 255, 255, 0.797);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  transition: 0.5s linear;
 }
 
-.signup:hover{
-    text-decoration: underline;
-    color: #7365f8;
+.signup:hover {
+  text-decoration: underline;
+  color: #7365f8;
 }
 
-.buttonContainer{
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
+.buttonContainer {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
 }
-.loginButton, .cancelButton{
-    padding: 8px;
-    color: #308a54c3;
-    border: 1px solid #2e87517f;
-    border-radius: 5px;
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.1s ease;
-    background-color: rgb(3, 3, 3);
-    margin-left: 2rem;
-}
-
-
-.loginButton:hover{
-    border: 1px solid #329b5cc3;
-    transform: scale(1.01);
-    box-shadow: 0 0 4px 0 #359d5ec3;;
-}
-.loginButton:active{
-    background-color: grey;
-    transform: scale(0.99);
+.loginButton,
+.cancelButton {
+  padding: 8px;
+  color: #308a54c3;
+  border: 1px solid #2e87517f;
+  border-radius: 5px;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.1s ease;
+  background-color: rgb(3, 3, 3);
+  margin-left: 2rem;
 }
 
-.error{
-    color: rgb(182, 3, 3);
-    font-size: 12px;
+.loginButton:hover {
+  border: 1px solid #329b5cc3;
+  transform: scale(1.01);
+  box-shadow: 0 0 4px 0 #359d5ec3;
+}
+.loginButton:active {
+  background-color: grey;
+  transform: scale(0.99);
 }
 
-.cancelButton{
-    margin: 0;
-    color: rgb(170, 3, 3);
-    border: 1px solid rgb(171, 1, 1);
+.error {
+  color: rgb(182, 3, 3);
+  font-size: 12px;
 }
 
-.cancelButton:hover{
-    border: 1px solid rgba(151, 0, 0, 0.619);
-    transform: scale(1.01);
-    box-shadow: 0 0 4px 0 rgba(153, 3, 3, 0.619);
+.cancelButton {
+  margin: 0;
+  color: rgb(170, 3, 3);
+  border: 1px solid rgb(171, 1, 1);
 }
-.cancelButton:active{
-    background-color: grey;
-    transform: scale(0.99);
 
+.cancelButton:hover {
+  border: 1px solid rgba(151, 0, 0, 0.619);
+  transform: scale(1.01);
+  box-shadow: 0 0 4px 0 rgba(153, 3, 3, 0.619);
+}
+.cancelButton:active {
+  background-color: grey;
+  transform: scale(0.99);
 }
 @media only screen and (max-width: 850px) {
-    .container{
-        width: 100vw;
-    }
-    .wrapper, .wrapperLoading {
-        width: 90%;
-    }
-    .wrapperLoading {
-        left: -4rem
-    }
-    .loader{
-        left: 12rem;
-        top: -5rem;
-    }
+  .container {
+    width: 100vw;
+  }
+  .wrapper,
+  .wrapperLoading {
+    width: 90%;
+  }
+  .wrapperLoading {
+    left: -4rem;
+  }
+  .loader {
+    left: 12rem;
+    top: -5rem;
+  }
 }

@@ -1,75 +1,74 @@
-.container{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
-.title{
-    cursor: pointer;
-    font-weight: 200;
-    font-size: large;
-    letter-spacing: 5px;
+.title {
+  cursor: pointer;
+  font-weight: 200;
+  font-size: large;
+  letter-spacing: 5px;
 }
-.arrow{
-    margin-left: 2rem;
+.arrow {
+  margin-left: 2rem;
 }
 
-.wrapper{
-    flex-direction: column;
-    text-align: left;
-    font-weight: 100;
-    letter-spacing: 1px;
-    opacity: 0;
-    transition: opacity 1.3s ease-in-out, visibility 1s ease-in-out 1.3s;
-    visibility: hidden;
+.wrapper {
+  flex-direction: column;
+  text-align: left;
+  font-weight: 100;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 1.3s ease-in-out, visibility 1s ease-in-out 1.3s;
+  visibility: hidden;
 }
 
 .wrapper[style*="display: flex"] {
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
-
-  .wrapper label{
-    font-weight: 400;
-    font-size: small;
-  }
-  .wrapper li{
-    font-weight: 200;
-    font-size: smaller;
-  }
-
-.contactCEO{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 15px;
-    font-weight: 400;
+.wrapper label {
+  font-weight: 400;
+  font-size: small;
+}
+.wrapper li {
+  font-weight: 200;
+  font-size: smaller;
 }
 
-.hide{
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 10px;
-    display: flex;
-    color: rgb(0, 174, 255);
-    transition: 0.3s ease;
+.contactCEO {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: 400;
 }
-.hide:hover{
-    color: rgb(0, 204, 255);
+
+.hide {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 10px;
+  display: flex;
+  color: rgb(0, 174, 255);
+  transition: 0.3s ease;
+}
+.hide:hover {
+  color: rgb(0, 204, 255);
 }
 
 @media only screen and (max-width: 850px) {
- .container{
-     width: 90%;
- }
- .title{
+  .container {
+    width: 90%;
+  }
+  .title {
     cursor: pointer;
     font-weight: 200;
     font-size: small;
     letter-spacing: 5px;
-}
+  }
 }

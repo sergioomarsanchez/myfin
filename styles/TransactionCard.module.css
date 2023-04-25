@@ -1,57 +1,58 @@
-.container{
-    display: flex;
-    width: 100%;
-    border: 0.5px solid rgb(182, 182, 182);
-    border-radius: 5px;
-    position: relative;
+.container {
+  display: flex;
+  width: 100%;
+  border: 0.5px solid rgb(182, 182, 182);
+  border-radius: 5px;
+  position: relative;
 }
-.table{
-    width: 100%;
-    text-align: left;
+.table {
+  width: 100%;
+  text-align: left;
 }
-.trTitle th{
-    width: 25%;
+.trTitle th {
+  width: 25%;
 }
-.trTitle th:first-child{
-    padding-left: 0.5rem;
+.trTitle th:first-child {
+  padding-left: 0.5rem;
 }
-.trTitle th:nth-child(3), .trTitle th:nth-child(2){
-    padding-left: 1.6rem;
-    text-transform: capitalize;
+.trTitle th:nth-child(3),
+.trTitle th:nth-child(2) {
+  padding-left: 1.6rem;
+  text-transform: capitalize;
 }
-.trTitle th:nth-child(4){
-    text-align: right;
+.trTitle th:nth-child(4) {
+  text-align: right;
 }
-.mobileTable{
-    display: none;
+.mobileTable {
+  display: none;
 }
-.delete{
-    align-self: center;
-    position: relative;
-    right: -12px;
-    cursor: pointer;
+.delete {
+  align-self: center;
+  position: relative;
+  right: -12px;
+  cursor: pointer;
 }
-.delete:hover{
-    color: red ;
-    text-shadow: 1px 1px 10px rgb(227, 0, 0);
+.delete:hover {
+  color: red;
+  text-shadow: 1px 1px 10px rgb(227, 0, 0);
 }
 
 @media only screen and (max-width: 1500px) {
-    .container{
-        width: 100%;
-    }
-    .table{
-        display: none;
-    }
-    .mobileTable{
-        display:table;
-        width: 100%;
-    }
-    .trTitle th{
-        font-size: 8px;
-        text-align: left;
-    }
-    .trTitle th:nth-child(2){
-        text-align: right;
-    }
+  .container {
+    width: 100%;
+  }
+  .table {
+    display: none;
+  }
+  .mobileTable {
+    display: table;
+    width: 100%;
+  }
+  .trTitle th {
+    font-size: 8px;
+    text-align: left;
+  }
+  .trTitle th:nth-child(2) {
+    text-align: right;
+  }
 }

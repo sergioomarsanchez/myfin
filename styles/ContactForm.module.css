@@ -1,80 +1,83 @@
 .container {
-    min-width: 500px;
-    background: radial-gradient(circle, rgba(174,208,238,1) -100%, rgba(18,44,75,1) 100%);
-    padding: 30px;
-    flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 #ababab7f;
-    display: flex;
-  }
-  
-  .container h2 {
-    display: flex;
-    margin-top: 1rem;
-    align-self:center;
-    font-weight: 200;
-    font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
-  }
-  .inputContainer{
-      margin-bottom: 1rem;
-      height: calc(fit-content + 20px);
-  }
-  .container label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .inputElement{
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgb(3, 3, 3);
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    margin-top: 15px;
-    outline: none;
-    color:white
-  }
-  .inputElement:focus {
-    border-bottom: 1px solid #2a7c4b;
-    background-color: black;
-  }
-
-  .errors{
-      font-size: 14px;
-      font-family: 'Times New Roman', Times, serif;
-      color: red;
-      height: 15px;
-      margin-top: 0.3rem;
-  }
-.noErrors{
-    color: transparent;
-    height: 15px;
-    margin-top: 0.3rem;
+  min-width: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(174, 208, 238, 1) -100%,
+    rgba(18, 44, 75, 1) 100%
+  );
+  padding: 30px;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #ababab7f;
+  display: flex;
 }
 
-  
-  .container button[type="submit"] {
-    background-color: teal;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: 0.6s ease;
+.container h2 {
+  display: flex;
+  margin-top: 1rem;
+  align-self: center;
+  font-weight: 200;
+  font-family: "Roboto", "Open Sans", "Helvetica Neue";
+}
+.inputContainer {
+  margin-bottom: 1rem;
+  height: calc(fit-content + 20px);
+}
+.container label {
+  display: block;
+  margin-top: 10px;
+}
+
+.inputElement {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(3, 3, 3);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  margin-top: 15px;
+  outline: none;
+  color: white;
+}
+.inputElement:focus {
+  border-bottom: 1px solid #2a7c4b;
+  background-color: black;
+}
+
+.errors {
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+  color: red;
+  height: 15px;
+  margin-top: 0.3rem;
+}
+.noErrors {
+  color: transparent;
+  height: 15px;
+  margin-top: 0.3rem;
+}
+
+.container button[type="submit"] {
+  background-color: teal;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.6s ease;
+}
+
+.container button[type="submit"]:hover {
+  background-color: rgb(0, 183, 183);
+}
+.container button[type="submit"]:disabled {
+  background-color: #878787;
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 520px) {
+  .container {
+    margin-top: 4rem;
+    min-width: 90%;
   }
-  
-  .container button[type="submit"]:hover {
-    background-color: rgb(0, 183, 183);
-  }
-  .container button[type="submit"]:disabled {
-    background-color: #878787;
-    cursor: not-allowed;
-  }
-  
-  @media only screen and (max-width: 520px) {
-    .container{
-      margin-top: 4rem;
-      min-width: 90%;
-    }
 }

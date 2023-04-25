@@ -1,209 +1,217 @@
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 48%;
-    min-height: 25rem;
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-    color: rgb(224, 224, 224);
-    border: 1px solid grey;
-    border-radius: 15px;
-    padding: 1rem;
-    position: relative;
-    margin: 1rem;
-    flex-direction: column;
-    animation: wiggle 2s linear;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 48%;
+  min-height: 25rem;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  color: rgb(224, 224, 224);
+  border: 1px solid grey;
+  border-radius: 15px;
+  padding: 1rem;
+  position: relative;
+  margin: 1rem;
+  flex-direction: column;
+  animation: mount 2s linear;
 }
 
-@keyframes wiggle {
-    50% { transform: rotate(0deg); box-shadow: 0 0 10px 0 #4fbd63; }
-    55% { transform: rotate(2deg); }
-    65% { transform: rotate(-2deg); }
-   100% { transform: rotate(0deg); box-shadow: 0 0 5px 0 #4fbd63; }
+@keyframes mount {
+  0% {
+    box-shadow: 0 0 5px 0 #4fbd63;
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 0 #4fbd63;
+  }
+  100% {
+    box-shadow: 0 0 5px 0 #4fbd63;
+  }
 }
 
-.entityLogo{
-   border-radius: 50%;
-   box-shadow: 0 0 4px 0 wheat;
-   margin-bottom: 0.5rem;
+.entityLogo {
+  border-radius: 50%;
+  box-shadow: 0 0 4px 0 wheat;
+  margin-bottom: 0.5rem;
 }
-.actions{
-    position: absolute;
-    top: 3rem;
-    right: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-size: small;
-}
-
-.deleteAcc{
-    color: red;
-    cursor: pointer;
-    margin-bottom: 4rem;
-}
-.addTransaction{
-    color: #4ada84;
-    cursor: pointer;
+.actions {
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: small;
 }
 
-.container h3{
-    margin: 1rem;
+.deleteAcc {
+  color: red;
+  cursor: pointer;
+  margin-bottom: 4rem;
 }
-.container h3:nth-child(2){
-    margin: 0 0 0 1rem;
-}
-
-.type{
-    text-transform:capitalize;
-    margin: 0 0.3rem 0 0.3rem;
+.addTransaction {
+  color: #4ada84;
+  cursor: pointer;
 }
 
-.wrapper{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 10rem;
-    left: 0;
-    bottom: 0;
-    margin-left: 2rem;
+.container h3 {
+  margin: 1rem;
 }
-.movements{
-    margin: 0 0 0.5rem 0rem;
+.container h3:nth-child(2) {
+  margin: 0 0 0 1rem;
 }
 
-.table{
-    background-color: rgb(67, 67, 67);
-    width: 100%;
-    border-radius: 10px;
+.type {
+  text-transform: capitalize;
+  margin: 0 0.3rem 0 0.3rem;
 }
 
-.trTitle th{
-    width: 25%;
-    text-align: left;
-    padding-left: 2rem;
+.wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  bottom: 0;
+  margin-left: 2rem;
+}
+.movements {
+  margin: 0 0 0.5rem 0rem;
 }
 
-
-
-.trTitle th:nth-child(3), .trTitle th:nth-child(2){
-    padding-right: 5rem;
+.table {
+  background-color: rgb(67, 67, 67);
+  width: 100%;
+  border-radius: 10px;
 }
 
-.trTitle th:last-child{
-    text-align: right;
-    padding-right: 1.5rem;
-}
-.transactionsContainer{
-    height: 8rem;
-    background-color: rgb(227, 227, 227);
-    overflow: scroll;
-    border-radius: 10px;
-    padding: 1rem;
-    padding-right: 1.5rem;
-    color: black;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    font-size: 12px;
-}
-.loader{
-    position: absolute;
-    top: -6rem;
-    left: 18rem;
-}
-.deleteAcc, .addTransaction{
-    transition: 0.2s ease;
-    cursor: pointer;
-}
-.deleteAcc:hover, .addTransaction:hover{
-    text-shadow: 1px 1px 10px  rgb(137, 137, 137);
+.trTitle th {
+  width: 25%;
+  text-align: left;
+  padding-left: 2rem;
 }
 
-.detailButton{
-    padding: 2px;
-    border-radius: 5px;
-    font-family: monospace;
-    font-size: 12px;
-    cursor: pointer;
-    background: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
-    color: black;
-    transition: 0.2s linear;
-    border:2px solid grey ;
-    margin-bottom: 1rem;
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+.trTitle th:nth-child(3),
+.trTitle th:nth-child(2) {
+  padding-right: 5rem;
 }
 
-.detailButton:hover{
-    border: 2px solid #4ada84c3;
-    box-shadow: 0 0 4px 0 #4ada84c3;;
+.trTitle th:last-child {
+  text-align: right;
+  padding-right: 1.5rem;
 }
-.detailButton:active{
-    background-color: grey;
-    transform: scale(0.99);
+.transactionsContainer {
+  height: 8rem;
+  background-color: rgb(227, 227, 227);
+  overflow: scroll;
+  border-radius: 10px;
+  padding: 1rem;
+  padding-right: 1.5rem;
+  color: black;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 12px;
 }
-.noTransactions{
+.loader {
+  position: absolute;
+  top: -6rem;
+  left: 18rem;
+}
+.deleteAcc,
+.addTransaction {
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.deleteAcc:hover,
+.addTransaction:hover {
+  text-shadow: 1px 1px 10px rgb(137, 137, 137);
+}
+
+.detailButton {
+  padding: 2px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 12px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0087a5 0%, #3a47d5 100%);
+  color: black;
+  transition: 0.2s linear;
+  border: 2px solid grey;
+  margin-bottom: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.detailButton:hover {
+  border: 2px solid #4ada84c3;
+  box-shadow: 0 0 4px 0 #4ada84c3;
+}
+.detailButton:active {
+  background-color: grey;
+  transform: scale(0.99);
+}
+.noTransactions {
   margin-top: 2rem;
 }
 
 @media only screen and (max-width: 1500px) {
-    .actions{
-        top: 1.5rem;
-    }
-    .deleteAcc{
-        margin-bottom: 2rem;
-    }
-    .trTitle{
-        display: none;
-    }
-    .entityName, .type{
-        font-size: 12px;
-    }
-    .container h3{
-        margin: 0.5rem;
-    }
-    .container h3:nth-child(2){
-        margin: 0 0 0 0.5rem;
-    }
-    .wrapper{
-        position: relative;
-        align-self: center;
-        top: 20px;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-    .transactionsContainer{
-        min-height: 10rem;
-    }
-    .detailButton{
-        bottom: -2rem;
-    }
-    .noTransactions{
-        margin-top: 4rem;
-      }
-      .loader{
-        top: -7rem;
-        left: 8rem;
-    }
+  .actions {
+    top: 1.5rem;
+  }
+  .deleteAcc {
+    margin-bottom: 2rem;
+  }
+  .trTitle {
+    display: none;
+  }
+  .entityName,
+  .type {
+    font-size: 12px;
+  }
+  .container h3 {
+    margin: 0.5rem;
+  }
+  .container h3:nth-child(2) {
+    margin: 0 0 0 0.5rem;
+  }
+  .wrapper {
+    position: relative;
+    align-self: center;
+    top: 20px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .transactionsContainer {
+    min-height: 10rem;
+  }
+  .detailButton {
+    bottom: -2rem;
+  }
+  .noTransactions {
+    margin-top: 4rem;
+  }
+  .loader {
+    top: -7rem;
+    left: 8rem;
+  }
 }
 @media only screen and (max-width: 720px) {
-    .container{
-        min-width: 90%;
-    }
-    .loader{
-        top: -7rem;
-        left: 11rem;
-    }
+  .container {
+    min-width: 90%;
+  }
+  .loader {
+    top: -7rem;
+    left: 11rem;
+  }
 }
 @media only screen and (max-width: 510px) {
-    .container{
-        min-width: 90%;
-    }
-    .loader{
-        top: -7rem;
-        left: 5rem;
-    }
+  .container {
+    min-width: 90%;
+  }
+  .loader {
+    top: -7rem;
+    left: 5rem;
+  }
 }

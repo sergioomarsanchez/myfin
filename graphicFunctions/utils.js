@@ -2,12 +2,12 @@ function getMonthlyCreditDebit(transactions) {
   const creditByYearMonth = {};
   const debitByYearMonth = {};
 
-  transactions.forEach(transaction => {
+  transactions.forEach((transaction) => {
     const date = new Date(transaction.date);
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
 
-    if (transaction.type === 'credit') {
+    if (transaction.type === "credit") {
       if (!creditByYearMonth[year]) {
         creditByYearMonth[year] = {};
       }
@@ -15,7 +15,7 @@ function getMonthlyCreditDebit(transactions) {
         creditByYearMonth[year][month] = 0;
       }
       creditByYearMonth[year][month] += Number(transaction.amount);
-    } else if (transaction.type === 'debit') {
+    } else if (transaction.type === "debit") {
       if (!debitByYearMonth[year]) {
         debitByYearMonth[year] = {};
       }
@@ -29,9 +29,10 @@ function getMonthlyCreditDebit(transactions) {
   const years = Object.keys(creditByYearMonth).sort();
   const date = new Date();
   const currentYear = date.getFullYear();
-  if(!years.includes(currentYear.toString()))years.push(currentYear.toString())
+  if (!years.includes(currentYear.toString()))
+    years.push(currentYear.toString());
 
-  const result = years.map(year => {
+  const result = years.map((year) => {
     const credit = [];
     const debit = [];
 
@@ -43,19 +44,38 @@ function getMonthlyCreditDebit(transactions) {
     return {
       [year]: {
         credit,
-        debit
-      }
+        debit,
+      },
     };
   });
 
   return result;
-};
+}
 
-
- function getMonthlyGraphicData(transactions) {
+function getMonthlyGraphicData(transactions) {
   const categories = {
-    credit: ['Other', 'Salary', 'Freelance/Contract Work', 'Investments', 'Rental Income', 'Gifts'],
-    debit: ['Other', 'Housing', 'Transportation', 'Food', 'Entertainment', 'Utilities', 'Insurance', 'Healthcare', 'Debt Repayment', 'Savings', 'Investments', 'Taxes']
+    credit: [
+      "Other",
+      "Salary",
+      "Freelance/Contract Work",
+      "Investments",
+      "Rental Income",
+      "Gifts",
+    ],
+    debit: [
+      "Other",
+      "Housing",
+      "Transportation",
+      "Food",
+      "Entertainment",
+      "Utilities",
+      "Insurance",
+      "Healthcare",
+      "Debt Repayment",
+      "Savings",
+      "Investments",
+      "Taxes",
+    ],
   };
 
   const monthlyData = {};
@@ -69,11 +89,13 @@ function getMonthlyCreditDebit(transactions) {
   transactions.forEach((transaction) => {
     const date = new Date(transaction.date);
     const month = date.getMonth() + 1;
-    const categoryIndex = categories[transaction.type].indexOf(transaction.category);
+    const categoryIndex = categories[transaction.type].indexOf(
+      transaction.category
+    );
     if (categoryIndex >= 0) {
       monthlyData[month][transaction.type][categoryIndex] += transaction.amount;
     }
   });
   return monthlyData;
 }
- export { getMonthlyCreditDebit, getMonthlyGraphicData};
+export { getMonthlyCreditDebit, getMonthlyGraphicData };

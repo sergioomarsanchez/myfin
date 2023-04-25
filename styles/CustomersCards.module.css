@@ -1,82 +1,80 @@
-.container{
+.container {
+  flex-wrap: wrap;
+  height: 25rem;
+  width: 25rem;
+  margin: 3rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.image {
+  height: 200px;
+}
+
+.profile {
+  border-radius: 3px;
+  height: 200px;
+}
+
+.name {
+  margin-top: 1em;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.statement {
+  font-style: oblique;
+  position: relative;
+}
+.statement::before {
+  content: '"';
+  align-self: flex-end;
+  font-style: oblique;
+  display: flex;
+  position: absolute;
+  top: -0.5rem;
+  font-size: 50px;
+}
+.statement::after {
+  content: '"';
+  align-self: flex-start;
+  font-style: oblique;
+  display: flex;
+  position: absolute;
+  bottom: -1rem;
+  right: 0;
+  font-size: 50px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
     flex-wrap: wrap;
-    height: 25rem;
-    width: 25rem;
-    margin: 3rem;
+    height: 20rem;
+    width: 20rem;
+    margin: 1rem;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     overflow: hidden;
-}
-
-.image{
-    height: 200px;
-}
-
-.profile{
-    border-radius: 3px;
-    height: 200px;
-}
-
-.name{
-    margin-top: 1em;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.statement{
-    font-style: oblique;
-    position: relative;
-}
-.statement::before{
-    content: '"';
-    align-self: flex-end;
-    font-style: oblique;
-    display: flex;
-    position: absolute;
-    top:-0.5rem;
-    font-size: 50px;
-}
-.statement::after{
-    content: '"';
-    align-self: flex-start;
-    font-style: oblique;
-    display: flex;
-    position: absolute;
-    bottom:-1rem;
-    right: 0;
-    font-size: 50px;
-}
-
-
-@media only screen and (max-width: 1080px) {
-    .container{
-        flex-wrap: wrap;
-        height: 20rem;
-        width: 20rem;
-        margin: 1rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    .image{
-        height: 150px;
-    }
-    .profile{
-        height: 150px;
-    }
+  }
+  .image {
+    height: 150px;
+  }
+  .profile {
+    height: 150px;
+  }
 }
 @media only screen and (max-height: 400px) {
-    .container{
+  .container {
     flex-direction: row;
     height: calc(100vh - 100px);
     width: 90%;
-    }
-    .name{
-        margin-left: 2rem;
-    }
-  
+  }
+  .name {
+    margin-left: 2rem;
+  }
 }

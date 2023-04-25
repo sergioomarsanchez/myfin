@@ -1,62 +1,78 @@
-.initial{
-    display: none;
+.initial {
+  display: none;
 }
-.container, .containerOut{
-    position: fixed;
-    top: 40px;
-    right: 0;
-    height: 20rem;
-    width: 15rem;
-    z-index: 1;
-    animation: intro 0.3s  ease-in;
-    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+.container,
+.containerOut {
+  position: fixed;
+  top: 40px;
+  right: 0;
+  height: 20rem;
+  width: 15rem;
+  z-index: 1;
+  animation: intro 0.3s ease-in;
+  background: linear-gradient(
+    345deg,
+    grey 0.1%,
+    RGB(20 20 20) 15%,
+    RGB(20, 21, 24) 66%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 @keyframes intro {
-    0%   {right: -250px;}
-    100% {right: 0px;}
+  0% {
+    right: -250px;
+  }
+  100% {
+    right: 0px;
+  }
 }
 
-
 .containerOut {
-    position: fixed;
-    right: -250px;
-    animation: outro 0.7s  ease-out;
+  position: fixed;
+  right: -250px;
+  animation: outro 0.7s ease-out;
 }
 
 @keyframes outro {
-    0%   {right: 0px;}
-    100% {right: -250px;}
+  0% {
+    right: 0px;
+  }
+  100% {
+    right: -250px;
+  }
 }
 
-.title{
-    margin-top: 5px;
+.title {
+  margin-top: 5px;
 }
 
-.link{
-    margin-bottom: 1rem;
-    font-size: 20px;
+.link {
+  margin-bottom: 1rem;
+  font-size: 20px;
 }
 
-.signupContainer{
-    display: flex;
-    flex: 1;
-    justify-content: center;
+.signupContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
-.signupButton, .loginButton, .logoutButton {
+.signupButton,
+.loginButton,
+.logoutButton {
   align-items: center;
   appearance: none;
   background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   border: 1px solid #323232;
-  border-radius: .375em;
+  border-radius: 0.375em;
   box-shadow: none;
   box-sizing: border-box;
   color: white;
   cursor: pointer;
   display: inline-flex;
-  font-family:  'Roboto', 'Open Sans', 'Helvetica Neue';
+  font-family: "Roboto", "Open Sans", "Helvetica Neue";
   font-size: 0.9rem;
   height: 2.5em;
   justify-content: center;
@@ -71,16 +87,19 @@
   white-space: nowrap;
   margin-right: 1rem;
 }
-.logoutButton{
+.logoutButton {
   margin-right: 0;
   background: linear-gradient(90deg, #b74b4b 0%, #182848 100%);
 }
-.signupButton:active, .loginButton:active, .logoutButton:active {
+.signupButton:active,
+.loginButton:active,
+.logoutButton:active {
   border-color: #dbdbdb;
   outline: 0;
 }
 
-.signupButton:focus, .loginButton:focus {
+.signupButton:focus,
+.loginButton:focus {
   border-color: #297246;
   outline: 0;
 }
@@ -89,13 +108,14 @@
   outline: 0;
 }
 
-.signupButton:hover, .loginButton:hover, .logoutButton:hover {
+.signupButton:hover,
+.loginButton:hover,
+.logoutButton:hover {
   border-color: #b5b5b5;
 }
 
-.signupButton:focus:not(:active), .loginButton:focus:not(:active), .logoutButton:focus:not(:active) {
-  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+.signupButton:focus:not(:active),
+.loginButton:focus:not(:active),
+.logoutButton:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, 0.25) 0 0 0 0.125em;
 }
-
-
-

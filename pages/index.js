@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import HomePage from '../components/HomePage'
-
-
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import HomePage from "../components/HomePage";
 
 export default function Home() {
   return (
@@ -12,7 +10,7 @@ export default function Home() {
         <meta name="description" content="Best finances app of Argentina" />
         <link rel="icon" href="/img/LogoDark.png" />
       </Head>
-    <HomePage/>
+      <HomePage />
     </div>
-  )
+  );
 }

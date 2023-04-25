@@ -1,110 +1,133 @@
-.container{
-    display:flex;
-    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
-    min-height: calc( 100vh - 7.5rem);
-    align-items: center;
-    justify-content: space-evenly;
+.container {
+  display: flex;
+  background: linear-gradient(
+    345deg,
+    grey 0.1%,
+    RGB(20 20 20) 15%,
+    RGB(20, 21, 24) 66%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  min-height: calc(100vh - 7.5rem);
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.left{
-    position: fixed;
-    top: 8rem;
-    left: 1.2rem;
-    display: flex;
-    font-size: 20px;
-    font-weight: 300;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.left {
+  position: fixed;
+  top: 8rem;
+  left: 1.2rem;
+  display: flex;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.lineContainer{
-    height: 25px;
-    width: 2px;
-    background-color: white;
-    margin: 0 10px 0 10px ;
+.lineContainer {
+  height: 25px;
+  width: 2px;
+  background-color: white;
+  margin: 0 10px 0 10px;
 }
 
-.mContainer{
-    transition: 3s ease;
-    animation: floatingM 5s infinite linear ;
+.mContainer {
+  transition: 3s ease;
+  animation: floatingM 5s infinite linear;
 }
-.fContainer{
-    transition: 3s ease;
-    animation: floatingF 5s infinite linear ;
+.fContainer {
+  transition: 3s ease;
+  animation: floatingF 5s infinite linear;
 }
 
 @keyframes floatingF {
-    0% {transform: translateY(0%)}
-    25% {transform: translateY(15%)}
-    50% {transform: translateY(0%)}
-    75% {transform: translateY(-15%)}
-    100% {transform: translateY(0)}
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(15%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  75% {
+    transform: translateY(-15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 @keyframes floatingM {
-    0% {transform: translateY(0%)}
-    25% {transform: translateY(-15%)}
-    50% {transform: translateY(0%)}
-    75% {transform: translateY(15%)}
-    100% {transform: translateY(0)}
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-15%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  75% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.image{
-    border-radius: 10px;
-    box-shadow: 0 0 7px 0 white;
+.image {
+  border-radius: 10px;
+  box-shadow: 0 0 7px 0 white;
 }
 
-.right{
-    align-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    margin-top: 8rem;
-    align-items: center;
+.right {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  align-items: center;
 }
-
 
 @media only screen and (max-width: 1280px) {
-    .image{
-       height: 300px;
-       width: 220px;
-    }
+  .image {
+    height: 300px;
+    width: 220px;
+  }
 }
 
 @media only screen and (max-width: 850px) {
-    .container{
-        height: calc( 100vh - 4.5rem);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .container {
+    height: calc(100vh - 4.5rem);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .center{
-        display: none;
-    }
+  .center {
+    display: none;
+  }
 
-    .left{
-        width: 90%;
-        top: 5rem;
-    }
-    .right{
-        width: 90%;
-        text-align: center;
-        margin-top: 3rem;
-        align-self: center;
-    }
-    
+  .left {
+    width: 90%;
+    top: 5rem;
+  }
+  .right {
+    width: 90%;
+    text-align: center;
+    margin-top: 3rem;
+    align-self: center;
+  }
 }
 @media only screen and (max-height: 400px) {
-    .container{
-       min-height: 110vh;
-       overflow: hidden;
-       padding-bottom: 20rem;
-       padding-top: 10rem;
-    }
-    .right{
-        width: 90%;
-        text-align: center;
-        margin-top: 10rem;
-        padding-top: 5rem;
-        align-self: center;
-    }
-  
+  .container {
+    min-height: 110vh;
+    overflow: hidden;
+    padding-bottom: 20rem;
+    padding-top: 10rem;
+  }
+  .right {
+    width: 90%;
+    text-align: center;
+    margin-top: 10rem;
+    padding-top: 5rem;
+    align-self: center;
+  }
 }

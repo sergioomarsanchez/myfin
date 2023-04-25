@@ -1,69 +1,64 @@
-.container{
-    display: flex;
-    margin-top: 3rem;
-    height: calc(90vh - 5rem);
-    background-color: rgb(40, 40, 40);
-    align-items: center;
-    justify-content: center;
+.container {
+  display: flex;
+  margin-top: 3rem;
+  height: calc(90vh - 5rem);
+  background-color: rgb(40, 40, 40);
+  align-items: center;
+  justify-content: center;
 }
 
-.wrapper{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 80%;
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
 }
 
-.title{
-    margin-bottom: 3rem;
-    font-family:'Arial Narrow', Arial, sans-serif;
-    font-size: 30px;
-    font-weight: 700;
+.title {
+  margin-bottom: 3rem;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
 }
 
-.text{
-    display: flex;
-    font-weight: 300;
-    align-items: center;
-    height: 6rem;
-    width: 60%;
-    margin-bottom: 1rem;
+.text {
+  display: flex;
+  font-weight: 300;
+  align-items: center;
+  height: 6rem;
+  width: 60%;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 900px) {
-
-    .container{
-         margin-top: 3rem;
-    } 
-    .wrapper{
-        width: 90%;
-    }
-    .title{
-        margin-bottom: 1rem;
-    }
-    .text{
-        width: 90%;
-        font-size: 12px;
-        margin-bottom: 1rem;
-    }
-    
-} 
+  .container {
+    margin-top: 3rem;
+  }
+  .wrapper {
+    width: 90%;
+  }
+  .title {
+    margin-bottom: 1rem;
+  }
+  .text {
+    width: 90%;
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+}
 @media only screen and (max-width: 540px) {
-
-    .container{
-         margin-top: 4rem;
-    } 
-    
-} 
+  .container {
+    margin-top: 4rem;
+  }
+}
 @media only screen and (max-height: 400px) {
-    .container{
-       min-height: 100vh;
-       overflow: hidden;
-       align-items: start;
-    }
-    .text{
-        margin-bottom: 0.5rem;
-        height: 3rem;
-    }
-  
+  .container {
+    min-height: 100vh;
+    overflow: hidden;
+    align-items: start;
+  }
+  .text {
+    margin-bottom: 0.5rem;
+    height: 3rem;
+  }
 }

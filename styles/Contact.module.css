@@ -1,17 +1,23 @@
-.container{
-    display:flex;
-    background: linear-gradient(345deg, grey 0.1%, RGB(20 20 20) 15%, RGB(20, 21, 24) 66%, rgba(255, 255, 255, 0) 90%);
-    height: calc( 100vh - 7.5rem);
-    width: 100vw;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+.container {
+  display: flex;
+  background: linear-gradient(
+    345deg,
+    grey 0.1%,
+    RGB(20 20 20) 15%,
+    RGB(20, 21, 24) 66%,
+    rgba(255, 255, 255, 0) 90%
+  );
+  height: calc(100vh - 7.5rem);
+  width: 100vw;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 @media only screen and (max-height: 400px) {
-    .container{
-       min-height: calc(180vh + 2rem);
-       justify-content: center;
-       overflow: hidden;
-       padding-top: 2rem;
-    }
+  .container {
+    min-height: calc(180vh + 2rem);
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 2rem;
+  }
 }
