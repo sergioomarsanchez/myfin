@@ -12,9 +12,9 @@
 }
 .loader {
   z-index: 10;
-  position: relative;
-  left: 20rem;
-  top: -5rem;
+  position: absolute;
+  left: 47.5%;
+  top: 25%;
 }
 .wrapper {
   width: 500px;
@@ -156,11 +156,8 @@
   .wrapperLoading {
     width: 90%;
   }
-  .wrapperLoading {
-    left: -4rem;
-  }
   .loader {
-    left: 12rem;
-    top: -5rem;
+    left: 40%;
+    top: 25%;
   }
 }
