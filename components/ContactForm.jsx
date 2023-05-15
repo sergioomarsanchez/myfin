@@ -75,6 +75,7 @@ const ContactForm = () => {
           <label htmlFor="name">Name:</label>
           <input
             className={style.inputElement}
+            placeholder='e.g Sergio Omar Sánchez'
             type="text"
             id="name"
             name="name"
@@ -92,6 +93,7 @@ const ContactForm = () => {
           <label htmlFor="email">Email:</label>
           <input
             className={style.inputElement}
+            placeholder='e.g example@gmail.com'
             type="email"
             id="email"
             name="email"
@@ -109,6 +111,7 @@ const ContactForm = () => {
           <label htmlFor="message">Message:</label>
           <textarea
             className={style.inputElement}
+            placeholder='e.g Please I need help with my account management'
             id="message"
             name="message"
             rows="5"
